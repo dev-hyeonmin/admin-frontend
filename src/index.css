@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'NotoSansCJKkr';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(/public/assets/fonts/NotoSansKR-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/public/assets/fonts/NotoSansKR-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/public/assets/fonts/NotoSansKR-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/public/assets/fonts/NotoSansKR-Bold.ttf) format('truetype');
+}
+
+/**
+ * Main page swiper scrollbar
+ */
+.swiper-scrollbar {
+    visibility: hidden;
+    position: relative !important;
+    left: initial !important;
+    bottom: initial !important;
+    width: 100% !important;
+    /*height: 2px !important;*/
+    background-color: #f5f5eb !important;
+    margin-top: 80px;
+}
+
+.swiper-scrollbar-drag {
+    background-color: #c1b6a3 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: #c1b6a3;
+    width: 32px !important;
+    height: 32px !important;
+    color: #ffffff !important;
+    top: calc(100% - 40px) !important;
+    border-radius: 50%;
+    padding: 16px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    --swiper-navigation-size: 12px;
+}
+
+.swiper-button-prev {
+    left: 0px !important;
+}
+
+.swiper-button-next {
+    left: 44px !important;
+    right: initial !important;
+}
+
+@media (min-width: 1280px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 32px !important;
+        height: 32px !important;
+        top: calc(100% - 38px) !important;
+        padding: 20px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        --swiper-navigation-size: 14px;
+    }
+
+    .swiper-button-next {
+        left: 60px !important;
+    }
+}
