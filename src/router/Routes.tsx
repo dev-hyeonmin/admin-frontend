@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import React, { Suspense } from 'react';
 import Header from '@components/Header.tsx';
-import Footer from '@components/Footer.tsx';
 import ScrollToTop from '@components/common/ScrollToTop.tsx';
 import Main from '@/pages/main/page.tsx';
 
@@ -10,7 +9,7 @@ export const Router = () => {
 
   // dynamic import to enable lazy loading for pages
   const modules: any = import.meta.glob('/src/pages/**/page.tsx', {
-    eager: false,  // Change eager to false to enable lazy loading
+    eager: false, // Change eager to false to enable lazy loading
   });
 
   for (const path of Object.keys(modules)) {
@@ -45,8 +44,6 @@ export const Router = () => {
           <Route path="*" element={<Main />} />
         </Routes>
       </Suspense>
-
-      <Footer />
     </BrowserRouter>
   );
 };

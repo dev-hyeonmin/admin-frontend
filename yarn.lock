@@ -1572,6 +1572,7 @@ __metadata:
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-helmet-async: "npm:^2.0.5"
+    react-icons: "npm:^5.4.0"
     react-router: "npm:^7.0.1"
     swiper: "npm:^11.1.15"
     tailwindcss: "npm:^3.4.15"
@@ -3764,6 +3765,15 @@ __metadata:
   peerDependencies:
     react: ^16.6.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/f390ea8bf13c2681850e5f8eb5b73d8613f407c245a5fd23e9db9b2cc14a3700dd1ce992d3966632886d1d613083294c2aeee009193f49dfa7d145d9f13ea2b0
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "react-icons@npm:5.4.0"
+  peerDependencies:
+    react: "*"
+  checksum: 10c0/698b0c4616870152d86de2585fb709bf3eeb9292d971d689965dade5f0ee71cdc92d2125b728ab220cc39a4c6d6bad1ed526b9b934ab39a7b6001bc23b73ee16
   languageName: node
   linkType: hard
 
