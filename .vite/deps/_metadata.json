@@ -2,66 +2,72 @@
   "hash": "4d629122",
   "configHash": "69b8f4a4",
   "lockfileHash": "e3b0c442",
-  "browserHash": "d8df8e88",
+  "browserHash": "19276737",
   "optimized": {
     "react": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "c1052227",
+      "fileHash": "43fe041b",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../.yarn/__virtual__/react-dom-virtual-0859121b32/0/cache/react-dom-npm-18.3.1-a805663f38-a752496c19.zip/node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "418a64c8",
+      "fileHash": "3a5b4cf4",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "f0f4ad8a",
+      "fileHash": "153db191",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "a1ee75ed",
+      "fileHash": "7c747e6e",
       "needsInterop": true
     },
     "framer-motion": {
       "src": "../../.yarn/__virtual__/framer-motion-virtual-5a20972433/0/cache/framer-motion-npm-11.12.0-65d89e35cd-9d1cfa356f.zip/node_modules/framer-motion/dist/es/index.mjs",
       "file": "framer-motion.js",
-      "fileHash": "3bdd7d2f",
+      "fileHash": "58ac8d9f",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../.yarn/__virtual__/react-dom-virtual-0859121b32/0/cache/react-dom-npm-18.3.1-a805663f38-a752496c19.zip/node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "6fd6d1d4",
+      "fileHash": "9ad662b4",
       "needsInterop": true
     },
     "react-helmet-async": {
       "src": "../../.yarn/__virtual__/react-helmet-async-virtual-99ae6f7f62/0/cache/react-helmet-async-npm-2.0.5-f913a66ef6-f390ea8bf1.zip/node_modules/react-helmet-async/lib/index.esm.js",
       "file": "react-helmet-async.js",
-      "fileHash": "b4133d92",
+      "fileHash": "91c2adb2",
       "needsInterop": false
     },
     "react-router": {
       "src": "../../.yarn/__virtual__/react-router-virtual-7164d39ffe/0/cache/react-router-npm-7.0.1-5f9672179e-aac4c9989a.zip/node_modules/react-router/dist/development/index.mjs",
       "file": "react-router.js",
-      "fileHash": "5b3e2445",
+      "fileHash": "f2a32001",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../.yarn/cache/swiper-npm-11.1.15-30ca9116f5-3faabc5b33.zip/node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "71d4b3e5",
+      "fileHash": "110cc727",
       "needsInterop": false
     },
     "swiper/react": {
       "src": "../../.yarn/cache/swiper-npm-11.1.15-30ca9116f5-3faabc5b33.zip/node_modules/swiper/swiper-react.mjs",
       "file": "swiper_react.js",
-      "fileHash": "a4c291b7",
+      "fileHash": "1587ecf4",
+      "needsInterop": false
+    },
+    "react-icons/hi": {
+      "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/hi/index.mjs",
+      "file": "react-icons_hi.js",
+      "fileHash": "c6ac3b8a",
       "needsInterop": false
     }
   },
@@ -69,11 +75,11 @@
     "chunk-T7AS4O4U": {
       "file": "chunk-T7AS4O4U.js"
     },
-    "chunk-LIDTNIRH": {
-      "file": "chunk-LIDTNIRH.js"
-    },
     "chunk-7ZEPXI6N": {
       "file": "chunk-7ZEPXI6N.js"
+    },
+    "chunk-LIDTNIRH": {
+      "file": "chunk-LIDTNIRH.js"
     },
     "chunk-7CNG7BXV": {
       "file": "chunk-7CNG7BXV.js"

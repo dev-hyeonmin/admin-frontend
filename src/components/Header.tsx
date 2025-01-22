@@ -11,7 +11,7 @@ const Header = () => {
       <Logo width="128px" />
 
       <Box direction="vertical" className="mt-16 gap-4">
-        <Link to="/" className="text-zinc-500">
+        <Link to="/popup" className="text-zinc-500">
           <Box verticalAlign="middle" align="center" className="gap-4">
             <HiOutlineFolder className="text-xl" />
             팝업
