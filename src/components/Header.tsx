@@ -10,7 +10,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-72 py-8 px-8 h-full z-50 bg-white border-r border-zinc-200">
       <Logo width="128px" />
 
-      <Box direction="vertical" className="mt-16 gap-4">
+      <Box direction="vertical" className="mt-16 gap-6">
         <Link to="/popup" className="text-zinc-500">
           <Box verticalAlign="middle" align="center" className="gap-4">
             <HiOutlineFolder className="text-xl" />

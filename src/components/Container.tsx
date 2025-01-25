@@ -8,7 +8,7 @@ interface ContainerProps {
 
 const Container = ({ title, children }: ContainerProps) => {
   return (
-    <div className="absolute left-72 w-full py-8 px-16">
+    <div className="absolute left-72 w-[calc(100%-288px)] py-8 px-16">
       <Helmet>
         <title>Admin | {title}</title>
       </Helmet>
