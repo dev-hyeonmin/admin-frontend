@@ -22,10 +22,10 @@ const Modal: React.FC<ModalProps> = ({
   useModalCloseOnOutsideClick({ modalRef, isOpen, onClose, closeOnOutsideClick });
 
   return ReactDOM.createPortal(
-    <div className={`fixed inset-0 flex justify-center z-50 ${isOpen ? 'block' : 'hidden'}`}>
-      <div ref={modalRef} className={`bg-white rounded-[20px] shadow-lg ${className}`}>
-        {children}
-      </div>
+    <div
+      className={`fixed left-0 top-0 w-full h-full flex justify-center items-center z-50 bg-black bg-opacity-20 ${className} ${isOpen ? 'block' : 'hidden'}`}
+    >
+      {children}
     </div>,
     document.body
   );

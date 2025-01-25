@@ -3,19 +3,31 @@ import Button from '@components/actions/Button.tsx';
 import IconButton from '@components/actions/IconButton.tsx';
 import { FiX } from 'react-icons/fi';
 
-const PopupList = () => {
+interface PopupListProps {
+  selectPopupId: (id: number) => void;
+}
+
+const PopupList = ({ selectPopupId }: PopupListProps) => {
   return (
     <Box direction="vertical">
-      <PopupItem />
-      <PopupItem />
-      <PopupItem />
+      <PopupItem selectPopupId={() => selectPopupId(1)} />
+      <PopupItem selectPopupId={() => selectPopupId(1)} />
+      <PopupItem selectPopupId={() => selectPopupId(1)} />
     </Box>
   );
 };
 
 export default PopupList;
 
-const PopupItem = () => {
+/**
+ * @components
+ */
+
+interface PopupItemProps {
+  selectPopupId: (id: number) => void;
+}
+
+const PopupItem = ({ selectPopupId }: PopupItemProps) => {
   return (
     <Box
       align="space-between"
@@ -30,7 +42,7 @@ const PopupItem = () => {
       </Box>
 
       <Box className="gap-1">
-        <Button label="preview" />
+        <Button label="preview" onClick={selectPopupId} />
         <IconButton icon={<FiX className="text-lg text-red-500" />} skin="danger" />
       </Box>
     </Box>

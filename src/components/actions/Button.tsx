@@ -6,7 +6,7 @@ export interface ButtonProps {
   skin?: 'default' | 'primary';
   priority?: 'primary' | 'secondary';
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (...args: any[]) => void;
 }
 
 const skinVariants: Record<string, any> = {
@@ -38,12 +38,16 @@ export default function Button({
   onClick = () => {},
 }: ButtonProps) {
   const style = [skinVariants[skin][priority], sizeVariants[size], className].join(' ');
+  const buttonOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    onClick && onClick();
+  };
 
   return (
     <button
       type={type}
       className={`border border-zinc-200 rounded-full font-bold text-sm pt-1.5 pb-2 px-3.5 ${style}`}
-      onClick={onClick}
+      onClick={(e) => buttonOnClick(e)}
       disabled={disabled}
     >
       {label}
