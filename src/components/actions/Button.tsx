@@ -42,7 +42,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`border border-zinc-200 rounded text-sm ${style}`}
+      className={`border border-zinc-200 rounded-full font-bold text-sm pt-1.5 pb-2 px-3.5 ${style}`}
       onClick={onClick}
       disabled={disabled}
     >
