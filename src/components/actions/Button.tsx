@@ -3,28 +3,28 @@ export interface ButtonProps {
   label: string;
   type?: 'button' | 'submit';
   size?: 'tiny' | 'small' | 'medium' | 'large';
-  skin?: 'default' | 'primary';
+  skin?: 'default' | 'primary' | 'danger';
   priority?: 'primary' | 'secondary';
   disabled?: boolean;
   onClick?: (...args: any[]) => void;
 }
 
 const skinVariants: Record<string, any> = {
-  primary: {
-    primary: '',
-    secondary: '',
+  danger: {
+    primary: 'border-red-500 bg-red-500 text-white',
+    secondary: 'border-red-500 text-white',
   },
   default: {
-    primary: '',
-    secondary: '',
+    primary: 'border-0 bg-blue-600 text-white',
+    secondary: 'border-zinc-200',
   },
 };
 
 const sizeVariants: Record<string, string> = {
   tiny: '',
   small: '',
-  medium: '',
-  large: '',
+  medium: 'pt-1.5 pb-2 px-3.5 text-sm',
+  large: 'pt-2 pb-2.5 px-7 text-sm',
 };
 
 export default function Button({
@@ -46,7 +46,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`border border-zinc-200 rounded-full font-bold text-sm pt-1.5 pb-2 px-3.5 ${style}`}
+      className={`border rounded-lg ${style}`}
       onClick={(e) => buttonOnClick(e)}
       disabled={disabled}
     >

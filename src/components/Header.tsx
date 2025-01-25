@@ -45,7 +45,7 @@ const Header = () => {
         {menus.map((menu) => (
           <Link
             key={menu.link}
-            to="/popup"
+            to={menu.link}
             className="w-full text-zinc-500 hover:text-zinc-900 hover:font-bold transition"
           >
             <Box verticalAlign="middle" className="gap-4">
