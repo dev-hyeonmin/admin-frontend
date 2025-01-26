@@ -49,7 +49,7 @@ const PopupForm = () => {
 
 export default PopupForm;
 
-export const ConfirmModal = ({ resolve, reject }: ModalProps) => {
+const ConfirmModal = ({ resolve, reject }: ModalProps) => {
   return (
     <Modal isOpen={true} position="top">
       <Box direction="vertical" className="w-[450px] bg-white rounded-lg py-5 px-7">
@@ -67,7 +67,7 @@ export const ConfirmModal = ({ resolve, reject }: ModalProps) => {
   );
 };
 
-export const AlertModal = ({ resolve }: ModalProps) => {
+const AlertModal = ({ resolve }: ModalProps) => {
   return (
     <Modal isOpen={true} position="top">
       <Box direction="vertical" className="w-[450px] bg-white rounded-lg py-5 px-7">

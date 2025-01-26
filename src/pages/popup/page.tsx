@@ -18,12 +18,12 @@ const PopupPage = () => {
   return (
     <Container
       title="팝업"
-      prefix={
+      suffix={
         <Link
           to="/popup/form"
-          className="bg-zinc-800 text-white pt-2 pb-2.5 px-6 text-sm rounded-full"
+          className="pt-2 pb-2.5 px-7 text-sm border-0 bg-blue-600 text-white rounded-lg"
         >
-          팝업 등록
+          팝업등록
         </Link>
       }
     >

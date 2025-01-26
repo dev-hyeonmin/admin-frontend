@@ -2,150 +2,156 @@
   "hash": "4d629122",
   "configHash": "69b8f4a4",
   "lockfileHash": "e3b0c442",
-  "browserHash": "a1e1000a",
+  "browserHash": "5ff4a54a",
   "optimized": {
     "react": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "f8be99dc",
+      "fileHash": "be44ccce",
       "needsInterop": true
     },
     "react-dom": {
       "src": "../../.yarn/__virtual__/react-dom-virtual-0859121b32/0/cache/react-dom-npm-18.3.1-a805663f38-a752496c19.zip/node_modules/react-dom/index.js",
       "file": "react-dom.js",
-      "fileHash": "2eb8e4d9",
+      "fileHash": "de43d232",
       "needsInterop": true
     },
     "react/jsx-dev-runtime": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "f3c4461b",
+      "fileHash": "367d5af5",
       "needsInterop": true
     },
     "react/jsx-runtime": {
       "src": "../../.yarn/cache/react-npm-18.3.1-af38f3c1ae-283e8c5efc.zip/node_modules/react/jsx-runtime.js",
       "file": "react_jsx-runtime.js",
-      "fileHash": "bfa447d3",
+      "fileHash": "6d978980",
       "needsInterop": true
     },
     "framer-motion": {
       "src": "../../.yarn/__virtual__/framer-motion-virtual-5a20972433/0/cache/framer-motion-npm-11.12.0-65d89e35cd-9d1cfa356f.zip/node_modules/framer-motion/dist/es/index.mjs",
       "file": "framer-motion.js",
-      "fileHash": "df23e4bc",
+      "fileHash": "a70d6a11",
       "needsInterop": false
     },
     "react-dom/client": {
       "src": "../../.yarn/__virtual__/react-dom-virtual-0859121b32/0/cache/react-dom-npm-18.3.1-a805663f38-a752496c19.zip/node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "60fafb5d",
+      "fileHash": "5f889127",
       "needsInterop": true
     },
     "react-helmet-async": {
       "src": "../../.yarn/__virtual__/react-helmet-async-virtual-99ae6f7f62/0/cache/react-helmet-async-npm-2.0.5-f913a66ef6-f390ea8bf1.zip/node_modules/react-helmet-async/lib/index.esm.js",
       "file": "react-helmet-async.js",
-      "fileHash": "d100fa5b",
+      "fileHash": "1877c860",
       "needsInterop": false
     },
     "react-router": {
       "src": "../../.yarn/__virtual__/react-router-virtual-7164d39ffe/0/cache/react-router-npm-7.0.1-5f9672179e-aac4c9989a.zip/node_modules/react-router/dist/development/index.mjs",
       "file": "react-router.js",
-      "fileHash": "2f7e13ed",
+      "fileHash": "1a0418ce",
       "needsInterop": false
     },
     "swiper/modules": {
       "src": "../../.yarn/cache/swiper-npm-11.1.15-30ca9116f5-3faabc5b33.zip/node_modules/swiper/modules/index.mjs",
       "file": "swiper_modules.js",
-      "fileHash": "33769426",
+      "fileHash": "c7495989",
       "needsInterop": false
     },
     "swiper/react": {
       "src": "../../.yarn/cache/swiper-npm-11.1.15-30ca9116f5-3faabc5b33.zip/node_modules/swiper/swiper-react.mjs",
       "file": "swiper_react.js",
-      "fileHash": "3dbce2dd",
+      "fileHash": "d2a663de",
       "needsInterop": false
     },
     "react-icons/hi": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/hi/index.mjs",
       "file": "react-icons_hi.js",
-      "fileHash": "bb341622",
+      "fileHash": "06283eb8",
       "needsInterop": false
     },
     "react-icons/sl": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/sl/index.mjs",
       "file": "react-icons_sl.js",
-      "fileHash": "2e9b3a41",
+      "fileHash": "2d7ae6fb",
       "needsInterop": false
     },
     "react-icons/go": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/go/index.mjs",
       "file": "react-icons_go.js",
-      "fileHash": "19e8f325",
+      "fileHash": "0b391da4",
       "needsInterop": false
     },
     "react-icons/ai": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/ai/index.mjs",
       "file": "react-icons_ai.js",
-      "fileHash": "1fccb59b",
+      "fileHash": "c3c6a3f4",
       "needsInterop": false
     },
     "react-icons/fi": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/fi/index.mjs",
       "file": "react-icons_fi.js",
-      "fileHash": "7be34e56",
+      "fileHash": "bf534b84",
       "needsInterop": false
     },
     "react-icons/fa": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/fa/index.mjs",
       "file": "react-icons_fa.js",
-      "fileHash": "8e8ed4b5",
+      "fileHash": "0aa63b94",
       "needsInterop": false
     },
     "react-icons/lu": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/lu/index.mjs",
       "file": "react-icons_lu.js",
-      "fileHash": "e66b20e2",
+      "fileHash": "23a95124",
       "needsInterop": false
     },
     "react-icons/io5": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/io5/index.mjs",
       "file": "react-icons_io5.js",
-      "fileHash": "c0facdb4",
+      "fileHash": "969faefd",
       "needsInterop": false
     },
     "react-icons/fa6": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/fa6/index.mjs",
       "file": "react-icons_fa6.js",
-      "fileHash": "67af6bf2",
+      "fileHash": "c479bd72",
       "needsInterop": false
     },
     "react-icons/io": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/io/index.mjs",
       "file": "react-icons_io.js",
-      "fileHash": "f2e40c49",
+      "fileHash": "e90fc066",
       "needsInterop": false
     },
     "react-hook-form": {
       "src": "../../.yarn/__virtual__/react-hook-form-virtual-32e4912158/0/cache/react-hook-form-npm-7.54.2-9e7394f4c4-6eebead290.zip/node_modules/react-hook-form/dist/index.esm.mjs",
       "file": "react-hook-form.js",
-      "fileHash": "f655458c",
+      "fileHash": "4da44e3e",
       "needsInterop": false
     },
     "react-icons/bs": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/bs/index.mjs",
       "file": "react-icons_bs.js",
-      "fileHash": "4cf2afed",
+      "fileHash": "ded5e8ac",
       "needsInterop": false
     },
     "react-icons/pi": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/pi/index.mjs",
       "file": "react-icons_pi.js",
-      "fileHash": "6d2f410c",
+      "fileHash": "2f084615",
       "needsInterop": false
     },
     "react-icons/md": {
       "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/md/index.mjs",
       "file": "react-icons_md.js",
-      "fileHash": "507d15fc",
+      "fileHash": "9efbfda7",
+      "needsInterop": false
+    },
+    "react-icons/hi2": {
+      "src": "../../.yarn/__virtual__/react-icons-virtual-ddf39717ab/0/cache/react-icons-npm-5.4.0-9588c76e84-698b0c4616.zip/node_modules/react-icons/hi2/index.mjs",
+      "file": "react-icons_hi2.js",
+      "fileHash": "0e59a99e",
       "needsInterop": false
     }
   },

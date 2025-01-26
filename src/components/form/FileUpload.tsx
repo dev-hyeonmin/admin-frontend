@@ -38,7 +38,7 @@ export default function FileUpload({ accept }: FileUploadProps) {
       {/* 커스텀 label */}
       <label
         htmlFor="file-upload"
-        className={`block size-56 p-2.5 bg-cover bg-blue-50 rounded cursor-pointer ${imgFile ? 'border border-zinc-200' : ''}`}
+        className={`block size-56 p-2.5 bg-cover bg-center bg-blue-50 rounded cursor-pointer ${imgFile ? 'border border-zinc-200' : ''}`}
         style={{ backgroundImage: `url(${imgFile})` }}
       >
         {!imgFile && (

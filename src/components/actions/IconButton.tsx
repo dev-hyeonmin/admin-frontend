@@ -5,7 +5,7 @@ export interface IconButtonProps {
   priority?: 'primary' | 'secondary';
   type?: 'button' | 'submit';
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (...args: any[]) => void;
 }
 
 const colorVariants: Record<string, any> = {
@@ -14,8 +14,8 @@ const colorVariants: Record<string, any> = {
     secondary: '',
   },
   danger: {
-    primary: 'border-red-300 bg-red-500',
-    secondary: 'border-red-300',
+    primary: 'border-red-500 bg-red-500',
+    secondary: 'border-red-300 bg-red-300',
   },
 };
 
