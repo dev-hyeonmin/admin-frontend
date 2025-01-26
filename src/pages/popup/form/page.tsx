@@ -4,13 +4,27 @@ import Input from '@components/form/Input.tsx';
 import Button from '@components/actions/Button.tsx';
 import FormField from '@components/form/FormField.tsx';
 import FileUpload from '@components/form/FileUpload.tsx';
+import { ModalProps, useModal } from '@/module/react-modal';
+import Modal from '@components/overlays/Modal.tsx';
+import { useNavigate } from 'react-router';
 
 const PopupForm = () => {
+  const modalManager = useModal();
+  const navigate = useNavigate();
+
+  const confirmModal = () => {
+    modalManager.push(`confirm`, ConfirmModal, {}).then(() => {
+      modalManager.push(`alert`, AlertModal, {}).then(() => {
+        navigate('/popup');
+      });
+    });
+  };
+
   return (
     <Container
       title="팝업 등록"
       useBackNav={true}
-      suffix={<Button label="등록하기" priority="primary" size="large" />}
+      suffix={<Button label="등록하기" priority="primary" size="large" onClick={confirmModal} />}
     >
       <Box direction="vertical" className="w-full max-w-screen-sm p-8 gap-4">
         <div className="w-full text-sm border border-red-300 border-dashed bg-red-50 rounded p-4 text-zinc-800 leading-relaxed">
@@ -34,3 +48,36 @@ const PopupForm = () => {
 };
 
 export default PopupForm;
+
+export const ConfirmModal = ({ resolve, reject }: ModalProps) => {
+  return (
+    <Modal isOpen={true} position="top">
+      <Box direction="vertical" className="w-[450px] bg-white rounded-lg py-5 px-7">
+        <h2 className="font-medium text-lg">등록하시겠습니까?</h2>
+        <p className="mt-2 text-zinc-800 text-sm font-light">
+          잠깐🖐️! 팝업은 재수정이 되지 않아요. 확인하셨나요️?
+        </p>
+
+        <Box align="right" className="w-full mt-6 gap-2">
+          <Button label="취소" onClick={() => reject('Modal rejected')} />
+          <Button label="확인" priority="primary" onClick={() => resolve('Modal resolved')} />
+        </Box>
+      </Box>
+    </Modal>
+  );
+};
+
+export const AlertModal = ({ resolve }: ModalProps) => {
+  return (
+    <Modal isOpen={true} position="top">
+      <Box direction="vertical" className="w-[450px] bg-white rounded-lg py-5 px-7">
+        <h2 className="font-medium text-lg">등록되었습니다.</h2>
+        <p className="mt-2 text-zinc-800 text-sm font-light">팝업 리스트 페이지로 이동합니다.</p>
+
+        <Box align="right" className="w-full mt-6 gap-2">
+          <Button label="확인" priority="primary" onClick={() => resolve('Modal resolved')} />
+        </Box>
+      </Box>
+    </Modal>
+  );
+};
