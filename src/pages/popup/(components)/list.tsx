@@ -41,7 +41,7 @@ const PopupItem = ({ selectPopupId }: PopupItemProps) => {
         skin: 'danger',
       })
       .then(() => {
-        modalManager.push(`alert`, AlertModal, { title: '삭제되었습니다.' });
+        modalManager.push(`alert`, AlertModal, { title: '삭제 되었습니다.', description: '' });
       });
   };
 
