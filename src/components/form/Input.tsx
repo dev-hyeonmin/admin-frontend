@@ -4,6 +4,8 @@ interface InputProps {
 }
 
 const Input = ({ type = 'text', placeholder }: InputProps) => {
+  const formContext = useFormContext();
+
   return (
     <input
       className="w-full py-2.5 px-2 text-sm border border-zinc-200 rounded outline-none"

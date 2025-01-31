@@ -1,13 +1,16 @@
-import { Router } from '@/router/Routes.tsx';
-import { HelmetProvider } from 'react-helmet-async';
-import { ModalProvider } from '@/module/react-modal';
+import {Router} from '@/router/Routes.tsx';
+import {HelmetProvider} from 'react-helmet-async';
+import {ModalProvider} from '@/module/react-modal';
+import ReactQueryProvider from "@/api/query";
 
 function App() {
   return (
     <div className="font-sans">
       <HelmetProvider>
         <ModalProvider>
-          <Router />
+          <ReactQueryProvider>
+            <Router/>
+          </ReactQueryProvider>
         </ModalProvider>
       </HelmetProvider>
     </div>
