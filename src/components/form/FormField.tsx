@@ -18,7 +18,7 @@ export default function FormField({
     <Box
       className="w-full"
       direction={labelPlacement == 'top' ? 'vertical' : 'horizontal'}
-      verticalAlign="middle"
+      verticalAlign="top"
     >
       {labelPlacement == 'right' && children}
 

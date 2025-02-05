@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-  baseURL: "http://localhost:3000/api/", // API 기본 URL
+  baseURL: "http://localhost:3000/", // API 기본 URL
   timeout: 10000, // 요청 타임아웃 (10초)
   headers: {
     "Content-Type": "application/json",

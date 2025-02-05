@@ -2,37 +2,55 @@ import { ChangeEvent, useState } from 'react';
 import { PiPlus } from 'react-icons/pi';
 import { MdOutlineAttachFile } from 'react-icons/md';
 import Box from '@components/layout/box/Box.tsx';
+import { Controller, FieldValues, RegisterOptions, useFormContext } from 'react-hook-form';
+import InputError from '@components/form/InputError.tsx';
 
 interface FileUploadProps {
+  name: string;
+  rules?: (RegisterOptions<FieldValues, string> | undefined);
   accept?: string;
 }
 
-export default function FileUpload({ accept }: FileUploadProps) {
+export default function FileUpload({ name, rules, accept }: FileUploadProps) {
+  const { control, formState } = useFormContext();
   const [imgFile, setImgFile] = useState('');
   const [imgFileName, setImgFileName] = useState('');
+  const error = formState.errors[name];
 
-  const preivewImage = (e: ChangeEvent<HTMLInputElement>) => {
+  const previewImage = (e: ChangeEvent<HTMLInputElement>, onChange: (file: File | null) => void) => {
     if (!e.target.files) return;
 
     const file = e.target.files[0];
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImgFileName(() => file.name);
-      setImgFile(() => String(reader.result));
-    };
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImgFileName(file.name);
+        setImgFile(String(reader.result));
+      };
+
+      // 📌 react-hook-form에 파일 정보 업데이트
+      onChange(file);
+    }
   };
 
   return (
     <Box direction="vertical" className="w-full">
       {/* 숨겨진 input */}
-      <input
-        type="file"
-        id="file-upload"
-        accept={accept}
-        onChange={(e) => preivewImage(e)}
-        className="hidden" // input을 화면에서 숨김
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        render={({ field: { onChange } }) => (
+          <input
+            type="file"
+            id="file-upload"
+            accept={accept}
+            onChange={(e) => previewImage(e, onChange)}
+            className="hidden"
+          />
+        )}
       />
 
       {/* 커스텀 label */}
@@ -47,6 +65,9 @@ export default function FileUpload({ accept }: FileUploadProps) {
           </div>
         )}
       </label>
+
+      {/* 에러메세지 */}
+      {error && <InputError message={String(error.message)} />}
 
       {imgFileName && (
         <Box verticalAlign="middle" className="mt-2 gap-1 text-xs">
