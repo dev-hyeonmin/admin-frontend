@@ -4,9 +4,9 @@
 > [npx create-next-app@latest](https://nextjs.org/docs/app/getting-started/installation)
 
 - Next.js
-- tailwindCSS
-
----    
+- tailwindCSS   
+   
+---       
 
 ## 📌 Commit Message Convention
 
@@ -32,3 +32,9 @@
 - 메시지는 **현재 시제**로 작성합니다. (예: "추가함" ❌ → "추가" ⭕)
 - 메시지의 **첫 글자는 대문자**로 시작합니다.
 - **한 커밋에는 하나의 목적만 담도록** 작성합니다.
+ 
+---   
+
+## 🎨 Color palette
+
+
