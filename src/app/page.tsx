@@ -1,7 +1,13 @@
+'use client';
+
 import FormInput from '@/components/form-input';
 import FormButton from '@/components/form-button';
+import { useFormState } from 'react-dom';
+import { handleForm } from '@/app/api/action';
 
 export default function Home() {
+  const [state, action] = useFormState(handleForm, { email: '', password: '' } as any);
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
       <div className="w-full max-w-sm px-4">
@@ -18,23 +24,30 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="space-y-3">
-          <div>
-            <FormInput type="email" placeholder="이메일" />
-          </div>
+        <form action={action}>
+          <div className="space-y-3">
+            <div>
+              <FormInput type="email" placeholder="이메일" name="email" />
+            </div>
 
-          <div>
-            <FormInput type="password" placeholder="비밀번호" />
-          </div>
+            <div>
+              <FormInput
+                type="password"
+                placeholder="비밀번호"
+                name="password"
+                errors={state.errors}
+              />
+            </div>
 
-          <div>
-            <FormButton text="로그인" loading={false} />
-          </div>
+            <div>
+              <FormButton text="로그인" />
+            </div>
 
-          <div>
-            <FormButton text="비밀번호 찾기" loading={false} variant="secondary" />
+            <div>
+              <FormButton text="비밀번호 찾기" variant="secondary" />
+            </div>
           </div>
-        </div>
+        </form>
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-500">
