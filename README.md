@@ -35,6 +35,14 @@
  
 ---   
 
+## Prisma
+```
+npx prisma migrate
+```
+```
+npx prisma studio 
+```
+
 ## 🎨 Color palette
 
 
