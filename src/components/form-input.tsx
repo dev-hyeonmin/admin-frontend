@@ -2,27 +2,28 @@ import React, { InputHTMLAttributes } from 'react';
 
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   wrapperClassName?: string;
-  type: string;
-  placeholder?: string;
+  name: string;
+  type?: string;
   required?: boolean;
   errors?: string[];
 }
 
-const FormInput: React.FC<FormInputProps> = ({
+const FormInput = ({
   className,
   wrapperClassName,
-  type,
-  placeholder,
+  name,
+  type = 'text',
   required = false,
   errors = [],
   ...rest
-}) => {
+}: FormInputProps) => {
   return (
     <div className={wrapperClassName}>
       <input
         className={`w-full p-4 border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className || ''}`}
         type={type}
-        placeholder={placeholder}
+        name={name}
+        placeholder={rest.placeholder}
         required={required}
         {...rest}
       />

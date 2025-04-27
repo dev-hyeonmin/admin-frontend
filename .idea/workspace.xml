@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리">
-      <change afterPath="$PROJECT_DIR$/src/app/api/action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/api/users/route.ts" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: form status">
+      <change afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/action.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-input.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,36 +26,40 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2spxnQgbD3U83XGJu3xeNOzPKpV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/hyeonmin/Documents/clinic/admin-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.dev (1).executor": "Run",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/event" />
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/login" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
@@ -115,6 +122,7 @@
       <workItem from="1744200633056" duration="6218000" />
       <workItem from="1744282626883" duration="6131000" />
       <workItem from="1745239726613" duration="8200000" />
+      <workItem from="1745726361055" duration="4620000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
