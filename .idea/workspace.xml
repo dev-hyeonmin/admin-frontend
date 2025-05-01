@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: login data validation">
-      <change afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: setting prisma">
+      <change afterPath="$PROJECT_DIR$/src/app/popup/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,9 @@
       <workItem from="1744282626883" duration="6131000" />
       <workItem from="1745239726613" duration="8200000" />
       <workItem from="1745726361055" duration="9255000" />
-      <workItem from="1745735873281" duration="1240000" />
+      <workItem from="1745735873281" duration="4333000" />
+      <workItem from="1746071387464" duration="1088000" />
+      <workItem from="1746072484324" duration="1800000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -195,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745731005891</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Chore: setting prisma">
+      <option name="closed" value="true" />
+      <created>1745737135812</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745737135812</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +232,7 @@
     <MESSAGE value="Chore: set up Prettier and clean up" />
     <MESSAGE value="Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리" />
     <MESSAGE value="Chore: login data validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: login data validation" />
+    <MESSAGE value="Chore: setting prisma" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: setting prisma" />
   </component>
 </project>

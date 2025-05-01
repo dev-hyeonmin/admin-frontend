@@ -4,12 +4,13 @@ import FormInput from '@/components/form-input';
 import FormButton from '@/components/form-button';
 import { useFormState } from 'react-dom';
 import { handleLogin } from '@/app/login/action';
+import { useActionState } from 'react';
 
 // 초기 상태 설정
 const initialState = { email: '', password: '', error: {} };
 
 const Login = () => {
-  const [state, dispatch] = useFormState(handleLogin, initialState);
+  const [state, dispatch] = useActionState(handleLogin, initialState);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
