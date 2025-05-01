@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: setting prisma">
-      <change afterPath="$PROJECT_DIR$/src/app/popup/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: login">
+      <change afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +128,7 @@
       <workItem from="1745726361055" duration="9255000" />
       <workItem from="1745735873281" duration="4333000" />
       <workItem from="1746071387464" duration="1088000" />
-      <workItem from="1746072484324" duration="1800000" />
+      <workItem from="1746072484324" duration="5269000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -206,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745737135812</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Chore: login">
+      <option name="closed" value="true" />
+      <created>1746074339248</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746074339248</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +237,7 @@
     <MESSAGE value="Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리" />
     <MESSAGE value="Chore: login data validation" />
     <MESSAGE value="Chore: setting prisma" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: setting prisma" />
+    <MESSAGE value="Chore: login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: login" />
   </component>
 </project>

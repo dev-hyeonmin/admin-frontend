@@ -10,7 +10,6 @@ import { redirect } from 'next/navigation';
 /**
  * if you want to use more validation options
  * https://zod.dev
- * nomadcoder #6.2
  */
 
 const checkEmailExists = async (email: string) => {
@@ -70,7 +69,7 @@ export const handleLogin = async (prevState: any, formData: FormData) => {
   const ok = await bcrypt.compare(result.data.password, user!.password);
 
   if (ok) {
-    const session = await createSession(user!.id);
+    await createSession(user!.id);
     redirect('/popup');
   } else {
     return {
