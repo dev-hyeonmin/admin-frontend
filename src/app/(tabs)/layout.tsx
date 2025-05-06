@@ -9,7 +9,7 @@ export default function Layout({
     <div className="pl-64">
       <Menu />
 
-      <div className="px-6 box-border">{children}</div>
+      <div className="box-border px-6">{children}</div>
     </div>
   );
 }

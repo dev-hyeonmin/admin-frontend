@@ -6,17 +6,17 @@ export default function Loading() {
         <div className="text-sm text-zinc-500">공지사항</div>
       </div>
 
-      <div className="flex flex-col mt-6 w-full">
+      <div className="mt-6 flex w-full flex-col">
         {[...Array(10)].map((_, index) => (
           <div
             key={index}
-            className="flex gap-6 py-4 border-t border-gray-100 justify-between items-center"
+            className="flex items-center justify-between gap-6 border-t border-gray-100 py-4"
           >
-            <div className="flex gap-6 items-center">
-              <div className="bg-neutral-100 h-10 w-16 rounded" />
-              <div className="bg-neutral-100 h-10 w-96 rounded" />
+            <div className="flex items-center gap-6">
+              <div className="h-10 w-16 rounded bg-neutral-100" />
+              <div className="h-10 w-96 rounded bg-neutral-100" />
             </div>
-            <div className="bg-neutral-100 h-10 w-40 rounded" />
+            <div className="h-10 w-40 rounded bg-neutral-100" />
           </div>
         ))}
       </div>

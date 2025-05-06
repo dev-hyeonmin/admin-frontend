@@ -12,11 +12,11 @@ export default function Login() {
   const [state, dispatch] = useActionState(handleLogin, initialState);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-white">
       <div className="w-full max-w-sm px-4">
-        <div className="flex justify-center mb-12">
+        <div className="mb-12 flex justify-center">
           <div className="flex items-center">
-            <svg className="w-8 h-8 text-blue-500 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="mr-2 h-8 w-8 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                 fill="#4287f5"

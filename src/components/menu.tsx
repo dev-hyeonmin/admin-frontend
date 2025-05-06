@@ -14,19 +14,19 @@ export default function Menu() {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-white flex flex-col p-6 fixed left-0 top-0 border-r border-gray-200">
+    <aside className="fixed top-0 left-0 flex h-screen w-64 flex-col border-r border-gray-200 bg-white p-6">
       {/* 로고 영역 */}
-      <div className="text-xl font-bold mb-8">Menu</div>
+      <div className="mb-8 text-xl font-bold">Menu</div>
 
       {/* 메뉴 리스트 */}
-      <nav className="flex flex-col gap-2 mb-auto">
+      <nav className="mb-auto flex flex-col gap-2">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`p-3 rounded-lg transition-colors ${
+              className={`rounded-lg p-3 transition-colors ${
                 isActive ? 'font-bold' : 'hover:opacity-70'
               }`}
             >

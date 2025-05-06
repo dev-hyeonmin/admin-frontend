@@ -5,5 +5,5 @@ export default function SiteWidth({
   children: React.ReactNode;
   className?: string;
 }>) {
-  return <div className={`max-w-screen-xl mx-auto px-4 ${className}`}>{children}</div>;
+  return <div className={`mx-auto max-w-screen-xl px-4 ${className}`}>{children}</div>;
 }

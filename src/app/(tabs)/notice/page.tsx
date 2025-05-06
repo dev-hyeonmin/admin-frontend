@@ -18,13 +18,13 @@ export default async function Notice() {
         <div className="text-sm text-zinc-500">공지사항</div>
       </div>
 
-      <div className="flex flex-col mt-6 w-full">
+      <div className="mt-6 flex w-full flex-col">
         {notices.map((notice, index) => (
           <div
             key={index}
-            className="flex gap-6 py-4 border-t border-gray-100 justify-between items-center animate-pulse"
+            className="flex animate-pulse items-center justify-between gap-6 border-t border-gray-100 py-4"
           >
-            <div className="flex gap-6 items-center">
+            <div className="flex items-center gap-6">
               <div>{notice.title}</div>
             </div>
 

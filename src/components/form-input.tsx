@@ -20,7 +20,7 @@ export default function FormInput({
   return (
     <div className={wrapperClassName}>
       <input
-        className={`w-full p-4 border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className || ''}`}
+        className={`w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ''}`}
         type={type}
         name={name}
         placeholder={rest.placeholder}
@@ -29,7 +29,7 @@ export default function FormInput({
       />
 
       {errors.map((error, index) => (
-        <span key={index} className="text-red-500 font-medium">
+        <span key={index} className="font-medium text-red-500">
           {error}
         </span>
       ))}
