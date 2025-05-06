@@ -14,7 +14,7 @@ export default function Menu() {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-white flex flex-col p-6 fixed">
+    <aside className="w-64 h-screen bg-white flex flex-col p-6 fixed left-0 top-0 border-r border-gray-200">
       {/* 로고 영역 */}
       <div className="text-xl font-bold mb-8">Menu</div>
 

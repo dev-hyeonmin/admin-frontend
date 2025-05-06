@@ -6,9 +6,10 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <div className="pl-64">
       <Menu />
-      {children}
+
+      <div className="px-6 box-border">{children}</div>
     </div>
   );
 }
