@@ -2,14 +2,13 @@
 
 import FormInput from '@/components/form-input';
 import FormButton from '@/components/form-button';
-import { useFormState } from 'react-dom';
-import { handleLogin } from '@/app/login/action';
+import { handleLogin } from '@/app/(auth)/login/action';
 import { useActionState } from 'react';
 
 // 초기 상태 설정
 const initialState = { email: '', password: '', error: {} };
 
-const Login = () => {
+export default function Login() {
   const [state, dispatch] = useActionState(handleLogin, initialState);
 
   return (
@@ -71,6 +70,4 @@ const Login = () => {
       </div>
     </div>
   );
-};
-
-export default Login;
+}

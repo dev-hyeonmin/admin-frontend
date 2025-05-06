@@ -37,11 +37,16 @@
 
 ## Prisma
 ```
-npx prisma migrate
+npx prisma migrate dev --name 'name'
 ```
 ```
 npx prisma studio 
 ```
+
+## Menu
+- popup
+- event
+- notice
 
 ## 🎨 Color palette
 

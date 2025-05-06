@@ -9,13 +9,13 @@ interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
 }
 
-const FormButton: React.FC<FormButtonProps> = ({
+export default function FormButton({
   variant = 'primary',
   fullWidth = true,
   text,
   className,
   ...rest
-}) => {
+}: FormButtonProps) {
   const { pending } = useFormStatus();
   const baseStyles = 'p-4 font-medium rounded-lg transition-colors focus:outline-none';
   const variantStyles = {
@@ -31,6 +31,4 @@ const FormButton: React.FC<FormButtonProps> = ({
       {pending ? '로딩중' : text}
     </button>
   );
-};
-
-export default FormButton;
+}

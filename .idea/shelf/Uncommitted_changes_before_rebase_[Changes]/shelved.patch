@@ -1,0 +1,405 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Clinic Admin FE\n\n## \uD83D\uDC40 Installation\n> [npx create-next-app@latest](https://nextjs.org/docs/app/getting-started/installation)\n\n- Next.js\n- tailwindCSS   \n   \n---       \n\n## \uD83D\uDCCC Commit Message Convention\n\n협업과 유지보수를 위해 아래와 같은 커밋 메시지 컨벤션을 따릅니다.\n\n### ✅ 커밋 타입\n| 타입      | 설명 |\n|-----------|------|\n| `Feat`    | 새로운 기능 추가 |\n| `Fix`     | 버그 수정 또는 오타 수정 |\n| `Refactor`| 기능 변화 없이 코드 구조 개선 |\n| `Design`  | CSS 등 사용자 UI 디자인 변경 |\n| `Comment` | 필요한 주석 추가 및 변경 |\n| `Style`   | 코드 포맷팅, 세미콜론 누락 등 코드 동작에 영향 없는 변경 |\n| `Test`    | 테스트 코드 추가, 수정, 삭제 (비즈니스 로직 변경 없음) |\n| `Chore`   | 기타 변경사항 (빌드 설정, 패키지 매니저, assets 등) |\n| `Init`    | 프로젝트 초기 생성 |\n| `Rename`  | 파일 또는 폴더명 수정 및 이동 |\n| `Remove`  | 파일 삭제 작업만 수행 |\n| `Docs`    | 문서 수정 (예: README, 문서 파일 등) |\n\n### \uD83D\uDCAC 커밋 메시지 형식\n- 메시지는 **현재 시제**로 작성합니다. (예: \"추가함\" ❌ → \"추가\" ⭕)\n- 메시지의 **첫 글자는 대문자**로 시작합니다.\n- **한 커밋에는 하나의 목적만 담도록** 작성합니다.\n \n---   \n\n## Prisma\n```\nnpx prisma migrate\n```\n```\nnpx prisma studio \n```\n\n## \uD83C\uDFA8 Color palette\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/README.md	(date 1746162183574)
+@@ -37,12 +37,17 @@
+ 
+ ## Prisma
+ ```
+-npx prisma migrate
++npx prisma migrate dev --name 'name'
+ ```
+ ```
+ npx prisma studio 
+ ```
+ 
++## Menu
++- popup
++- event
++- notice
++
+ ## 🎨 Color palette
+ 
+ 
+Index: src/app/api/users/route.ts
+===================================================================
+diff --git a/src/app/api/users/route.ts b/src/app/api/users/route.ts
+deleted file mode 100644
+--- a/src/app/api/users/route.ts	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ /dev/null	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
+@@ -1,15 +0,0 @@
+-import { NextRequest, NextResponse } from 'next/server';
+-
+-export async function GET(req: NextRequest, res: NextResponse) {
+-  return Response.json({
+-    ok: true,
+-  });
+-}
+-
+-export async function POST(req: NextRequest, res: NextResponse) {
+-  const data = await req.json();
+-
+-  return Response.json({
+-    ok: true,
+-  });
+-}
+Index: src/components/menu.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/menu.tsx b/src/components/menu.tsx
+new file mode 100644
+--- /dev/null	(date 1746164571094)
++++ b/src/components/menu.tsx	(date 1746164571094)
+@@ -0,0 +1,33 @@
++'use client';
++
++import Link from 'next/link';
++import { handleLogout } from '@/app/(auth)/logout/action';
++import SiteWidth from '@/components/site-width';
++
++export default function Menu() {
++  return (
++    <div className="py-3">
++      <SiteWidth className="w-full flex items-center justify-between">
++        <div>{/*Logo*/}</div>
++
++        <div className="flex gap-4 font-medium">
++          <Link href="/popup" className="p-6 cursor-pointer">
++            팝업
++          </Link>
++          <Link href="/event" className="p-6 cursor-pointer">
++            이벤트
++          </Link>
++          <Link href="/notice" className="p-6 cursor-pointer">
++            공지사항
++          </Link>
++        </div>
++
++        <div>
++          <button onClick={() => handleLogout()} className="p-6 text-zinc-400 cursor-pointer">
++            로그아웃
++          </button>
++        </div>
++      </SiteWidth>
++    </div>
++  );
++}
+Index: src/lib/db.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { PrismaClient } from '@prisma/client';\nimport bcrypt from 'bcrypt';\n\nconst db = new PrismaClient();\n\n// const hashedPassword = await bcrypt.hash('00000000', 10);\n// const data = async () => {\n//   const result = await db.user.create({\n//     data: {\n//       email: 'admin@gmail.com',\n//       name: '관리자',\n//       password: hashedPassword,\n//       role: 'ADMIN',\n//       branchId: 1,\n//     },\n//   });\n// };\n\nexport default db;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lib/db.ts b/src/lib/db.ts
+--- a/src/lib/db.ts	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/lib/db.ts	(date 1746154664281)
+@@ -1,8 +1,8 @@
+ import { PrismaClient } from '@prisma/client';
+-import bcrypt from 'bcrypt';
+ 
+ const db = new PrismaClient();
+ 
++// import bcrypt from 'bcrypt';
+ // const hashedPassword = await bcrypt.hash('00000000', 10);
+ // const data = async () => {
+ //   const result = await db.user.create({
+Index: src/app/(tabs)/layout.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/(tabs)/layout.tsx b/src/app/(tabs)/layout.tsx
+new file mode 100644
+--- /dev/null	(date 1746159814893)
++++ b/src/app/(tabs)/layout.tsx	(date 1746159814893)
+@@ -0,0 +1,14 @@
++import Menu from '@/components/menu';
++
++export default function Layout({
++  children,
++}: Readonly<{
++  children: React.ReactNode;
++}>) {
++  return (
++    <div>
++      <Menu />
++      {children}
++    </div>
++  );
++}
+Index: src/app/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/page.tsx b/src/app/(auth)/page.tsx
+rename from src/app/page.tsx
+rename to src/app/(auth)/page.tsx
+--- a/src/app/page.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/app/(auth)/page.tsx	(date 1746159597832)
+@@ -1,5 +1,4 @@
+-import Login from '@/app/login/page';
+-import '@/lib/db';
++import Login from '@/app/(auth)/login/page';
+ 
+ export default function Home() {
+   return <Login />;
+Index: src/components/form-input.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { InputHTMLAttributes } from 'react';\n\ninterface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {\n  wrapperClassName?: string;\n  name: string;\n  type?: string;\n  required?: boolean;\n  errors?: string[];\n}\n\nconst FormInput = ({\n  className,\n  wrapperClassName,\n  name,\n  type = 'text',\n  required = false,\n  errors = [],\n  ...rest\n}: FormInputProps) => {\n  return (\n    <div className={wrapperClassName}>\n      <input\n        className={`w-full p-4 border border-gray-200 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className || ''}`}\n        type={type}\n        name={name}\n        placeholder={rest.placeholder}\n        required={required}\n        {...rest}\n      />\n\n      {errors.map((error, index) => (\n        <span key={index} className=\"text-red-500 font-medium\">\n          {error}\n        </span>\n      ))}\n    </div>\n  );\n};\n\nexport default FormInput;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/form-input.tsx b/src/components/form-input.tsx
+--- a/src/components/form-input.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/components/form-input.tsx	(date 1746164027575)
+@@ -8,7 +8,7 @@
+   errors?: string[];
+ }
+ 
+-const FormInput = ({
++export default function FormInput({
+   className,
+   wrapperClassName,
+   name,
+@@ -16,7 +16,7 @@
+   required = false,
+   errors = [],
+   ...rest
+-}: FormInputProps) => {
++}: FormInputProps) {
+   return (
+     <div className={wrapperClassName}>
+       <input
+@@ -35,6 +35,4 @@
+       ))}
+     </div>
+   );
+-};
+-
+-export default FormInput;
++}
+Index: src/app/popup/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/popup/page.tsx b/src/app/(tabs)/popup/page.tsx
+rename from src/app/popup/page.tsx
+rename to src/app/(tabs)/popup/page.tsx
+--- a/src/app/popup/page.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/app/(tabs)/popup/page.tsx	(date 1746159747285)
+@@ -1,5 +1,3 @@
+-const Popup = () => {
++export default function Popup() {
+   return <>popup</>;
+-};
+-
+-export default Popup;
++}
+Index: src/components/site-width.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/site-width.tsx b/src/components/site-width.tsx
+new file mode 100644
+--- /dev/null	(date 1746164527105)
++++ b/src/components/site-width.tsx	(date 1746164527105)
+@@ -0,0 +1,9 @@
++export default function SiteWidth({
++  children,
++  className,
++}: Readonly<{
++  children: React.ReactNode;
++  className?: string;
++}>) {
++  return <div className={`max-w-screen-xl mx-auto px-4 ${className}`}>{children}</div>;
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"8b9bda65-4c2a-4c11-a26d-354531536b36\" name=\"Changes\" comment=\"Chore: login\">\n      <change afterPath=\"$PROJECT_DIR$/src/middleware.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/app/login/action.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/app/login/action.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/lib/session.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/lib/session.ts\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FormatOnSaveOptions\">\n    <option name=\"myRunOnSave\" value=\"false\" />\n    <option name=\"myAllFileTypesSelected\" value=\"true\" />\n    <option name=\"mySelectedFileTypes\">\n      <set />\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 7\n}</component>\n  <component name=\"ProjectId\" id=\"2spxnQgbD3U83XGJu3xeNOzPKpV\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,\n    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,\n    &quot;npm.dev.executor&quot;: &quot;Run&quot;,\n    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\n    &quot;ts.external.directory.path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/pages/event\" />\n      <recent name=\"$PROJECT_DIR$/src/pages/event/(components)\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/app/login\" />\n      <recent name=\"$PROJECT_DIR$/src/app\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"npm.dev\">\n    <configuration name=\"dev (1)\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/admin-frontend/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"dev\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <package-manager value=\"npm\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"npm.dev\" />\n        <item itemvalue=\"npm.dev (1)\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"8b9bda65-4c2a-4c11-a26d-354531536b36\" name=\"Changes\" comment=\"\" />\n      <created>1739166484596</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1739166484596</updated>\n      <workItem from=\"1739166486670\" duration=\"675000\" />\n      <workItem from=\"1739167372262\" duration=\"23000\" />\n      <workItem from=\"1739167400554\" duration=\"12943000\" />\n      <workItem from=\"1739250027300\" duration=\"16915000\" />\n      <workItem from=\"1739853675274\" duration=\"4826000\" />\n      <workItem from=\"1740477655172\" duration=\"2439000\" />\n      <workItem from=\"1744185015005\" duration=\"1316000\" />\n      <workItem from=\"1744186380159\" duration=\"5000\" />\n      <workItem from=\"1744186403469\" duration=\"45000\" />\n      <workItem from=\"1744186453842\" duration=\"102000\" />\n      <workItem from=\"1744186557290\" duration=\"569000\" />\n      <workItem from=\"1744187131848\" duration=\"1817000\" />\n      <workItem from=\"1744200633056\" duration=\"6218000\" />\n      <workItem from=\"1744282626883\" duration=\"6131000\" />\n      <workItem from=\"1745239726613\" duration=\"8200000\" />\n      <workItem from=\"1745726361055\" duration=\"9255000\" />\n      <workItem from=\"1745735873281\" duration=\"4333000\" />\n      <workItem from=\"1746071387464\" duration=\"1088000\" />\n      <workItem from=\"1746072484324\" duration=\"5269000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"feat: event list &amp; form ver 0.0\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1739170467647</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1739170467647</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"feat: event form event list\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1739192458952</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1739192458952</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"feat: event form event list function\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1739353837470</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1739353837470</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"feat: event form event list dnd\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1739365983350</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1739365983350</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"refact: event 목록 컴포넌트 분할\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1739452389612</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1739452389613</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Chore: set up Prettier and clean up\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744187714010</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744187714010</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744539634709</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744539634709</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Chore: login data validation\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1745731005891</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1745731005891</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Chore: setting prisma\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1745737135812</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1745737135812</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Chore: login\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1746074339248</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1746074339248</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"11\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"feat: event list &amp; form ver 0.0\" />\n    <MESSAGE value=\"feat: event form event list\" />\n    <MESSAGE value=\"feat: event form event list function\" />\n    <MESSAGE value=\"feat: event form event list dnd\" />\n    <MESSAGE value=\"refact: event 목록 컴포넌트 분할\" />\n    <MESSAGE value=\"Chore: set up Prettier and clean up\" />\n    <MESSAGE value=\"Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리\" />\n    <MESSAGE value=\"Chore: login data validation\" />\n    <MESSAGE value=\"Chore: setting prisma\" />\n    <MESSAGE value=\"Chore: login\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Chore: login\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/.idea/workspace.xml	(date 1746164571181)
+@@ -4,11 +4,21 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: login">
+-      <change afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
++    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: set middleware">
++      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/components/menu.tsx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/components/site-width.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/app/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/action.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/api/users/route.ts" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/app/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/form-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-button.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/form-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-input.tsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -62,6 +72,8 @@
+       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/src/app/(auth)" />
++      <recent name="$PROJECT_DIR$/src/app/(tabs)" />
+       <recent name="$PROJECT_DIR$/src/app/login" />
+       <recent name="$PROJECT_DIR$/src/app" />
+     </key>
+@@ -128,7 +140,9 @@
+       <workItem from="1745726361055" duration="9255000" />
+       <workItem from="1745735873281" duration="4333000" />
+       <workItem from="1746071387464" duration="1088000" />
+-      <workItem from="1746072484324" duration="5269000" />
++      <workItem from="1746072484324" duration="8394000" />
++      <workItem from="1746157977761" duration="156000" />
++      <workItem from="1746158137959" duration="5473000" />
+     </task>
+     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
+       <option name="closed" value="true" />
+@@ -210,7 +224,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1746074339248</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="Chore: set middleware">
++      <option name="closed" value="true" />
++      <created>1746098945961</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1746098945961</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -238,6 +260,7 @@
+     <MESSAGE value="Chore: login data validation" />
+     <MESSAGE value="Chore: setting prisma" />
+     <MESSAGE value="Chore: login" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Chore: login" />
++    <MESSAGE value="Chore: set middleware" />
++    <option name="LAST_COMMIT_MESSAGE" value="Chore: set middleware" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/components/form-button.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>'use client';\n\nimport React, { ButtonHTMLAttributes } from 'react';\nimport { useFormStatus } from 'react-dom';\n\ninterface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {\n  variant?: 'primary' | 'secondary';\n  fullWidth?: boolean;\n  text: string;\n}\n\nconst FormButton: React.FC<FormButtonProps> = ({\n  variant = 'primary',\n  fullWidth = true,\n  text,\n  className,\n  ...rest\n}) => {\n  const { pending } = useFormStatus();\n  const baseStyles = 'p-4 font-medium rounded-lg transition-colors focus:outline-none';\n  const variantStyles = {\n    primary: 'bg-blue-500 hover:bg-blue-600 text-white',\n    secondary: 'bg-blue-50 hover:bg-blue-100 text-blue-500',\n  };\n\n  const widthStyles = fullWidth ? 'w-full' : '';\n  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${widthStyles} ${className || ''}`;\n\n  return (\n    <button className={combinedClassName} {...rest} disabled={pending}>\n      {pending ? '로딩중' : text}\n    </button>\n  );\n};\n\nexport default FormButton;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/form-button.tsx b/src/components/form-button.tsx
+--- a/src/components/form-button.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/components/form-button.tsx	(date 1746164064636)
+@@ -9,13 +9,13 @@
+   text: string;
+ }
+ 
+-const FormButton: React.FC<FormButtonProps> = ({
++export default function FormButton({
+   variant = 'primary',
+   fullWidth = true,
+   text,
+   className,
+   ...rest
+-}) => {
++}: FormButtonProps) {
+   const { pending } = useFormStatus();
+   const baseStyles = 'p-4 font-medium rounded-lg transition-colors focus:outline-none';
+   const variantStyles = {
+@@ -31,6 +31,4 @@
+       {pending ? '로딩중' : text}
+     </button>
+   );
+-};
+-
+-export default FormButton;
++}
+Index: src/app/login/page.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/login/page.tsx b/src/app/(auth)/login/page.tsx
+rename from src/app/login/page.tsx
+rename to src/app/(auth)/login/page.tsx
+--- a/src/app/login/page.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/app/(auth)/login/page.tsx	(date 1746159732674)
+@@ -2,14 +2,13 @@
+ 
+ import FormInput from '@/components/form-input';
+ import FormButton from '@/components/form-button';
+-import { useFormState } from 'react-dom';
+-import { handleLogin } from '@/app/login/action';
++import { handleLogin } from '@/app/(auth)/login/action';
+ import { useActionState } from 'react';
+ 
+ // 초기 상태 설정
+ const initialState = { email: '', password: '', error: {} };
+ 
+-const Login = () => {
++export default function Login() {
+   const [state, dispatch] = useActionState(handleLogin, initialState);
+ 
+   return (
+@@ -71,6 +70,4 @@
+       </div>
+     </div>
+   );
+-};
+-
+-export default Login;
++}
+Index: src/app/layout.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import type { Metadata } from 'next';\nimport { Noto_Sans, Noto_Sans_Mono } from 'next/font/google';\nimport './globals.css';\n\nconst notoSans = Noto_Sans({\n  variable: '--font-noto-sans',\n  subsets: ['latin'],\n});\n\nconst notoMono = Noto_Sans_Mono({\n  variable: '--font-noto-mono',\n  subsets: ['latin'],\n});\n\nexport const metadata: Metadata = {\n  title: 'Create Next App',\n  description: 'Generated by create next app',\n};\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return (\n    <html lang=\"en\">\n      <body className={`${notoSans.variable} ${notoMono.variable} antialiased`}>{children}</body>\n    </html>\n  );\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+--- a/src/app/layout.tsx	(revision cbed62036af763aaa0b37535a515ebce4f71f95e)
++++ b/src/app/layout.tsx	(date 1746159333474)
+@@ -13,7 +13,10 @@
+ });
+ 
+ export const metadata: Metadata = {
+-  title: 'Create Next App',
++  title: {
++    template: '%s | admin',
++    default: 'admin',
++  },
+   description: 'Generated by create next app',
+ };
+ 
+diff --git a/src/app/login/action.ts b/src/app/(auth)/login/action.ts
+rename from src/app/login/action.ts
+rename to src/app/(auth)/login/action.ts

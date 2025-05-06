@@ -8,7 +8,7 @@ interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   errors?: string[];
 }
 
-const FormInput = ({
+export default function FormInput({
   className,
   wrapperClassName,
   name,
@@ -16,7 +16,7 @@ const FormInput = ({
   required = false,
   errors = [],
   ...rest
-}: FormInputProps) => {
+}: FormInputProps) {
   return (
     <div className={wrapperClassName}>
       <input
@@ -35,6 +35,4 @@ const FormInput = ({
       ))}
     </div>
   );
-};
-
-export default FormInput;
+}
