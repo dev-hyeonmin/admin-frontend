@@ -29,9 +29,9 @@ export async function getSession() {
   return (await cookies()).get('session')?.value;
 }
 
-export async function createSession(userId: number) {
+export async function createSession(userId: number, branchId: number) {
   const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day
-  const session = await encrypt({ userId, expiresAt });
+  const session = await encrypt({ userId, branchId, expiresAt });
   const cookieStore = await cookies();
 
   /**
@@ -74,4 +74,16 @@ export async function updateSession() {
 export async function deleteSession() {
   const cookieStore = await cookies();
   cookieStore.delete('session');
+}
+
+export async function getBranchId() {
+  const cookie = await getSession();
+  const session = await decrypt(cookie);
+  const branchId = session?.branchId;
+
+  if (!branchId) {
+    return null;
+  }
+
+  return branchId;
 }

@@ -63,13 +63,14 @@ export const handleLogin = async (prevState: any, formData: FormData) => {
     select: {
       id: true,
       password: true,
+      branchId: true,
     },
   });
 
   const ok = await bcrypt.compare(result.data.password, user!.password);
 
   if (ok) {
-    await createSession(user!.id);
+    await createSession(user!.id, user!.branchId);
     redirect('/popup');
   } else {
     return {
