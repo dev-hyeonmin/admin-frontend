@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Style: tailwind Prettier">
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/loading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/loading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,17 +71,7 @@
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
-    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/admin-frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -100,7 +86,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
-        <item itemvalue="npm.dev (1)" />
       </list>
     </recent_temporary>
   </component>
