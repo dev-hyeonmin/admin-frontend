@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Style: tailwind Prettier">
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: edit &amp; delete notice">
+      <change afterPath="$PROJECT_DIR$/src/components/Notification.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageTitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/form-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form-button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/DeleteNoticeButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form-button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form-input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/site-width.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SiteWidth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746508660667</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Feat: edit &amp; delete notice">
+      <option name="closed" value="true" />
+      <created>1746702514273</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746702514273</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +307,7 @@
     <MESSAGE value="Chore: menu" />
     <MESSAGE value="Chore: get notices" />
     <MESSAGE value="Style: tailwind Prettier" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style: tailwind Prettier" />
+    <MESSAGE value="Feat: edit &amp; delete notice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: edit &amp; delete notice" />
   </component>
 </project>

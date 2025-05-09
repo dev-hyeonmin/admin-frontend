@@ -55,4 +55,9 @@ npx prisma studio
 - event
 - notice
 
-## 🎨 Color palette
+---
+
+## To-do
+1. 이미지 업로드
+2. 공지사항 에디터
+3. 데이터 복구 (한달간 보관 후 자동 삭제)

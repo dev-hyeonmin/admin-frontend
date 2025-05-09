@@ -1,7 +1,7 @@
 'use client';
 
-import FormInput from '@/components/form-input';
-import FormButton from '@/components/form-button';
+import FormInput from '@/components/FormInput';
+import FormButton from '@/components/FormButton';
 import { handleLogin } from '@/app/(auth)/login/action';
 import { useActionState } from 'react';
 

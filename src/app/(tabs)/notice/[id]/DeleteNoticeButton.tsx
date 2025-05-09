@@ -1,7 +1,7 @@
 'use client';
 
 import { handleDeleteNotice } from './edit/action';
-import FormButton from '@/components/form-button';
+import FormButton from '@/components/FormButton';
 
 interface DeleteNoticeButtonProps {
   id: number;
@@ -14,4 +14,4 @@ export default function DeleteNoticeButton({ id }: DeleteNoticeButtonProps) {
       <FormButton type="submit" text="삭제" variant="danger" fullWidth={false} />
     </form>
   );
-} 
+}

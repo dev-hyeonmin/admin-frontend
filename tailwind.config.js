@@ -7,15 +7,7 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: 'media', // or 'class' or false
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#0064FF',
-        },
-      },
-    },
-  },
+  theme: {},
   variants: {
     extend: {},
   },

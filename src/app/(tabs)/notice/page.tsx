@@ -2,6 +2,7 @@ import db from '@/lib/db';
 import NoticeItem from '@/app/(tabs)/notice/NoticeItem';
 import { getBranchId, deleteSession } from '@/lib/session';
 import Link from 'next/link';
+import PageTitle from '@/components/PageTitle';
 
 const ITEMS_PER_PAGE = 10;
 
@@ -37,11 +38,10 @@ export default async function Notice({ searchParams }: { searchParams: { page?: 
 
   return (
     <div>
-      <div className="py-6">
-        <div className="text-3xl font-medium">Notice</div>
-        <div className="text-sm text-zinc-500">공지사항</div>
-      </div>
+      {/* Title */}
+      <PageTitle title="Notice" subTitle="공지사항" />
 
+      {/* List */}
       <div className="mt-6 flex w-full flex-col">
         {notices.map((notice) => (
           <NoticeItem key={`notice-${notice.id}`} {...notice} />
