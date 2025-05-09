@@ -14,7 +14,7 @@ export default function Layout({
         {/* 공지사항 */}
         <Notification />
 
-        <div className="box-border px-12">
+        <div className="relative box-border px-12 pb-20">
           {/* 내용 */}
           {children}
         </div>

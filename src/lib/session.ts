@@ -85,5 +85,5 @@ export async function getBranchId() {
     return null;
   }
 
-  return branchId;
+  return Number(branchId);
 }
