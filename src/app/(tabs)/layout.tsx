@@ -1,5 +1,5 @@
 import Menu from '@/components/menu';
-import Notification from '@/components/Notification';
+// import Notification from '@/components/Notification';
 
 export default function Layout({
   children,
@@ -12,9 +12,9 @@ export default function Layout({
 
       <div className="">
         {/* 공지사항 */}
-        <Notification />
+        {/*<Notification />*/}
 
-        <div className="relative box-border px-12 pb-20">
+        <div className="relative box-border px-12 pb-32">
           {/* 내용 */}
           {children}
         </div>

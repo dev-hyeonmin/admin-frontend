@@ -12,7 +12,7 @@ export default function Login() {
   const [state, dispatch] = useActionState(handleLogin, initialState);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white">
+    <div className="flex flex-col items-center justify-center bg-white">
       <div className="w-full max-w-sm px-4">
         <div className="mb-12 flex justify-center">
           <div className="flex items-center">
