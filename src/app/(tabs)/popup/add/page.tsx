@@ -4,64 +4,33 @@ import PageTitle from '@/components/PageTitle';
 import Link from 'next/link';
 import { useActionState } from 'react';
 import { handleAddPopup } from '@/app/(tabs)/popup/add/action';
+import FormInput from '@/components/FormInput';
+import FormField from '@/components/FormFiled';
+import FromFileUpload from '@/components/FormFileUpload';
 
 export default function AddPopup() {
   const [state, formAction] = useActionState(handleAddPopup, { errors: {} });
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <PageTitle title="팝업 추가" subTitle="새로운 팝업을 등록합니다" />
+    <div>
+      <PageTitle title="새 팝업 만들기" subTitle="필요한 정보만 간단히 입력해주세요" />
 
       <form action={formAction}>
-        <div className="flex-1 px-12 py-8">
-          <div className="mx-auto max-w-2xl">
-            {/* 제목 입력 영역 */}
-            <div className="mb-8">
-              <label htmlFor="title" className="mb-2 block text-sm font-medium text-gray-700">
-                팝업 제목
-              </label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-                placeholder="팝업 제목을 입력하세요"
-              />
-            </div>
+        <div className="flex flex-col gap-8">
+          {/* 제목 입력 영역 */}
+          <FormField label="팝업 제목" required={true} htmlFor="title">
+            <FormInput
+              type="text"
+              id="title"
+              name="title"
+              placeholder="예: 신규 클리닉 오픈 안내"
+            />
+          </FormField>
 
-            {/* 이미지 업로드 영역 */}
-            <div className="mb-8">
-              <label className="mb-2 block text-sm font-medium text-gray-700">팝업 이미지</label>
-              <div className="flex w-full items-center justify-center">
-                <label
-                  htmlFor="image-upload"
-                  className="flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100"
-                >
-                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg
-                      className="mb-3 h-10 w-10 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                      ></path>
-                    </svg>
-                    <p className="mb-2 text-sm text-gray-500">
-                      <span className="font-semibold">클릭하여 이미지 업로드</span>
-                    </p>
-                    <p className="text-xs text-gray-500">PNG, JPG, GIF (최대 10MB)</p>
-                  </div>
-                  <input id="image-upload" type="file" className="hidden" accept="image/*" />
-                </label>
-              </div>
-            </div>
-          </div>
+          {/* 이미지 업로드 영역 */}
+          <FormField label="팝업 이미지" required={true}>
+            <FromFileUpload />
+          </FormField>
         </div>
 
         {/* 하단 고정 메뉴 */}
