@@ -3,7 +3,7 @@ import PopupItem from '@/app/(tabs)/popup/PopupItem';
 import PopupPreview, { PopupPreviewProvider } from '@/app/(tabs)/popup/PopupPreview';
 import { getPopups } from './actions';
 import Link from 'next/link';
-import { ScanFace, Smile, Sticker } from 'lucide-react';
+import { Smile } from 'lucide-react';
 
 export default async function Popup() {
   const popups = await getPopups();

@@ -2,7 +2,6 @@
 
 import db from '@/lib/db';
 import { getBranchId } from '@/lib/session';
-import { redirect } from 'next/navigation';
 
 export async function getPopups() {
   const branchId = await getBranchId();
