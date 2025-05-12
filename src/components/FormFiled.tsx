@@ -17,7 +17,7 @@ export default function FormField({
       <label htmlFor={rest.htmlFor} className="mb-4 block text-sm font-medium">
         {label}
 
-        {required && <span className="text-red-500 ml-1">*</span>}
+        {required && <span className="ml-1 text-red-500">*</span>}
       </label>
       {children}
     </div>

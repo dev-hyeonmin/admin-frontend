@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
+import { TriangleAlert } from 'lucide-react';
 
 interface FormInputProps extends InputHTMLAttributes<HTMLInputElement> {
   wrapperClassName?: string;
@@ -29,8 +30,11 @@ export default function FormInput({
       />
 
       {errors.map((error, index) => (
-        <span key={index} className="font-medium text-red-500">
-          {error}
+        <span
+          key={index}
+          className="mt-1 flex items-center gap-1 pl-0.5 text-sm font-medium text-red-500"
+        >
+          <TriangleAlert size={14} /> {error}
         </span>
       ))}
     </div>

@@ -3,14 +3,14 @@
 import PageTitle from '@/components/PageTitle';
 import Link from 'next/link';
 import { useActionState } from 'react';
-import { handleAddPopup } from '@/app/(tabs)/popup/add/action';
 import FormInput from '@/components/FormInput';
 import FormField from '@/components/FormFiled';
 import FromFileUpload from '@/components/FormFileUpload';
+import { handleAddPopup } from '@/app/(tabs)/popup/actions';
 
 export default function AddPopup() {
-  const [state, formAction] = useActionState(handleAddPopup, { errors: {} });
-
+  const [state, formAction] = useActionState(handleAddPopup, undefined);
+  console.log(state);
   return (
     <div>
       <PageTitle title="새 팝업 만들기" subTitle="필요한 정보만 간단히 입력해주세요" />
@@ -24,12 +24,18 @@ export default function AddPopup() {
               id="title"
               name="title"
               placeholder="예: 신규 클리닉 오픈 안내"
+              errors={state?.fieldErrors?.title}
             />
           </FormField>
 
           {/* 이미지 업로드 영역 */}
           <FormField label="팝업 이미지" required={true}>
-            <FromFileUpload />
+            <FromFileUpload
+              name="image"
+              description="200KB 이하의 PNG, JPG, JPEG 파일만 가능해요"
+              accept=".png,.jpg,.jpeg"
+              errors={state?.fieldErrors?.image}
+            />
           </FormField>
         </div>
 
