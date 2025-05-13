@@ -1,27 +1,22 @@
 import db from '@/lib/db';
-import NoticeItem from '@/app/(tabs)/notice/NoticeItem';
 import { getBranchId, deleteSession } from '@/lib/session';
 import Link from 'next/link';
 import PageTitle from '@/components/PageTitle';
+import NoticeList from '@/app/(tabs)/notice/NoticeList';
 
 const ITEMS_PER_PAGE = 10;
 
-export default async function Notice({ searchParams }: { searchParams: { page?: string } }) {
-  const branchId = await getBranchId();
-
-  if (!branchId) {
-    return deleteSession();
-  }
-
-  const currentPage = Number(searchParams.page) || 1;
+async function getNotices(branchId: number, currentPage: number) {
   const skip = (currentPage - 1) * ITEMS_PER_PAGE;
 
-  const [notices, totalCount] = await Promise.all([
+  return await Promise.all([
     db.notice.findMany({
       where: { branchId },
       select: {
         id: true,
         title: true,
+        content: true,
+        image_url: true,
         is_pinned: true,
         created_at: true,
       },
@@ -33,8 +28,19 @@ export default async function Notice({ searchParams }: { searchParams: { page?: 
       where: { branchId },
     }),
   ]);
+}
 
+export default async function Notice({ params }: { params: { page?: number } }) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    return deleteSession();
+  }
+
+  const currentPage = params.page || 1;
+  const [notices, totalCount] = await getNotices(branchId, currentPage);
   const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
+  console.log(totalPages);
 
   return (
     <div>
@@ -42,29 +48,19 @@ export default async function Notice({ searchParams }: { searchParams: { page?: 
       <PageTitle title="Notice" subTitle="공지사항" />
 
       {/* List */}
-      <div className="mt-6 flex w-full flex-col">
-        {notices.map((notice) => (
-          <NoticeItem key={`notice-${notice.id}`} {...notice} />
-        ))}
-      </div>
+      <NoticeList notices={notices} />
 
-      <div className="mt-8 flex justify-center gap-2">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <Link
-            key={page}
-            href={`/notice?page=${page}`}
-            className={`flex h-8 w-8 items-center justify-center rounded-md ${
-              currentPage === page
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-          >
-            {page}
-          </Link>
-        ))}
-      </div>
+      {/* TODO Scroll Paging */}
 
-      <Link href="/notice/add">공지사항 추가</Link>
+      {/* 하단 고정 메뉴 */}
+      <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
+        <Link
+          href={'/notice/add'}
+          className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
+        >
+          공지사항 추가
+        </Link>
+      </div>
     </div>
   );
 }

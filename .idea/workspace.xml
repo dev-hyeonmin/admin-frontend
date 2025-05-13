@@ -4,15 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="style: /popup/add">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: update /popup/add action">
+      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormFiled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFiled.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/loading.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/add/action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +72,11 @@
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(tabs)/notice" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/add" />
       <recent name="$PROJECT_DIR$/src/app/(auth)" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)" />
       <recent name="$PROJECT_DIR$/src/app/login" />
-      <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -131,7 +136,7 @@
       <workItem from="1746431814778" duration="4675000" />
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
-      <workItem from="1746847524400" duration="22301000" />
+      <workItem from="1746847524400" duration="32917000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -309,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747007240798</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Chore: update /popup/add action">
+      <option name="closed" value="true" />
+      <created>1747053392480</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747053392480</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +361,7 @@
     <MESSAGE value="Style: Popup" />
     <MESSAGE value="Feat: event create &amp; delete" />
     <MESSAGE value="style: /popup/add" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: /popup/add" />
+    <MESSAGE value="Chore: update /popup/add action" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: update /popup/add action" />
   </component>
 </project>

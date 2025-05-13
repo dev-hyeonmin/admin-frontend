@@ -1,147 +1,83 @@
 'use client';
 
 import FormInput from '@/components/FormInput';
-import FormButton from '@/components/FormButton';
 import { useRouter } from 'next/navigation';
 import { useActionState } from 'react';
-import { handleAddNotice } from '@/app/(tabs)/notice/add/action';
-import { handleEditNotice } from '@/app/(tabs)/notice/[id]/edit/action';
-import { useState } from 'react';
+import FormField from '@/components/FormFiled';
+import FromFileUpload from '@/components/FormFileUpload';
+import PageTitle from '@/components/PageTitle';
+import { handleAddNotice, handleEditNotice } from '@/app/(tabs)/notice/actions';
 
 interface NoticeFormProps {
-  notice?: {
-    id: number;
-    title: string;
-    content: string;
-  };
+  id: number;
+  title: string;
+  content: string;
 }
 
-export default function NoticeForm({ notice }: NoticeFormProps) {
-  const initialState = {
-    title: notice?.title || '',
-    content: notice?.content || '',
-  };
-
+export default function NoticeForm({ id, title, content }: NoticeFormProps) {
   const router = useRouter();
-  const [state, dispatch] = useActionState(
-    notice ? handleEditNotice : handleAddNotice,
-    initialState
-  );
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { files },
-    } = e;
-
-    if (!files) {
-      return;
-    }
-    const file = files[0];
-    const url = URL.createObjectURL(file);
-    setPreviewUrl(url);
-  };
+  const [state, dispatch] = useActionState(id ? handleEditNotice : handleAddNotice, undefined);
 
   return (
     <div>
-      <div className="py-6">
-        <div className="text-3xl font-medium">{notice ? 'Edit Notice' : 'Add Notice'}</div>
-        <div className="text-sm text-zinc-500">{notice ? '공지사항 수정' : '공지사항 추가'}</div>
-      </div>
+      <PageTitle
+        title={id ? '공지사항 수정하기' : '공지사항 추가하기'}
+        subTitle="무엇을 안내할지 적어주세요"
+      />
 
       <form action={dispatch} className="mt-6 space-y-6">
-        {notice && <input type="hidden" name="id" value={notice.id} />}
-        <div>
+        {id && <input type="hidden" name="id" value={id} />}
+
+        <FormField label="제목" required={true} htmlFor="title">
           <FormInput
             name="title"
-            placeholder="제목"
-            defaultValue={state?.title}
-            // errors={state?.error?.title}
-            required
+            placeholder="예: 신규 클리닉 오픈 안내"
+            errors={state?.fieldErrors?.title}
+            defaultValue={state?.data?.title || title}
           />
-        </div>
+        </FormField>
 
-        <div>
+        <FormField label="내용" htmlFor="content">
           <textarea
             name="content"
-            placeholder="내용"
-            defaultValue={state?.content}
-            className="min-h-[300px] w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
+            placeholder="공지사항 내용을 입력해주세요"
+            className="min-h-80 w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            defaultValue={state?.data?.content || content}
           />
-          {/*{state?.error?.content?.map((error: string, index: number) => (*/}
-          {/*  <span key={index} className="font-medium text-red-500">*/}
-          {/*    {error}*/}
-          {/*  </span>*/}
-          {/*))}*/}
-        </div>
+          {state?.fieldErrors?.content?.map((error: string, index: number) => (
+            <span
+              key={index}
+              className="mt-1 flex items-center gap-1 pl-0.5 text-sm font-medium text-red-500"
+            >
+              {error}
+            </span>
+          ))}
+        </FormField>
 
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">이미지 첨부</label>
-          <div className="flex w-full items-center justify-center">
-            <label className="flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100">
-              {previewUrl ? (
-                <div className="relative h-full w-full">
-                  <img
-                    src={previewUrl}
-                    alt="미리보기"
-                    className="h-full w-full rounded-lg object-contain"
-                  />
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPreviewUrl(null);
-                    }}
-                    className="absolute top-2 right-2 rounded-full bg-red-500 p-1 text-white hover:bg-red-600"
-                  >
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              ) : (
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <svg
-                    className="mb-4 h-8 w-8 text-gray-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 16"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                    />
-                  </svg>
-                  <p className="mb-2 text-sm text-gray-500">
-                    <span className="font-semibold">클릭하여 업로드</span> 또는 드래그 앤 드롭
-                  </p>
-                  <p className="text-xs text-gray-500">PNG, JPG, GIF (최대 10MB)</p>
-                </div>
-              )}
-              <input type="file" className="hidden" accept="image/*" onChange={handleImageChange} />
-            </label>
-          </div>
-        </div>
+        <FormField label="이미지 첨부">
+          <FromFileUpload
+            name="image"
+            description="200KB 이하의 PNG, JPG, JPEG 파일만 가능해요"
+            accept=".png,.jpg,.jpeg"
+            errors={state?.fieldErrors?.image}
+          />
+        </FormField>
 
-        {/*{state?.error?.form?.map((error: string, index: number) => (*/}
-        {/*  <span key={index} className="font-medium text-red-500">*/}
-        {/*    {error}*/}
-        {/*  </span>*/}
-        {/*))}*/}
-
-        <div className="flex gap-4">
-          <FormButton type="submit" text="저장" />
-          <FormButton type="button" text="취소" variant="secondary" onClick={() => router.back()} />
+        {/* 하단 고정 메뉴 */}
+        <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className="mr-4 rounded-lg border border-gray-300 bg-white px-8 py-3 text-gray-700 hover:bg-gray-50"
+          >
+            취소
+          </button>
+          <button
+            type="submit"
+            className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
+          >
+            저장
+          </button>
         </div>
       </form>
     </div>

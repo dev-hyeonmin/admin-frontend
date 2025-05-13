@@ -31,5 +31,5 @@ export default async function EditNotice({ params }: { params: { id: string } })
     return notFound();
   }
 
-  return <NoticeForm notice={notice} />;
+  return <NoticeForm id={notice.id} title={notice.title} content={notice.content || ''} />;
 }

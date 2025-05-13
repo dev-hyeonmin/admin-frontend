@@ -4,6 +4,7 @@ import PopupPreview, { PopupPreviewProvider } from '@/app/(tabs)/popup/PopupPrev
 import { getPopups } from './actions';
 import Link from 'next/link';
 import { Smile } from 'lucide-react';
+import { EmptyState } from '@/components/EmptyState';
 
 export default async function Popup() {
   const popups = await getPopups();
@@ -22,13 +23,13 @@ export default async function Popup() {
         <PopupPreview />
       </PopupPreviewProvider>
 
+      {/* 빈 리스트 */}
       {popups.length === 0 && (
-        <div className="flex flex-col items-center justify-center py-16 text-gray-600">
-          <Smile size={64} strokeWidth={1.5} className="mb-6 text-zinc-400" />
-
-          <p className="text-lg font-medium">📄 등록된 팝업이 없어요</p>
-          <p className="mt-2 text-sm">지금 하나 추가해볼까요?</p>
-        </div>
+        <EmptyState
+          icon={Smile}
+          title="📌 등록된 팝업이 없어요"
+          description="지금 하나 추가해볼까요?"
+        />
       )}
 
       {/* 하단 고정 메뉴 */}
