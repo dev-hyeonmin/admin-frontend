@@ -7,16 +7,30 @@ import FormField from '@/components/FormFiled';
 import FromFileUpload from '@/components/FormFileUpload';
 import PageTitle from '@/components/PageTitle';
 import { handleAddNotice, handleEditNotice } from '@/app/(tabs)/notice/actions';
+import { FormEvent } from 'react';
 
 interface NoticeFormProps {
-  id: number;
-  title: string;
-  content: string;
+  id?: number;
+  title?: string;
+  content?: string;
 }
 
 export default function NoticeForm({ id, title, content }: NoticeFormProps) {
   const router = useRouter();
   const [state, dispatch] = useActionState(id ? handleEditNotice : handleAddNotice, undefined);
+
+  // 폼 제출 전 확인 창을 띄우는 함수
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // 확인 창 표시
+    const confirmMessage = id ? '공지사항을 수정하시겠습니까?' : '새 공지사항을 추가하시겠습니까?';
+    if (window.confirm(confirmMessage)) {
+      // 사용자가 확인을 누른 경우에만 폼 제출
+      const formData = new FormData(e.currentTarget);
+      dispatch(formData);
+    }
+  };
 
   return (
     <div>
@@ -25,7 +39,7 @@ export default function NoticeForm({ id, title, content }: NoticeFormProps) {
         subTitle="무엇을 안내할지 적어주세요"
       />
 
-      <form action={dispatch} className="mt-6 space-y-6">
+      <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
         {id && <input type="hidden" name="id" value={id} />}
 
         <FormField label="제목" required={true} htmlFor="title">

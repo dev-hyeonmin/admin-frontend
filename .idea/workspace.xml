@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: update /popup/add action">
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: update notice function">
+      <change afterPath="$PROJECT_DIR$/src/hooks/useModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/loading.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/add/action.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +129,7 @@
       <workItem from="1746431814778" duration="4675000" />
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
-      <workItem from="1746847524400" duration="32917000" />
+      <workItem from="1746847524400" duration="43702000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -322,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747053392480</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Chore: update notice function">
+      <option name="closed" value="true" />
+      <created>1747124858631</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1747124858631</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +363,7 @@
     <MESSAGE value="Feat: event create &amp; delete" />
     <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: update /popup/add action" />
+    <MESSAGE value="Chore: update notice function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: update notice function" />
   </component>
 </project>

@@ -158,7 +158,6 @@ export async function handleEditNotice(prevState: any, formData: FormData) {
 /**
  * Delete
  */
-
 export async function handleDeleteNotice(formData: FormData): Promise<void> {
   const branchId = await getBranchId();
   if (!branchId) {

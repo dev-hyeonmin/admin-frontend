@@ -77,35 +77,34 @@ export default function FromFileUpload({
 
       <label
         htmlFor="image-upload"
-        className={`mt-2 flex size-96 cursor-pointer flex-col items-center justify-center rounded-xl border ${
+        className={`mt-2 flex h-56 w-full cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed ${
           previewUrl
             ? 'border-zinc-300'
-            : `border-dashed ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-zinc-300 bg-gray-50'}`
+            : `${isDragging ? 'border-blue-500 bg-blue-50' : 'border-zinc-300 bg-gray-50'}`
         } relative overflow-hidden hover:bg-gray-100`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        {previewUrl ? (
-          <div className="absolute inset-0">
-            <Image
-              src={previewUrl}
-              alt="미리보기"
-              className="h-full w-full object-cover"
-              width={284}
-              height={284}
-            />
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <CloudUpload size={64} strokeWidth={1} className="mb-8 text-zinc-500" />
+        {/*{previewUrl ? (*/}
+        {/*  <div className="absolute inset-0">*/}
+        {/*    <Image*/}
+        {/*      src={previewUrl}*/}
+        {/*      alt="미리보기"*/}
+        {/*      className="h-full w-full object-cover"*/}
+        {/*      width={284}*/}
+        {/*      height={284}*/}
+        {/*    />*/}
+        {/*  </div>*/}
+        {/*) : (*/}
+        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+          <CloudUpload size={42} strokeWidth={1} className="mb-4 text-zinc-500" />
 
-            <p className="mb-2 text-sm text-gray-500">
-              <span className="font-semibold">드래그하거나 클릭해서 이미지를 추가해보세요</span>
-            </p>
-            <p className="text-xs text-gray-500">{description}</p>
-          </div>
-        )}
+          <p className="mb-2 text-sm text-gray-500">
+            <span className="font-semibold">드래그하거나 클릭해서 이미지를 추가해보세요</span>
+          </p>
+          <p className="text-xs text-gray-500">{description}</p>
+        </div>
 
         <input
           id="image-upload"
