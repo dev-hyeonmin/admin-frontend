@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Branch {
+  id         Int       @id @default(autoincrement())
+  name       String
+  created_at DateTime  @default(now())
+  deleted_at DateTime?
+  // relation
+  users      User[] 
+  popups     Popup[]
+  notices    Notice[]
+  events     EventGroup[]
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  password   String
+  role       Role     @default(USER)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  branchId   Int
+  branch     Branch   @relation(fields: [branchId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Popup {
+  id         Int      @id @default(autoincrement())
+  title      String
+  image_url  String   // 이미지 URL
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  deleted_at DateTime? // 삭제일
+  branchId   Int
+  branch     Branch   @relation(fields: [branchId], references: [id])
+}
+
+model Notice {
+  id         Int      @id @default(autoincrement())
+  title      String
+  content    String?
+  image_url  String?
+  is_pinned  Boolean  @default(false)  // 상단 고정 여부
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  deleted_at DateTime? // 삭제일
+  branchId   Int
+  branch     Branch   @relation(fields: [branchId], references: [id])
+}
+
+model EventGroup {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  image_url   String?
+  /// 이벤트 시작일 (YYYY-MM-DD)
+  start_date  DateTime
+  /// 이벤트 종료일 (YYYY-MM-DD)
+  end_date    DateTime?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  deleted_at  DateTime? // 삭제일
+  branchId    Int
+  branch      Branch   @relation(fields: [branchId], references: [id])
+}
+
+model Event {
+  id                Int      @id @default(autoincrement())
+  title             String
+  description       String?
+  original_price    Int?
+  sale_price        Int
+  created_at  DateTime @default(now())
+  deleted_at  DateTime? // 삭제일
+}

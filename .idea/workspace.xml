@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: add confirm in notice">
-      <change afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: DatePicker">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +125,7 @@
       <workItem from="1746431814778" duration="4675000" />
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
-      <workItem from="1746847524400" duration="50977000" />
+      <workItem from="1746847524400" duration="52490000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -335,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747295145224</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Feat: DatePicker">
+      <option name="closed" value="true" />
+      <created>1747313277229</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1747313277229</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +377,7 @@
     <MESSAGE value="Chore: update /popup/add action" />
     <MESSAGE value="Chore: update notice function" />
     <MESSAGE value="Chore: add confirm in notice" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: add confirm in notice" />
+    <MESSAGE value="Feat: DatePicker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: DatePicker" />
   </component>
 </project>
