@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: update notice function">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useModal.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: add confirm in notice">
+      <change afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +133,7 @@
       <workItem from="1746431814778" duration="4675000" />
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
-      <workItem from="1746847524400" duration="43702000" />
+      <workItem from="1746847524400" duration="50977000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -323,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747124858631</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Chore: add confirm in notice">
+      <option name="closed" value="true" />
+      <created>1747295145224</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747295145224</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,6 +376,7 @@
     <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
     <MESSAGE value="Chore: update notice function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chore: update notice function" />
+    <MESSAGE value="Chore: add confirm in notice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: add confirm in notice" />
   </component>
 </project>

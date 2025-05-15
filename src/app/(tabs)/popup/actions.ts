@@ -69,7 +69,7 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
 
   if (!res) {
     return {
-      result: true,
+      result: false,
       formErrors: ['팝업을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
     };
   }

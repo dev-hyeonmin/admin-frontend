@@ -1,6 +1,6 @@
 'use client';
 
-import { deleteEvent } from './action';
+import { deleteEvent } from './actions';
 import { useRouter } from 'next/navigation';
 
 interface DeleteEventButtonProps {

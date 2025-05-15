@@ -1,110 +1,60 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { createEvent } from '../action';
-import { useActionState, useState } from 'react';
-import Image from 'next/image';
+import { AddEventGroup } from '../actions';
+import { useActionState } from 'react';
+import FormDatePicker from '@/components/FormDatePicker';
+import FormField from '@/components/FormFiled';
+import FormInput from '@/components/FormInput';
+import FromFileUpload from '@/components/FormFileUpload';
+import Link from 'next/link';
 
 export function EventForm() {
   const router = useRouter();
-  const [state, formAction] = useActionState(createEvent, { errors: {} });
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewImage(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const [state, formAction] = useActionState(AddEventGroup, undefined);
 
   return (
     <form action={formAction} className="mt-8 space-y-6">
-      <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-          이벤트 제목
-        </label>
-        <input
+      <FormField label="이벤트 그룹명" required={true} htmlFor="startDate">
+        <FormInput
           type="text"
           id="title"
           name="title"
-          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-          required
+          placeholder="예: 이달의 이벤트"
+          errors={state?.fieldErrors?.title}
         />
-      </div>
+      </FormField>
 
       <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="startDate" className="block text-sm font-medium text-gray-700">
-            시작일
-          </label>
-          <input
-            type="date"
-            id="startDate"
-            name="startDate"
-            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-            required
-          />
-        </div>
+        <FormField label="시작일" required={true} htmlFor="startDate">
+          <FormDatePicker name="startDate" errors={state?.fieldErrors?.startDate} />
+        </FormField>
 
-        <div>
-          <label htmlFor="endDate" className="block text-sm font-medium text-gray-700">
-            종료일
-          </label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-            required
-          />
-        </div>
+        <FormField label="종료일" required={true} htmlFor="startDate">
+          <FormDatePicker name="endDate" errors={state?.fieldErrors?.endDate} />
+        </FormField>
       </div>
 
-      <div>
-        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-          이벤트 이미지
-        </label>
-        <input
-          type="file"
-          id="image"
+      {/* 이미지 업로드 영역 */}
+      <FormField label="이벤트 배너">
+        <FromFileUpload
           name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:rounded-lg file:border-0 file:bg-blue-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
-          required
+          description="200KB 이하의 PNG, JPG, JPEG 파일만 가능해요"
+          accept=".png,.jpg,.jpeg"
+          errors={state?.fieldErrors?.image}
         />
-        {previewImage && (
-          <div className="relative mt-2 h-48 w-full">
-            <Image
-              src={previewImage}
-              alt="이벤트 이미지 미리보기"
-              fill
-              className="object-contain"
-            />
-          </div>
-        )}
-      </div>
+      </FormField>
 
-      {/*{state.error && <div className="text-sm text-red-600">{state.error.message}</div>}*/}
-
-      <div className="flex justify-end space-x-4">
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className="rounded-lg border border-gray-300 px-6 py-2 text-gray-700 hover:bg-gray-50"
+      {/* 하단 고정 메뉴 */}
+      <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
+        <Link
+          href={'/event'}
+          className="mr-4 rounded-lg border border-gray-300 bg-white px-8 py-3 text-gray-700 hover:bg-gray-50"
         >
           취소
-        </button>
-        <button
-          type="submit"
-          // disabled={state.isLoading}
-          className="rounded-lg bg-blue-700 px-6 py-2 text-white hover:bg-blue-600 disabled:opacity-50"
-        >
-          {/*{state.isLoading ? '저장 중...' : '저장'}*/}
+        </Link>
+        <button className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600">
+          이벤트 그룹 생성
         </button>
       </div>
     </form>

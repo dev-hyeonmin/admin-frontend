@@ -1,6 +1,6 @@
 import PageTitle from '@/components/PageTitle';
 import Link from 'next/link';
-import { getEvents } from '@/app/(tabs)/event/action';
+import { getEvents } from '@/app/(tabs)/event/actions';
 import { formatDate } from '@/lib/utils';
 import DeleteEventButton from './DeleteEventButton';
 

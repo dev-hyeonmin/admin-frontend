@@ -1,7 +1,7 @@
 'use server';
 
 import db from '@/lib/db';
-import { getBranchId } from '@/lib/session';
+import { deleteSession, getBranchId } from '@/lib/session';
 import { uploadFile } from '@/lib/upload';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
@@ -40,7 +40,13 @@ const formSchema = z
     title: z.string().min(1, '제목을 입력해주세요'),
     startDate: z.string().min(1, '시작일을 입력해주세요'),
     endDate: z.string().min(1, '종료일을 입력해주세요'),
-    // imageFile: z.instanceof(File).optional(),
+    image: z
+      .instanceof(File)
+      .refine((file) => {
+        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+        return validTypes.includes(file.type);
+      }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
+      .refine((file) => file.size <= 200 * 1024, '이미지 크기는 200KB 이하여야 해요.'),
   })
   .refine(
     (data) => {
@@ -55,73 +61,54 @@ const formSchema = z
     }
   );
 
-type CreateEventState = {
-  errors?: {
-    title?: string[];
-    startDate?: string[];
-    endDate?: string[];
-  };
-  success?: boolean;
-  message?: string;
-};
-
-export async function createEvent(
-  prevState: CreateEventState,
-  formData: FormData
-): Promise<CreateEventState> {
+export async function AddEventGroup(prevState: any, formData: FormData) {
   const branchId = await getBranchId();
 
   if (!branchId) {
-    return {
-      errors: {},
-      success: false,
-      message: '지점 정보를 찾을 수 없습니다.',
-    };
+    await deleteSession();
+    redirect('/');
   }
 
   const data = {
     title: formData.get('title'),
     startDate: formData.get('startDate'),
     endDate: formData.get('endDate'),
-    imageFile: formData.get('imageFile'),
+    image: formData.get('image'),
   };
 
   const validatedSchema = formSchema.safeParse(data);
+
   if (!validatedSchema.success) {
     return {
-      errors: validatedSchema.error.flatten().fieldErrors,
-      success: false,
+      result: false,
+      fieldErrors: validatedSchema.error.flatten().fieldErrors,
     };
   }
 
-  try {
-    await db.eventGroup.create({
-      data: {
-        title: validatedSchema.data.title,
-        image_url: 'imageUrl',
-        start_date: new Date(validatedSchema.data.startDate),
-        end_date: new Date(validatedSchema.data.endDate),
-        branchId,
-      },
-    });
+  const res = await db.eventGroup.create({
+    data: {
+      title: validatedSchema.data.title,
+      image_url: 'imageUrl',
+      start_date: new Date(validatedSchema.data.startDate),
+      end_date: new Date(validatedSchema.data.endDate),
+      branchId,
+    },
+  });
 
-    redirect('/event');
-  } catch (error) {
-    // NEXT_REDIRECT 오류인지 확인
-    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
-      // 리디렉션 오류는 다시 던져서 처리되도록 함
-      throw error;
-    }
-
-    console.error(error);
-
+  if (!res) {
     return {
-      success: false,
-      message: '이벤트 생성 중 오류가 발생했습니다.',
+      result: false,
+      formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
     };
   }
+
+  redirect('/event');
 }
 
+/**
+ * DELETE
+ * @param formData
+ */
 export async function deleteEvent(formData: FormData): Promise<void> {
   const branchId = await getBranchId();
   if (!branchId) {
