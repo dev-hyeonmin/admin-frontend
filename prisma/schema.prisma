@@ -74,6 +74,8 @@ model EventGroup {
   deleted_at  DateTime? // 삭제일
   branchId    Int
   branch      Branch   @relation(fields: [branchId], references: [id])
+  // relation
+  events      Event[]
 }
 
 model Event {
@@ -84,4 +86,6 @@ model Event {
   sale_price        Int
   created_at  DateTime @default(now())
   deleted_at  DateTime? // 삭제일
+  event_group_id    Int
+  event_group     EventGroup   @relation(fields: [event_group_id], references: [id])
 }
