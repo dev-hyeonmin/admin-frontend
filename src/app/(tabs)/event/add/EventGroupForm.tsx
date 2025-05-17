@@ -1,17 +1,33 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { AddEventGroup } from '../actions';
-import { useActionState } from 'react';
+import { ValidateEventGroupFrom } from '../actions';
 import FormDatePicker from '@/components/FormDatePicker';
 import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
 import FromFileUpload from '@/components/FormFileUpload';
 import Link from 'next/link';
+import { useFormStatus } from 'react-dom';
+import { useActionState, useEffect } from 'react';
 
-export function EventForm() {
-  const router = useRouter();
-  const [state, formAction] = useActionState(AddEventGroup, undefined);
+interface EventGroupFormProps {
+  onSubmit: (data: Record<string, FormDataEntryValue | null>) => void;
+}
+
+export function EventGroupForm({ onSubmit }: EventGroupFormProps) {
+  const [state, formAction] = useActionState(ValidateEventGroupFrom, undefined);
+  const { pending } = useFormStatus();
+
+  // form 제출 성공 시 실행될 콜백 함수
+  const handleSuccess = () => {
+    if (!state?.data) return;
+    onSubmit(state.data);
+  };
+
+  useEffect(() => {
+    if (state?.result === true) {
+      handleSuccess();
+    }
+  }, [state]);
 
   return (
     <form action={formAction} className="mt-8 space-y-6">
@@ -27,7 +43,11 @@ export function EventForm() {
 
       <div className="grid grid-cols-2 gap-4">
         <FormField label="시작일" required={true} htmlFor="startDate">
-          <FormDatePicker name="startDate" errors={state?.fieldErrors?.startDate} />
+          <FormDatePicker
+            name="startDate"
+            value={String(state?.data?.startDate)}
+            errors={state?.fieldErrors?.startDate}
+          />
         </FormField>
 
         <FormField label="종료일" required={true} htmlFor="startDate">
@@ -53,8 +73,11 @@ export function EventForm() {
         >
           취소
         </Link>
-        <button className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600">
-          이벤트 그룹 생성
+        <button
+          className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
+          disabled={pending}
+        >
+          {pending ? '처리 중...' : '다음 단계 넘어가기'}
         </button>
       </div>
     </form>

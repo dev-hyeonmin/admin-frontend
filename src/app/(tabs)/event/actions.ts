@@ -34,19 +34,25 @@ export async function getEvents() {
  * CRATE
  * @param prevState
  * @param formData
+ *
  */
-const formSchema = z
+const eventGroupSchema = z
   .object({
     title: z.string().min(1, '제목을 입력해주세요'),
     startDate: z.string().min(1, '시작일을 입력해주세요'),
     endDate: z.string().min(1, '종료일을 입력해주세요'),
     image: z
-      .instanceof(File)
+      .any()
+      .optional()
       .refine((file) => {
+        if (!file || !file.size) return true;
         const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
         return validTypes.includes(file.type);
       }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
-      .refine((file) => file.size <= 200 * 1024, '이미지 크기는 200KB 이하여야 해요.'),
+      .refine((file) => {
+        if (!file || !file.size) return true;
+        return file.size <= 200 * 1024;
+      }, '이미지 크기는 200KB 이하여야 해요.'),
   })
   .refine(
     (data) => {
@@ -61,14 +67,7 @@ const formSchema = z
     }
   );
 
-export async function AddEventGroup(prevState: any, formData: FormData) {
-  const branchId = await getBranchId();
-
-  if (!branchId) {
-    await deleteSession();
-    redirect('/');
-  }
-
+export async function ValidateEventGroupFrom(prevState: any, formData: FormData) {
   const data = {
     title: formData.get('title'),
     startDate: formData.get('startDate'),
@@ -76,7 +75,7 @@ export async function AddEventGroup(prevState: any, formData: FormData) {
     image: formData.get('image'),
   };
 
-  const validatedSchema = formSchema.safeParse(data);
+  const validatedSchema = eventGroupSchema.safeParse(data);
 
   if (!validatedSchema.success) {
     return {
@@ -85,12 +84,63 @@ export async function AddEventGroup(prevState: any, formData: FormData) {
     };
   }
 
+  return {
+    result: true,
+    data: data,
+  };
+}
+
+const eventItemSchema = z.object({
+  title: z.string().min(1, '어떤 이름으로 할까요?'),
+  description: z.string().optional(),
+  originalPrice: z.number().optional(),
+  salePrice: z.number().min(1, '이벤트 가격은 필수 항목이에요.'),
+});
+
+export async function ValidateEventItemFrom(prevState: any, formData: FormData) {
+  const data = {
+    title: formData.get('title'),
+    description: formData.get('description'),
+    originalPrice: formData.get('originalPrice'),
+    salePrice: formData.get('salePrice'),
+  };
+
+  // const validatedSchema = eventItemSchema.safeParse(data);
+  //
+  // if (!validatedSchema.success) {
+  //   return {
+  //     result: false,
+  //     fieldErrors: validatedSchema.error.flatten().fieldErrors,
+  //   };
+  // }
+
+  return {
+    result: true,
+    data: data,
+  };
+}
+
+export async function addEventGroup(formData: Record<string, any>) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    await deleteSession();
+    redirect('/');
+  }
+
+  const data = {
+    title: formData.title,
+    startDate: formData.startDate,
+    endDate: formData.endDate,
+    image: formData.image,
+  };
+
   const res = await db.eventGroup.create({
     data: {
-      title: validatedSchema.data.title,
-      image_url: 'imageUrl',
-      start_date: new Date(validatedSchema.data.startDate),
-      end_date: new Date(validatedSchema.data.endDate),
+      title: data.title,
+      start_date: new Date(data.startDate),
+      end_date: new Date(data.endDate),
+      image_url: '/',
       branchId,
     },
   });

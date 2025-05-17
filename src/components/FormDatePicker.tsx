@@ -6,9 +6,11 @@ import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react';
 interface FormDatePickerProps {
   name: string;
   errors?: string[];
+  onChange?: () => void;
+  value?: string;
 }
 
-const FormDatePicker = ({ name, errors = [] }: FormDatePickerProps) => {
+const FormDatePicker = ({ name, value, errors = [] }: FormDatePickerProps) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
 
   return (
