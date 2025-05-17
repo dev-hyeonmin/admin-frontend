@@ -35,29 +35,17 @@ export default function AddEvent() {
   const handleSubmit = async (data: EventFormData) => {
     setIsSubmitting(true);
 
-    // 1. 데이터 변환
-    const transformedData = Object.entries(data).reduce(
-      (acc, [key, value]) => ({
-        ...acc,
-        [key]: value || null,
-      }),
-      {} as EventFormData
-    );
-
-    // 2. formData에 데이터 추가
     setFormData((prev) => ({
       ...prev,
-      ...transformedData,
+      ...data,
     }));
 
-    // 3-1. 마지막 단계가 아닌 경우 다음 단계로
     if (currentStep !== STEPS.ITEM_FORM) {
       nextStep();
       setIsSubmitting(false);
       return;
     }
 
-    // 3-2. 최종 제출
     const result = await addEventGroup(formData);
 
     if (result?.formErrors) {

@@ -36,60 +36,6 @@ export async function getEvents() {
  * @param formData
  *
  */
-const eventGroupSchema = z
-  .object({
-    title: z.string().min(1, '제목을 입력해주세요'),
-    startDate: z.string().min(1, '시작일을 입력해주세요'),
-    endDate: z.string().min(1, '종료일을 입력해주세요'),
-    image: z
-      .any()
-      .optional()
-      .refine((file) => {
-        if (!file || !file.size) return true;
-        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-        return validTypes.includes(file.type);
-      }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
-      .refine((file) => {
-        if (!file || !file.size) return true;
-        return file.size <= 200 * 1024;
-      }, '이미지 크기는 200KB 이하여야 해요.'),
-  })
-  .refine(
-    (data) => {
-      if (data.startDate && data.endDate) {
-        return new Date(data.startDate) <= new Date(data.endDate);
-      }
-      return true;
-    },
-    {
-      message: '종료일은 시작일보다 이후여야 합니다',
-      path: ['endDate'],
-    }
-  );
-
-export async function ValidateEventGroupFrom(prevState: any, formData: FormData) {
-  const data = {
-    title: formData.get('title'),
-    startDate: formData.get('startDate'),
-    endDate: formData.get('endDate'),
-    image: formData.get('image'),
-  };
-
-  const validatedSchema = eventGroupSchema.safeParse(data);
-
-  if (!validatedSchema.success) {
-    return {
-      result: false,
-      fieldErrors: validatedSchema.error.flatten().fieldErrors,
-    };
-  }
-
-  return {
-    result: true,
-    data: data,
-  };
-}
-
 const eventItemSchema = z.object({
   title: z.string().min(1, '어떤 이름으로 할까요?'),
   description: z.string().optional(),

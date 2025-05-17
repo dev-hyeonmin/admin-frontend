@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: event step01 form">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: event error handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "createevent",
+    "js.last.introduce.type": "CONST",
     "last_opened_file_path": "/Users/hyeonmin/Documents/clinic/admin-frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -351,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747455110215</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Feat: event error handling">
+      <option name="closed" value="true" />
+      <created>1747456491740</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747456491740</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: event form event list" />
     <MESSAGE value="feat: event form event list function" />
     <MESSAGE value="feat: event form event list dnd" />
     <MESSAGE value="refact: event 목록 컴포넌트 분할" />
@@ -406,6 +415,19 @@
     <MESSAGE value="Chore: add confirm in notice" />
     <MESSAGE value="Feat: DatePicker" />
     <MESSAGE value="Feat: event step01 form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: event step01 form" />
+    <MESSAGE value="Feat: event error handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: event error handling" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx</url>
+          <line>50</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
