@@ -9,9 +9,10 @@ import { useActionState, useEffect } from 'react';
 interface EventGroupFormProps {
   onSubmit: (data: Record<string, FormDataEntryValue | null>) => void;
   onCancel: () => void;
+  isSubmitting?: boolean;
 }
 
-export function EventItemForm({ onSubmit, onCancel }: EventGroupFormProps) {
+export function EventItemForm({ onSubmit, onCancel, isSubmitting = false }: EventGroupFormProps) {
   const [state, formAction] = useActionState(ValidateEventItemFrom, undefined);
   const { pending } = useFormStatus();
 
@@ -56,9 +57,9 @@ export function EventItemForm({ onSubmit, onCancel }: EventGroupFormProps) {
         </button>
         <button
           className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
-          disabled={pending}
+          disabled={pending || isSubmitting}
         >
-          {pending ? '처리 중...' : '이벤트 생성하기'}
+          {pending || isSubmitting ? '처리 중...' : '이벤트 생성하기'}
         </button>
       </div>
     </form>

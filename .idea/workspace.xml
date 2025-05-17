@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: DatePicker">
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: event step01 form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
   </component>
@@ -40,26 +43,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "createevent",
+    "last_opened_file_path": "/Users/hyeonmin/Documents/clinic/admin-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.dev (1).executor": "Run",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/event" />
@@ -340,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747313277229</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Feat: event step01 form">
+      <option name="closed" value="true" />
+      <created>1747455110215</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1747455110215</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,14 +362,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="createevent" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: event list &amp; form ver 0.0" />
     <MESSAGE value="feat: event form event list" />
     <MESSAGE value="feat: event form event list function" />
     <MESSAGE value="feat: event form event list dnd" />
@@ -383,6 +405,7 @@
     <MESSAGE value="Chore: update notice function" />
     <MESSAGE value="Chore: add confirm in notice" />
     <MESSAGE value="Feat: DatePicker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: DatePicker" />
+    <MESSAGE value="Feat: event step01 form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: event step01 form" />
   </component>
 </project>

@@ -11,9 +11,10 @@ import { useActionState, useEffect } from 'react';
 
 interface EventGroupFormProps {
   onSubmit: (data: Record<string, FormDataEntryValue | null>) => void;
+  isSubmitting?: boolean;
 }
 
-export function EventGroupForm({ onSubmit }: EventGroupFormProps) {
+export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFormProps) {
   const [state, formAction] = useActionState(ValidateEventGroupFrom, undefined);
   const { pending } = useFormStatus();
 
@@ -75,9 +76,9 @@ export function EventGroupForm({ onSubmit }: EventGroupFormProps) {
         </Link>
         <button
           className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
-          disabled={pending}
+          disabled={pending || isSubmitting}
         >
-          {pending ? '처리 중...' : '다음 단계 넘어가기'}
+          {pending || isSubmitting ? '처리 중...' : '다음 단계 넘어가기'}
         </button>
       </div>
     </form>

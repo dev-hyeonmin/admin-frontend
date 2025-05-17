@@ -135,24 +135,37 @@ export async function addEventGroup(formData: Record<string, any>) {
     image: formData.image,
   };
 
-  const res = await db.eventGroup.create({
-    data: {
-      title: data.title,
-      start_date: new Date(data.startDate),
-      end_date: new Date(data.endDate),
-      image_url: '/',
-      branchId,
-    },
-  });
+  try {
+    const res = await db.eventGroup.create({
+      data: {
+        title: data.title,
+        start_date: new Date(data.startDate),
+        end_date: new Date(data.endDate),
+        image_url: '/',
+        branchId,
+      },
+    });
 
-  if (!res) {
+    if (!res) {
+      return {
+        result: false,
+        formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
+      };
+    }
+
+    redirect('/event');
+  } catch (error) {
+    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+      // 리디렉션 오류는 다시 던져서 처리되도록 함
+      throw error;
+    }
+
+    console.error('이벤트 생성 중 오류가 발생했습니다:', error);
     return {
       result: false,
       formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
     };
   }
-
-  redirect('/event');
 }
 
 /**
