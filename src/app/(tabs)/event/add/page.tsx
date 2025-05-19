@@ -2,18 +2,11 @@
 
 import PageTitle from '@/components/PageTitle';
 import { EventGroupForm } from '@/app/(tabs)/event/add/EventGroupForm';
-import { useState } from 'react';
 import { EventItemForm } from '@/app/(tabs)/event/add/EventItemForm';
 import { addEventGroup } from '@/app/(tabs)/event/actions';
-import { formatDate } from '@/lib/utils';
-
-// 상수 분리
-const STEPS = {
-  GROUP_FORM: 1,
-  ITEM_FORM: 2,
-} as const;
-
-type Step = (typeof STEPS)[keyof typeof STEPS];
+import { useEventForm } from '@/hooks/useEventForm';
+import { STEPS } from '@/constants/event';
+import { EventFormData } from '@/types/event';
 
 // 타입 정의
 export type EventItem = {
@@ -23,62 +16,28 @@ export type EventItem = {
   salePrice?: number;
 };
 
-export type EventFormData = {
-  title?: string;
-  description?: string;
-  imageUrl?: File | null;
-  startDate?: string;
-  endDate?: string;
-  items?: EventItem[];
-};
-
-const initialEventForm: EventFormData = {
-  title: '',
-  description: '',
-  imageUrl: null,
-  startDate: formatDate(new Date(), 'date'),
-  endDate: formatDate(new Date(), 'date'),
-  items: [],
-};
-
 export default function AddEvent() {
-  const [formData, setFormData] = useState<EventFormData>(initialEventForm);
-  const [currentStep, setCurrentStep] = useState<Step>(STEPS.GROUP_FORM);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const nextStep = () => {
-    setCurrentStep((curr) => (curr + 1) as Step);
-  };
-
-  const prevStep = (data: EventFormData) => {
-    updateFormData(data);
-    setCurrentStep((curr) => (curr - 1) as Step);
-  };
-
-  const updateFormData = (data: EventFormData) => {
-    const updatedFormData = {
-      ...formData,
-      ...data,
-    };
-
-    setFormData(updatedFormData);
-
-    return updatedFormData;
-  };
+  const {
+    formData,
+    currentStep,
+    isSubmitting,
+    setIsSubmitting,
+    nextStep,
+    prevStep,
+    updateFormData,
+  } = useEventForm();
 
   const handleSubmit = async (data: EventFormData) => {
-    setIsSubmitting(true); // loading start
+    setIsSubmitting(true);
 
     try {
       const newData = updateFormData(data);
 
-      // IF (STEP 01)
       if (currentStep === STEPS.GROUP_FORM) {
         nextStep();
         return;
       }
 
-      // IF (STEP 02)
       if (!confirm('이벤트를 생성할까요?')) {
         return;
       }

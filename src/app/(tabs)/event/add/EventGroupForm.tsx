@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { z } from 'zod';
 import { formatDate } from '@/lib/utils';
-import { EventFormData } from './page';
+import { EventFormData } from '@/types/event';
 
 // validation
 const eventGroupSchema = z

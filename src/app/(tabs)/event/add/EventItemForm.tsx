@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { CirclePlus, Pencil, Trash2 } from 'lucide-react';
-import { EventFormData, EventItem } from './page';
+import { useState, useCallback } from 'react';
+import { CirclePlus } from 'lucide-react';
+import { EventItem } from './page';
 import { EventItemModal } from './EventItemModal';
+import { EventFormData } from '@/types/event';
+import { EventItemCard } from './EventItemCard';
 
 interface EventItemFormProps {
   formData?: EventItem[];
@@ -22,23 +24,34 @@ export function EventItemForm({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<EventItem | null>(null);
 
-  const handleAddEventItem = (item: EventItem) => {
-    // TODO: 이벤트 아이템 저장 로직 추가
+  const handleAddEventItem = useCallback((item: EventItem) => {
     setEventItemData((prev) => [...prev, item]);
     setIsModalOpen(false);
-  };
+  }, []);
 
-  const handleEditEventItem = (item: EventItem) => {
-    if (editingItem) {
-      setEventItemData((prev) => prev.map((i) => (i === editingItem ? item : i)));
-    }
+  const handleEditEventItem = useCallback((item: EventItem) => {
+    if (!editingItem) return;
+    
+    setEventItemData((prev) => 
+      prev.map((i) => (i === editingItem ? item : i))
+    );
     setEditingItem(null);
     setIsModalOpen(false);
-  };
+  }, [editingItem]);
 
-  const handleDeleteEventItem = (index: number) => {
+  const handleDeleteEventItem = useCallback((index: number) => {
     setEventItemData((prev) => prev.filter((_, i) => i !== index));
-  };
+  }, []);
+
+  const handleOpenEditModal = useCallback((item: EventItem) => {
+    setEditingItem(item);
+    setIsModalOpen(true);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+    setEditingItem(null);
+  }, []);
 
   return (
     <div className="flex flex-col gap-6">
@@ -51,71 +64,24 @@ export function EventItemForm({
         <p className="mt-1 text-xs text-blue-400">클릭해서 이벤트를 만들어보세요</p>
       </div>
 
-      {eventItemData.map((item) => (
-        <div
-          key={`event-${item.title}`}
-          className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all"
-        >
-          <div className="flex items-center justify-between p-6">
-            <div className="flex-1">
-              <div className="flex items-center gap-3">
-                <p className="text-xl font-bold text-gray-900">{item.title}</p>
-                {/*<span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">*/}
-                {/*  할인 이벤트*/}
-                {/*</span>*/}
-              </div>
-              <p className="mt-2 text-gray-600">{item.description}</p>
-            </div>
-
-            <div className="ml-6 flex flex-col items-end">
-              <p className="text-sm text-gray-400 line-through">
-                {item.originalPrice?.toLocaleString() ?? 0}원
-              </p>
-              <p className="text-2xl font-bold text-blue-600">
-                {item.salePrice?.toLocaleString() ?? 0}원
-              </p>
-              <p className="mt-1 text-sm text-gray-500">
-                {item.originalPrice && item.salePrice
-                  ? `${Math.round(((item.originalPrice - item.salePrice) / item.originalPrice) * 100)}% 할인`
-                  : '0% 할인'}
-              </p>
-            </div>
-          </div>
-
-          <div className="absolute top-4 right-4 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-            <button
-              onClick={() => {
-                setEditingItem(item);
-                setIsModalOpen(true);
-              }}
-              className="rounded-lg bg-gray-100 p-2 text-gray-600 hover:bg-gray-200"
-            >
-              <Pencil width={20} height={20} />
-            </button>
-            <button
-              onClick={() => {
-                handleDeleteEventItem(eventItemData.indexOf(item));
-              }}
-              className="rounded-lg bg-red-50 p-2 text-red-600 hover:bg-red-100"
-            >
-              <Trash2 width={20} height={20} />
-            </button>
-          </div>
-        </div>
+      {eventItemData.map((item, index) => (
+        <EventItemCard
+          key={`event-${item.title}-${index}`}
+          item={item}
+          index={index}
+          onEditAction={handleOpenEditModal}
+          onDeleteAction={handleDeleteEventItem}
+        />
       ))}
 
       <EventItemModal
         isOpen={isModalOpen}
-        onCloseAction={() => {
-          setIsModalOpen(false);
-          setEditingItem(null);
-        }}
+        onCloseAction={handleCloseModal}
         onAddAction={handleAddEventItem}
         onEditAction={handleEditEventItem}
         editingItem={editingItem}
       />
 
-      {/* 하단 고정 메뉴 */}
       <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
         <button
           type="button"
