@@ -36,36 +36,6 @@ export async function getEvents() {
  * @param formData
  *
  */
-const eventItemSchema = z.object({
-  title: z.string().min(1, '어떤 이름으로 할까요?'),
-  description: z.string().optional(),
-  originalPrice: z.number().optional(),
-  salePrice: z.number().min(1, '이벤트 가격은 필수 항목이에요.'),
-});
-
-export async function ValidateEventItemFrom(prevState: any, formData: FormData) {
-  const data = {
-    title: formData.get('title'),
-    description: formData.get('description'),
-    originalPrice: formData.get('originalPrice'),
-    salePrice: formData.get('salePrice'),
-  };
-
-  // const validatedSchema = eventItemSchema.safeParse(data);
-  //
-  // if (!validatedSchema.success) {
-  //   return {
-  //     result: false,
-  //     fieldErrors: validatedSchema.error.flatten().fieldErrors,
-  //   };
-  // }
-
-  return {
-    result: true,
-    data: data,
-  };
-}
-
 export async function addEventGroup(formData: Record<string, any>) {
   const branchId = await getBranchId();
 
@@ -79,6 +49,7 @@ export async function addEventGroup(formData: Record<string, any>) {
     startDate: formData.startDate,
     endDate: formData.endDate,
     image: formData.image,
+    items: formData.items || [],
   };
 
   try {
@@ -97,6 +68,19 @@ export async function addEventGroup(formData: Record<string, any>) {
         result: false,
         formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
       };
+    }
+
+    // 이벤트 아이템들 생성
+    if (data.items.length > 0) {
+      await db.event.createMany({
+        data: data.items.map((item: any) => ({
+          title: item.title,
+          description: item.description,
+          original_price: item.originalPrice,
+          sale_price: item.salePrice,
+          event_group_id: res.id,
+        })),
+      });
     }
 
     redirect('/event');

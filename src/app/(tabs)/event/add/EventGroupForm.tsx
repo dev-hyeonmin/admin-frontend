@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { z } from 'zod';
 import { formatDate } from '@/lib/utils';
+import { EventFormData } from './page';
 
 // validation
 const eventGroupSchema = z
@@ -42,26 +43,27 @@ const eventGroupSchema = z
   );
 
 // type
+interface EventGroupFormErrors {
+  title?: string[];
+  startDate?: string[];
+  endDate?: string[];
+  imageUrl?: string[];
+}
+
 interface EventGroupFormProps {
-  onSubmit: (data: Record<string, FormDataEntryValue | null>) => void;
+  formData: EventFormData;
+  onSubmitAction: (data: EventFormData) => void;
   isSubmitting?: boolean;
 }
 
-export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFormProps) {
-  const [errors, setErrors] = useState<{
-    title?: string[];
-    startDate?: string[];
-    endDate?: string[];
-    imageUrl?: string[];
-  }>({});
+export function EventGroupForm({
+  formData,
+  onSubmitAction,
+  isSubmitting = false,
+}: EventGroupFormProps) {
+  const [errors, setErrors] = useState<EventGroupFormErrors>({});
 
-  const [eventGroupForm, setEventGroupForm] = useState({
-    title: '',
-    description: '',
-    imageUrl: null,
-    startDate: formatDate(new Date(), 'date'),
-    endDate: formatDate(new Date(), 'date'),
-  });
+  const [eventGroupForm, setEventGroupForm] = useState<EventFormData>(formData);
 
   const handleInputOnChange = (name: string, value: string | File | null) => {
     setEventGroupForm((prev) => ({ ...prev, [name]: value }));
@@ -75,7 +77,7 @@ export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFor
     }
 
     // go next step!
-    onSubmit(eventGroupForm);
+    onSubmitAction(eventGroupForm);
   };
 
   return (
@@ -86,6 +88,7 @@ export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFor
           id="title"
           name="title"
           placeholder="예: 이달의 이벤트"
+          defaultValue={formData.title}
           onChange={(e) => handleInputOnChange('title', e.target.value)}
           errors={errors.title}
         />
@@ -95,7 +98,7 @@ export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFor
         <FormField label="시작일" required={true} htmlFor="startDate">
           <FormDatePicker
             name="startDate"
-            value={new Date(eventGroupForm.startDate)}
+            value={eventGroupForm.startDate ? new Date(eventGroupForm.startDate) : undefined}
             onChange={(date) => handleInputOnChange('startDate', date && formatDate(date, 'date'))}
             errors={errors.startDate}
           />
@@ -104,7 +107,7 @@ export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFor
         <FormField label="종료일" required={true} htmlFor="startDate">
           <FormDatePicker
             name="endDate"
-            value={new Date(eventGroupForm.endDate)}
+            value={eventGroupForm.endDate ? new Date(eventGroupForm.endDate) : undefined}
             onChange={(date) => handleInputOnChange('endDate', date && formatDate(date, 'date'))}
             errors={errors.endDate}
           />
@@ -117,6 +120,7 @@ export function EventGroupForm({ onSubmit, isSubmitting = false }: EventGroupFor
           name="imageUrl"
           description="200KB 이하의 PNG, JPG, JPEG 파일만 가능해요"
           accept=".png,.jpg,.jpeg"
+          initialFile={formData.imageUrl}
           onChange={(file) => {
             handleInputOnChange('imageUrl', file);
           }}

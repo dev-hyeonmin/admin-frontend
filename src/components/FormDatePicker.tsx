@@ -8,9 +8,16 @@ interface FormDatePickerProps {
   errors?: string[];
   onChange?: (date: Date | null) => void;
   value?: Date;
+  defaultValue?: Date | null;
 }
 
-const FormDatePicker = ({ name, onChange, value, errors = [] }: FormDatePickerProps) => {
+const FormDatePicker = ({
+  name,
+  onChange,
+  value,
+  defaultValue,
+  errors = [],
+}: FormDatePickerProps) => {
   const [startDate, setStartDate] = useState<Date | null>(value || new Date());
 
   const handleDateChange = (date: Date | null) => {

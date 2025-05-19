@@ -21,7 +21,7 @@ export default function FormInput({
   return (
     <div className={wrapperClassName}>
       <input
-        className={`w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none ${className || ''}`}
+        className={`w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${className || ''}`}
         type={type}
         name={name}
         placeholder={rest.placeholder}

@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: event error handling">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Chore: move event validation tasks from server to client">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFileUpload.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormFiled.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormFiled.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormInput.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +63,7 @@
     "npm.dev (1).executor": "Run",
     "npm.dev.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "web-ide.project.structure",
     "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -136,6 +139,7 @@
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
       <workItem from="1746847524400" duration="52490000" />
+      <workItem from="1747460364413" duration="13399000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -361,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747456491740</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Chore: move event validation tasks from server to client">
+      <option name="closed" value="true" />
+      <created>1747460238905</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1747460238905</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +403,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: event form event list function" />
     <MESSAGE value="feat: event form event list dnd" />
     <MESSAGE value="refact: event 목록 컴포넌트 분할" />
     <MESSAGE value="Chore: set up Prettier and clean up" />
@@ -416,18 +427,7 @@
     <MESSAGE value="Feat: DatePicker" />
     <MESSAGE value="Feat: event step01 form" />
     <MESSAGE value="Feat: event error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: event error handling" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx</url>
-          <line>50</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Chore: move event validation tasks from server to client" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chore: move event validation tasks from server to client" />
   </component>
 </project>
