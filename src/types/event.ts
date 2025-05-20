@@ -1,8 +1,8 @@
 export type EventItem = {
   title: string;
   description?: string;
-  originalPrice?: number;
-  salePrice?: number;
+  originalPrice?: number | null;
+  salePrice?: number | null;
 };
 
 export type EventFormData = {
@@ -24,6 +24,6 @@ export type EventGroupFormErrors = {
 export type EventItemFormErrors = {
   title?: string[];
   description?: string[];
-  originalPrice?: string[];
-  salePrice?: string[];
-}; 
+  originalPrice: string[] | null;
+  salePrice: string[] | null;
+};

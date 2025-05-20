@@ -2,9 +2,9 @@
 
 import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
-import { EventItem } from './page';
 import { useState, useEffect } from 'react';
 import { z } from 'zod';
+import { EventItem } from '@/types/event';
 
 // validation
 const eventItemSchema = z.object({
@@ -115,7 +115,7 @@ export function EventItemModal({
             id="originalPrice"
             name="originalPrice"
             placeholder="예: 10000"
-            defaultValue={formData.originalPrice}
+            defaultValue={formData.originalPrice ? formData.originalPrice : undefined}
             onChange={(e) => handleInputOnChange('originalPrice', e.target.value)}
             errors={errors.originalPrice}
           />
@@ -127,7 +127,7 @@ export function EventItemModal({
             id="salePrice"
             name="salePrice"
             placeholder="예: 8000"
-            defaultValue={formData.salePrice}
+            defaultValue={formData.salePrice ? formData.salePrice : undefined}
             onChange={(e) => handleInputOnChange('salePrice', e.target.value)}
             errors={errors.salePrice}
           />

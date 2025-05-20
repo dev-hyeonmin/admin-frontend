@@ -8,14 +8,6 @@ import { useEventForm } from '@/hooks/useEventForm';
 import { STEPS } from '@/constants/event';
 import { EventFormData } from '@/types/event';
 
-// 타입 정의
-export type EventItem = {
-  title: string;
-  description?: string;
-  originalPrice?: number;
-  salePrice?: number;
-};
-
 export default function AddEvent() {
   const {
     formData,
@@ -69,7 +61,7 @@ export default function AddEvent() {
           onSubmitAction={handleSubmit}
           onCancelAction={prevStep}
           isSubmitting={isSubmitting}
-          formData={formData.items}
+          formData={formData?.items}
         />
       )}
     </div>

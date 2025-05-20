@@ -122,3 +122,106 @@ export async function deleteEvent(formData: FormData): Promise<void> {
 
   redirect('/event');
 }
+
+/**
+ * UPDATE
+ * @param formData
+ */
+export async function updateEventGroup(id: number, formData: Record<string, any>) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    await deleteSession();
+    redirect('/');
+  }
+
+  const data = {
+    title: formData.title,
+    startDate: formData.startDate,
+    endDate: formData.endDate,
+    image: formData.image,
+    items: formData.items || [],
+  };
+
+  try {
+    const res = await db.eventGroup.update({
+      where: {
+        id,
+        branchId,
+      },
+      data: {
+        title: data.title,
+        start_date: new Date(data.startDate),
+        end_date: new Date(data.endDate),
+        image_url: '/',
+      },
+    });
+
+    if (!res) {
+      return {
+        result: false,
+        formErrors: ['이벤트 그룹을 수정하지 못했어요. 잠시 후 다시 시도해 주세요.'],
+      };
+    }
+
+    // 기존 이벤트 아이템들 삭제
+    await db.event.deleteMany({
+      where: {
+        event_group_id: id,
+      },
+    });
+
+    // 새로운 이벤트 아이템들 생성
+    if (data.items.length > 0) {
+      await db.event.createMany({
+        data: data.items.map((item: any) => ({
+          title: item.title,
+          description: item.description,
+          original_price: item.originalPrice,
+          sale_price: item.salePrice,
+          event_group_id: res.id,
+        })),
+      });
+    }
+
+    redirect('/event');
+  } catch (error) {
+    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+      throw error;
+    }
+
+    console.error('이벤트 수정 중 오류가 발생했습니다:', error);
+    return {
+      result: false,
+      formErrors: ['이벤트 그룹을 수정하지 못했어요. 잠시 후 다시 시도해 주세요.'],
+    };
+  }
+}
+
+/**
+ * GET
+ * @param id
+ */
+export async function getEventGroup(id: number) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    throw new Error('No branchId');
+  }
+
+  const result = await db.eventGroup.findUnique({
+    where: {
+      id,
+      branchId,
+    },
+    include: {
+      events: true,
+    },
+  });
+
+  if (!result) {
+    throw new Error('Event not found');
+  }
+
+  return result;
+}

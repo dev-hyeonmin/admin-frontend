@@ -13,7 +13,7 @@ const initialEventForm: EventFormData = {
 };
 
 export function useEventForm() {
-  const [formData, setFormData] = useState<EventFormData>(initialEventForm);
+  const [formData, setFormData] = useState<EventFormData>();
   const [currentStep, setCurrentStep] = useState<Step>(STEPS.GROUP_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -45,4 +45,4 @@ export function useEventForm() {
     prevStep,
     updateFormData,
   };
-} 
+}

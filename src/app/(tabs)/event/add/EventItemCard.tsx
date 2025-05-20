@@ -1,7 +1,7 @@
 'use client';
 
 import { Pencil, Trash2 } from 'lucide-react';
-import { EventItem } from './page';
+import { EventItem } from '@/types/event';
 
 interface EventItemCardProps {
   item: EventItem;
@@ -10,7 +10,7 @@ interface EventItemCardProps {
   onDeleteAction: (index: number) => void;
 }
 
-const calculateDiscountPercentage = (originalPrice?: number, salePrice?: number) => {
+const calculateDiscountPercentage = (originalPrice?: number | null, salePrice?: number | null) => {
   if (!originalPrice || !salePrice) return '0% 할인';
   return `${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}% 할인`;
 };
@@ -58,4 +58,4 @@ export function EventItemCard({ item, index, onEditAction, onDeleteAction }: Eve
       </div>
     </div>
   );
-} 
+}

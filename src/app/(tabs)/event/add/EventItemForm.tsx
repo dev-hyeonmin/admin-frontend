@@ -2,9 +2,8 @@
 
 import { useState, useCallback } from 'react';
 import { CirclePlus } from 'lucide-react';
-import { EventItem } from './page';
 import { EventItemModal } from './EventItemModal';
-import { EventFormData } from '@/types/event';
+import { EventFormData, EventItem } from '@/types/event';
 import { EventItemCard } from './EventItemCard';
 
 interface EventItemFormProps {
@@ -12,6 +11,7 @@ interface EventItemFormProps {
   onSubmitAction: (data: EventFormData) => void;
   onCancelAction: (data: EventFormData) => void;
   isSubmitting?: boolean;
+  isEdit?: boolean;
 }
 
 export function EventItemForm({
@@ -19,6 +19,7 @@ export function EventItemForm({
   onSubmitAction,
   onCancelAction,
   isSubmitting = false,
+  isEdit = false,
 }: EventItemFormProps) {
   const [eventItemData, setEventItemData] = useState<EventItem[]>(formData);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,15 +30,16 @@ export function EventItemForm({
     setIsModalOpen(false);
   }, []);
 
-  const handleEditEventItem = useCallback((item: EventItem) => {
-    if (!editingItem) return;
-    
-    setEventItemData((prev) => 
-      prev.map((i) => (i === editingItem ? item : i))
-    );
-    setEditingItem(null);
-    setIsModalOpen(false);
-  }, [editingItem]);
+  const handleEditEventItem = useCallback(
+    (item: EventItem) => {
+      if (!editingItem) return;
+
+      setEventItemData((prev) => prev.map((i) => (i === editingItem ? item : i)));
+      setEditingItem(null);
+      setIsModalOpen(false);
+    },
+    [editingItem]
+  );
 
   const handleDeleteEventItem = useCallback((index: number) => {
     setEventItemData((prev) => prev.filter((_, i) => i !== index));
@@ -96,7 +98,7 @@ export function EventItemForm({
           disabled={isSubmitting}
           onClick={() => onSubmitAction({ items: eventItemData })}
         >
-          {isSubmitting ? '처리 중...' : '이벤트 만들기'}
+          {isSubmitting ? '처리 중...' : isEdit ? '이벤트 수정하기' : '이벤트 만들기'}
         </button>
       </div>
     </div>
