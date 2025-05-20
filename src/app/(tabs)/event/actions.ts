@@ -113,11 +113,22 @@ export async function deleteEvent(formData: FormData): Promise<void> {
     throw new Error('잘못된 요청입니다');
   }
 
-  await db.eventGroup.delete({
-    where: {
-      id,
-      branchId,
-    },
+  // 트랜잭션으로 이벤트 그룹과 연관된 이벤트 상품들을 함께 삭제
+  await db.$transaction(async (tx) => {
+    // 먼저 연관된 이벤트 상품들을 삭제
+    await tx.event.deleteMany({
+      where: {
+        event_group_id: id,
+      },
+    });
+
+    // 그 다음 이벤트 그룹을 삭제
+    await tx.eventGroup.delete({
+      where: {
+        id,
+        branchId,
+      },
+    });
   });
 
   redirect('/event');

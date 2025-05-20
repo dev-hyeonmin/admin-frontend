@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Refactor: add event">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="Feat: edit event">
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useEventForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useEventForm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/event.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +132,7 @@
       <workItem from="1746508393938" duration="4641000" />
       <workItem from="1746771854102" duration="14874000" />
       <workItem from="1746847524400" duration="52490000" />
-      <workItem from="1747460364413" duration="18155000" />
+      <workItem from="1747460364413" duration="18468000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -389,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747661185555</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Feat: edit event">
+      <option name="closed" value="true" />
+      <created>1747743029493</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1747743029493</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +420,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chore: set up Prettier and clean up" />
     <MESSAGE value="Feat: login screen&#10;&#10;form-input, form-button 컴포넌트 분리" />
     <MESSAGE value="Chore: login data validation" />
     <MESSAGE value="Chore: setting prisma" />
@@ -444,6 +444,7 @@
     <MESSAGE value="Chore: move event validation tasks from server to client" />
     <MESSAGE value="Feat: add event" />
     <MESSAGE value="Refactor: add event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor: add event" />
+    <MESSAGE value="Feat: edit event" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: edit event" />
   </component>
 </project>
