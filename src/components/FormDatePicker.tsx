@@ -6,21 +6,36 @@ import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react';
 interface FormDatePickerProps {
   name: string;
   errors?: string[];
+  onChange?: (date: Date | null) => void;
+  value?: Date;
+  defaultValue?: Date | null;
 }
 
-const FormDatePicker = ({ name, errors = [] }: FormDatePickerProps) => {
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+const FormDatePicker = ({
+  name,
+  onChange,
+  value,
+  defaultValue,
+  errors = [],
+}: FormDatePickerProps) => {
+  const [startDate, setStartDate] = useState<Date | null>(value || new Date());
+
+  const handleDateChange = (date: Date | null) => {
+    setStartDate(date);
+    onChange?.(date);
+  };
 
   return (
     <>
       <DatePicker
         selected={startDate}
         dateFormat="yyyy-MM-dd"
-        onChange={(date) => setStartDate(date)}
+        onChange={handleDateChange}
         className="w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"
         calendarClassName="tailwind-datepicker"
         locale={ko}
         name={name}
+        autoComplete="off"
         renderCustomHeader={({
           date,
           decreaseMonth,

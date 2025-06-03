@@ -14,7 +14,7 @@ export default function FormField({
 }: FormFieldProps) {
   return (
     <div className={className}>
-      <label htmlFor={rest.htmlFor} className="mb-4 block text-sm font-medium">
+      <label htmlFor={rest.htmlFor} className="mb-2 block text-sm font-medium">
         {label}
 
         {required && <span className="ml-1 text-red-500">*</span>}

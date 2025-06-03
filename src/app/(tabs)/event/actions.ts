@@ -34,34 +34,9 @@ export async function getEvents() {
  * CRATE
  * @param prevState
  * @param formData
+ *
  */
-const formSchema = z
-  .object({
-    title: z.string().min(1, '제목을 입력해주세요'),
-    startDate: z.string().min(1, '시작일을 입력해주세요'),
-    endDate: z.string().min(1, '종료일을 입력해주세요'),
-    image: z
-      .instanceof(File)
-      .refine((file) => {
-        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-        return validTypes.includes(file.type);
-      }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
-      .refine((file) => file.size <= 200 * 1024, '이미지 크기는 200KB 이하여야 해요.'),
-  })
-  .refine(
-    (data) => {
-      if (data.startDate && data.endDate) {
-        return new Date(data.startDate) <= new Date(data.endDate);
-      }
-      return true;
-    },
-    {
-      message: '종료일은 시작일보다 이후여야 합니다',
-      path: ['endDate'],
-    }
-  );
-
-export async function AddEventGroup(prevState: any, formData: FormData) {
+export async function addEventGroup(formData: Record<string, any>) {
   const branchId = await getBranchId();
 
   if (!branchId) {
@@ -70,39 +45,57 @@ export async function AddEventGroup(prevState: any, formData: FormData) {
   }
 
   const data = {
-    title: formData.get('title'),
-    startDate: formData.get('startDate'),
-    endDate: formData.get('endDate'),
-    image: formData.get('image'),
+    title: formData.title,
+    startDate: formData.startDate,
+    endDate: formData.endDate,
+    image: formData.image,
+    items: formData.items || [],
   };
 
-  const validatedSchema = formSchema.safeParse(data);
+  try {
+    const res = await db.eventGroup.create({
+      data: {
+        title: data.title,
+        start_date: new Date(data.startDate),
+        end_date: new Date(data.endDate),
+        image_url: '/',
+        branchId,
+      },
+    });
 
-  if (!validatedSchema.success) {
-    return {
-      result: false,
-      fieldErrors: validatedSchema.error.flatten().fieldErrors,
-    };
-  }
+    if (!res) {
+      return {
+        result: false,
+        formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
+      };
+    }
 
-  const res = await db.eventGroup.create({
-    data: {
-      title: validatedSchema.data.title,
-      image_url: 'imageUrl',
-      start_date: new Date(validatedSchema.data.startDate),
-      end_date: new Date(validatedSchema.data.endDate),
-      branchId,
-    },
-  });
+    // 이벤트 아이템들 생성
+    if (data.items.length > 0) {
+      await db.event.createMany({
+        data: data.items.map((item: any) => ({
+          title: item.title,
+          description: item.description,
+          original_price: item.originalPrice,
+          sale_price: item.salePrice,
+          event_group_id: res.id,
+        })),
+      });
+    }
 
-  if (!res) {
+    redirect('/event');
+  } catch (error) {
+    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+      // 리디렉션 오류는 다시 던져서 처리되도록 함
+      throw error;
+    }
+
+    console.error('이벤트 생성 중 오류가 발생했습니다:', error);
     return {
       result: false,
       formErrors: ['이벤트 그룹을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
     };
   }
-
-  redirect('/event');
 }
 
 /**
@@ -120,12 +113,126 @@ export async function deleteEvent(formData: FormData): Promise<void> {
     throw new Error('잘못된 요청입니다');
   }
 
-  await db.eventGroup.delete({
+  // 트랜잭션으로 이벤트 그룹과 연관된 이벤트 상품들을 함께 삭제
+  await db.$transaction(async (tx) => {
+    // 먼저 연관된 이벤트 상품들을 삭제
+    await tx.event.deleteMany({
+      where: {
+        event_group_id: id,
+      },
+    });
+
+    // 그 다음 이벤트 그룹을 삭제
+    await tx.eventGroup.delete({
+      where: {
+        id,
+        branchId,
+      },
+    });
+  });
+
+  redirect('/event');
+}
+
+/**
+ * UPDATE
+ * @param formData
+ */
+export async function updateEventGroup(id: number, formData: Record<string, any>) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    await deleteSession();
+    redirect('/');
+  }
+
+  const data = {
+    title: formData.title,
+    startDate: formData.startDate,
+    endDate: formData.endDate,
+    image: formData.image,
+    items: formData.items || [],
+  };
+
+  try {
+    const res = await db.eventGroup.update({
+      where: {
+        id,
+        branchId,
+      },
+      data: {
+        title: data.title,
+        start_date: new Date(data.startDate),
+        end_date: new Date(data.endDate),
+        image_url: '/',
+      },
+    });
+
+    if (!res) {
+      return {
+        result: false,
+        formErrors: ['이벤트 그룹을 수정하지 못했어요. 잠시 후 다시 시도해 주세요.'],
+      };
+    }
+
+    // 기존 이벤트 아이템들 삭제
+    await db.event.deleteMany({
+      where: {
+        event_group_id: id,
+      },
+    });
+
+    // 새로운 이벤트 아이템들 생성
+    if (data.items.length > 0) {
+      await db.event.createMany({
+        data: data.items.map((item: any) => ({
+          title: item.title,
+          description: item.description,
+          original_price: item.originalPrice,
+          sale_price: item.salePrice,
+          event_group_id: res.id,
+        })),
+      });
+    }
+
+    redirect('/event');
+  } catch (error) {
+    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+      throw error;
+    }
+
+    console.error('이벤트 수정 중 오류가 발생했습니다:', error);
+    return {
+      result: false,
+      formErrors: ['이벤트 그룹을 수정하지 못했어요. 잠시 후 다시 시도해 주세요.'],
+    };
+  }
+}
+
+/**
+ * GET
+ * @param id
+ */
+export async function getEventGroup(id: number) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    throw new Error('No branchId');
+  }
+
+  const result = await db.eventGroup.findUnique({
     where: {
       id,
       branchId,
     },
+    include: {
+      events: true,
+    },
   });
 
-  redirect('/event');
+  if (!result) {
+    throw new Error('Event not found');
+  }
+
+  return result;
 }

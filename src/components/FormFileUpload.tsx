@@ -1,22 +1,32 @@
 import { CloudUpload, TriangleAlert } from 'lucide-react';
-import React, { InputHTMLAttributes, useCallback, useState } from 'react';
+import React, { InputHTMLAttributes, useCallback, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-interface FormFileUploadProps extends InputHTMLAttributes<HTMLInputElement> {
+interface FormFileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   name: string;
   description?: string;
   errors?: string[];
+  onChange?: (file: File | null) => void;
+  initialFile?: File | null;
 }
 
 export default function FromFileUpload({
   name,
   description,
   errors = [],
+  onChange,
+  initialFile,
   ...rest
 }: FormFileUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(initialFile || null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (initialFile) {
+      createPreview(initialFile);
+    }
+  }, [initialFile]);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -50,6 +60,9 @@ export default function FromFileUpload({
     if (file) {
       setSelectedFile(file);
       createPreview(file);
+      onChange?.(file);
+    } else {
+      onChange?.(null);
     }
   }, []);
 
