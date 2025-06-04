@@ -5,9 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="refactor: restructure popup components&#10;&#10;- PopupItem.tsx 제거 후 PopupListItem.tsx로 재구성&#10;- popup 관련 컴포넌트들을 _components 폴더로 이동&#10;- PopupList, PopupListItem, PopupPreview 컴포넌트 분리&#10;- PageFooter 컴포넌트 추가">
+      <change afterPath="$PROJECT_DIR$/src/app/(web)/main/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(auth)/login/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(auth)/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/logout/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(auth)/logout/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(auth)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/DeleteEventButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/[id]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/[id]/edit/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/add/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/add/EventItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/add/EventItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/add/EventItemModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/event/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/DeleteNoticeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/DeleteNoticeButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/NoticeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/NoticeItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/NoticeList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/NoticeList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/[id]/edit/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/[id]/edit/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/loading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/notice/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/notice/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/_components/PopupList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/_components/PopupListItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupPreview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/_components/PopupPreview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/(tabs)/popup/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +59,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dev-hyeonmin"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dev-hyeonmin&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dev-hyeonmin/admin-frontend.git",
-    "accountId": "264fcd69-aec1-4a0e-ac68-addb17069d92"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dev-hyeonmin/admin-frontend.git&quot;,
+    &quot;accountId&quot;: &quot;264fcd69-aec1-4a0e-ac68-addb17069d92&quot;
   }
-}]]></component>
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -60,7 +89,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "refactor/popup",
+    "git-widget-placeholder": "main",
     "js.debugger.nextJs.config.created.client": "true",
     "js.last.introduce.type": "CONST",
     "last_opened_file_path": "/Users/a./Documents/hyeonmin/admin-frontend",
@@ -85,11 +114,11 @@
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/admin" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/notice" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/add" />
       <recent name="$PROJECT_DIR$/src/app/(auth)" />
-      <recent name="$PROJECT_DIR$/src/app/(tabs)" />
     </key>
   </component>
   <component name="RunManager">
@@ -153,6 +182,7 @@
       <workItem from="1747460364413" duration="18468000" />
       <workItem from="1749006519295" duration="159000" />
       <workItem from="1749006688219" duration="3775000" />
+      <workItem from="1749021125763" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -435,7 +465,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="refactor/popup" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

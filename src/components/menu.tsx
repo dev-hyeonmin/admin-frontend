@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { handleLogout } from '@/app/(auth)/logout/action';
+import { handleLogout } from '@/app/admin/(auth)/logout/action';
 import { Bell, CircleMinus, Info, PictureInPicture2, Ticket } from 'lucide-react';
 
 const menuItems = [

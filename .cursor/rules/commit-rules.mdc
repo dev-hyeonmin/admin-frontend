@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Commit Message Format
+각 commit message는 header, body, 그리고 footer로 이루어져 있습니다. Header는 type, scope, 그리고 subject로 이루어져 있습니다.
+
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+
+Header는 commit message의 중심이며, <scope> 부분은 선택으로 포함하지 않아도 됩니다.
+각 줄은 100 글자를 넘어선 안됩니다. GitHub을 비롯한 각종 tool에서의 가독성을 높이기 위함입니다.
+
+Revert
+이전 commit으로 revert하는 경우, header를 revert:로 시작해서 어떤 commit을 revert하는지 적어야 합니다. (예: revert: this reverts commit <hash>)
+
+Message Header
+Allowed <type>
+- feat: 새로운 기능
+- fix: 버그 수정
+- docs: 문서화
+- style: formatting, linting 등
+- refactor
+- test: 누락된 test 추가
+- chore: 사소한 것, build 및 패키지 매니저 등 수정
+
+<subject> test
+- <subject>에는 변경사항을 요약하여 적습니다.
+- 반드시 소문자로 시작하는 영문으로 작성합니다.
+- 명령문을 사용합니다. ('change'(O), 'changed'(X), 'changes'(X))
+- 마지막에 마침표를 붙이지 않습니다.
+
+Message Body
+한글 또는 영문으로 적으며, 무엇을 왜 구현했는지를 중심으로 가능한 자세히 설명합니다.
+
+Message Footer
+이전과 호환되지 않는 breaking change가 있을 경우 BREAKING CHANGE:로 시작하는 설명을 적어야 합니다. 또는 이 commit이 해결하는 issue가 있을 경우 Closes #000으로 명시합니다.
+
+Example
+fix(fe): redirect authenticated user from login page to home
+
+이미 로그인한 유저는 Log In 페이지에 접근해선 안된다.
+Vue Router의 navigation guard를 이용해 redirect한다.
+
+Closes #276
+docs: add dev environment setup guide
