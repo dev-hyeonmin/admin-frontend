@@ -7,6 +7,7 @@ import FormInput from '@/components/FormInput';
 import FormField from '@/components/FormFiled';
 import FromFileUpload from '@/components/FormFileUpload';
 import { handleAddPopup } from '@/app/(tabs)/popup/actions';
+import PageFooter from '@/components/PageFooter';
 
 export default function AddPopup() {
   const [state, formAction] = useActionState(handleAddPopup, undefined);
@@ -40,17 +41,15 @@ export default function AddPopup() {
         </div>
 
         {/* 하단 고정 메뉴 */}
-        <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
+        <PageFooter>
           <Link
             href="/popup"
             className="mr-4 rounded-lg border border-gray-300 bg-white px-8 py-3 text-gray-700 hover:bg-gray-50"
           >
             취소
           </Link>
-          <button className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600">
-            저장
-          </button>
-        </div>
+          <button className="primary-button">저장</button>
+        </PageFooter>
       </form>
     </div>
   );

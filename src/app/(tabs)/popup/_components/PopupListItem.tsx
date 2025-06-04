@@ -1,10 +1,10 @@
 'use client';
 
 import { formatDate } from '@/lib/utils';
-import { usePopupPreview } from './PopupPreview';
 import { memo } from 'react';
+import { usePopupPreview } from '@/app/(tabs)/popup/_components/PopupPreview';
 
-interface PopupItemProps {
+interface PopupListItemProps {
   id: number;
   title: string;
   image_url: string;
@@ -16,7 +16,7 @@ const PopupItemView = memo(function PopupItemView({
   title,
   image_url,
   created_at,
-}: PopupItemProps) {
+}: PopupListItemProps) {
   return (
     <div className="flex items-center gap-4">
       <div className="size-24 overflow-hidden rounded bg-gray-300">
@@ -32,7 +32,7 @@ const PopupItemView = memo(function PopupItemView({
 });
 
 // Context를 사용하는 컨테이너 컴포넌트
-export default function PopupItem(props: PopupItemProps) {
+export default function PopupListItem(props: PopupListItemProps) {
   const { setSelectedPopup } = usePopupPreview();
 
   return (

@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@layer components {
+    .primary-button {
+        @apply rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600;
+    }
+}
+
 /* datepicker-custom.css */
 .react-datepicker-popper {
     z-index: 50;

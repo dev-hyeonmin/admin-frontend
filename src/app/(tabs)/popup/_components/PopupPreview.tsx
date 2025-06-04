@@ -16,8 +16,14 @@ interface PopupPreviewContextType {
   setSelectedPopup: (popup: Popup | null) => void;
 }
 
-const PopupPreviewContext = createContext<PopupPreviewContextType | null>(null);
+// Context 객체 생성
+// :: Context 객체를 구독하고 있는 컴포넌트를 렌더링할 때, React는 트리 상위에서 가장 가까이 있는 짝이 맞는 Provider로 부터 현재값을 읽습니다.
+const PopupPreviewContext = createContext<PopupPreviewContextType>({
+  selectedPopup: null,
+  setSelectedPopup: () => {},
+});
 
+// Provider
 export function PopupPreviewProvider({ children }: { children: React.ReactNode }) {
   const [selectedPopup, setSelectedPopup] = useState<Popup | null>(null);
 
@@ -37,8 +43,8 @@ export function usePopupPreview() {
 }
 
 export default function PopupPreview() {
-  const { selectedPopup, setSelectedPopup } = usePopupPreview();
   const router = useRouter();
+  const { selectedPopup, setSelectedPopup } = usePopupPreview();
 
   if (!selectedPopup) return null;
 
