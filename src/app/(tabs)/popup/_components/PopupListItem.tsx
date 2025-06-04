@@ -3,12 +3,14 @@
 import { formatDate } from '@/lib/utils';
 import { memo } from 'react';
 import { usePopupPreview } from '@/app/(tabs)/popup/_components/PopupPreview';
+import { GripVertical } from 'lucide-react';
 
 interface PopupListItemProps {
   id: number;
   title: string;
   image_url: string;
   created_at: Date;
+  isEditMode?: boolean;
 }
 
 // 실제 UI를 렌더링하는 컴포넌트
@@ -16,9 +18,16 @@ const PopupItemView = memo(function PopupItemView({
   title,
   image_url,
   created_at,
+  isEditMode = false,
 }: PopupListItemProps) {
   return (
     <div className="flex items-center gap-4">
+      {isEditMode && (
+        <div className="cursor-grab text-gray-400 hover:text-gray-600">
+          <GripVertical size={20} />
+        </div>
+      )}
+      
       <div className="size-24 overflow-hidden rounded bg-gray-300">
         {/*<img src={image_url} alt={title} className="h-full w-full object-cover" />*/}
       </div>
@@ -37,8 +46,10 @@ export default function PopupListItem(props: PopupListItemProps) {
 
   return (
     <div
-      className="flex cursor-pointer items-center justify-between hover:opacity-80"
-      onClick={() => setSelectedPopup(props)}
+      className={`flex items-center justify-between ${
+        props.isEditMode ? 'cursor-default' : 'cursor-pointer hover:opacity-80'
+      }`}
+      onClick={props.isEditMode ? undefined : () => setSelectedPopup(props)}
     >
       <PopupItemView {...props} />
     </div>

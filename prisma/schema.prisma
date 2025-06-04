@@ -40,6 +40,7 @@ model Popup {
   id         Int      @id @default(autoincrement())
   title      String
   image_url  String   // 이미지 URL
+  order      Int      @default(0) // 팝업 표시 순서
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
   deleted_at DateTime? // 삭제일

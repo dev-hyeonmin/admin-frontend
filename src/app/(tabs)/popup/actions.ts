@@ -21,7 +21,11 @@ export async function getPopups() {
       id: true,
       title: true,
       image_url: true,
+      order: true,
       created_at: true,
+    },
+    orderBy: {
+      order: 'asc',
     },
   });
 }
@@ -49,10 +53,27 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
     redirect('/');
   }
 
+  // 현재 가장 큰 order 값을 찾아서 새 팝업의 order 값을 설정
+  const lastPopup = await db.popup.findFirst({
+    where: {
+      branchId,
+      deleted_at: null,
+    },
+    orderBy: {
+      order: 'desc',
+    },
+    select: {
+      order: true,
+    },
+  });
+
+  const nextOrder = lastPopup ? lastPopup.order + 1 : 0;
+
   const res = await db.popup.create({
     data: {
       title: validatedSchema.data.title,
       image_url: '/',
+      order: nextOrder,
       branchId: Number(branchId),
     },
   });
@@ -88,4 +109,38 @@ export async function deletePopup(id: number) {
       deleted_at: new Date(),
     },
   });
+}
+
+/**
+ * Update popup order
+ */
+export async function updatePopupOrder(popupIds: number[]) {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    return { success: false, message: 'Branch ID not found' };
+  }
+
+  try {
+    // 각 팝업의 순서를 업데이트
+    const updatePromises = popupIds.map((id, index) =>
+      db.popup.update({
+        where: {
+          id,
+          branchId,
+          deleted_at: null,
+        },
+        data: {
+          order: index,
+        },
+      })
+    );
+
+    await Promise.all(updatePromises);
+
+    return { success: true, message: 'Popup order updated successfully' };
+  } catch (error) {
+    console.error('Error updating popup order:', error);
+    return { success: false, message: 'Failed to update popup order' };
+  }
 }
