@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { CirclePlus } from 'lucide-react';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { EventItemModal } from './EventItemModal';
@@ -27,6 +27,10 @@ export function EventItemForm({
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<EventItem | null>(null);
+
+  useEffect(() => {
+    setEventItemData(formData.map((item, index) => ({ ...item, order: item.order ?? index })));
+  }, [formData]);
 
   const handleAddEventItem = useCallback((item: EventItem) => {
     setEventItemData((prev) => [...prev, { ...item, order: prev.length }]);

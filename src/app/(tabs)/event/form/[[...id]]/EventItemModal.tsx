@@ -45,12 +45,16 @@ export function EventItemModal({
 
   // editingItem이 변경될 때마다 formData 업데이트
   useEffect(() => {
-    if (editingItem) {
-      setFormData(editingItem);
-    } else {
-      setFormData({ title: '', salePrice: 0 });
+    if (isOpen) {
+      if (editingItem) {
+        setFormData(editingItem);
+      } else {
+        setFormData({ title: '', salePrice: 0 });
+      }
+      // 에러도 초기화
+      setErrors({});
     }
-  }, [editingItem]);
+  }, [editingItem, isOpen]);
 
   const handleInputOnChange = (name: string, value: string | number | null) => {
     if (name === 'originalPrice' || name === 'salePrice') {
@@ -92,7 +96,7 @@ export function EventItemModal({
             id="title"
             name="title"
             placeholder="예: 여드름 관리 3회 패키지"
-            defaultValue={formData.title}
+            value={formData.title}
             onChange={(e) => handleInputOnChange('title', e.target.value)}
             errors={errors.title}
           />
@@ -104,7 +108,7 @@ export function EventItemModal({
             id="description"
             name="description"
             placeholder="어떤 이벤트인지 소개해 주세요"
-            defaultValue={formData.description || ''}
+            value={formData.description || ''}
             onChange={(e) => handleInputOnChange('description', e.target.value)}
             errors={errors.description}
           />
@@ -116,7 +120,7 @@ export function EventItemModal({
             id="originalPrice"
             name="originalPrice"
             placeholder="예: 10000"
-            defaultValue={formData.originalPrice ? formData.originalPrice : undefined}
+            value={formData.originalPrice ? String(formData.originalPrice) : ''}
             onChange={(e) => handleInputOnChange('originalPrice', e.target.value)}
             errors={errors.originalPrice}
           />
@@ -128,7 +132,7 @@ export function EventItemModal({
             id="salePrice"
             name="salePrice"
             placeholder="예: 8000"
-            defaultValue={formData.salePrice ? formData.salePrice : undefined}
+            value={formData.salePrice ? String(formData.salePrice) : ''}
             onChange={(e) => handleInputOnChange('salePrice', e.target.value)}
             errors={errors.salePrice}
           />

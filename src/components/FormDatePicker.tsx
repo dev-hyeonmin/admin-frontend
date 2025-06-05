@@ -1,5 +1,5 @@
 import { ko } from 'date-fns/locale';
-import React, { useState } from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import { ChevronLeft, ChevronRight, TriangleAlert } from 'lucide-react';
 
@@ -8,27 +8,17 @@ interface FormDatePickerProps {
   errors?: string[];
   onChange?: (date: Date | null) => void;
   value?: Date;
-  defaultValue?: Date | null;
 }
 
-const FormDatePicker = ({
-  name,
-  onChange,
-  value,
-  defaultValue,
-  errors = [],
-}: FormDatePickerProps) => {
-  const [startDate, setStartDate] = useState<Date | null>(value || new Date());
-
+const FormDatePicker = ({ name, onChange, value, errors = [] }: FormDatePickerProps) => {
   const handleDateChange = (date: Date | null) => {
-    setStartDate(date);
     onChange?.(date);
   };
 
   return (
     <>
       <DatePicker
-        selected={startDate}
+        selected={value}
         dateFormat="yyyy-MM-dd"
         onChange={handleDateChange}
         className="w-full rounded-lg border border-gray-200 p-4 text-gray-800 focus:ring-2 focus:ring-blue-500 focus:outline-none"

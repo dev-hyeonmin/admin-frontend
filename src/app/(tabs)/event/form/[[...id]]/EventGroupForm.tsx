@@ -5,7 +5,7 @@ import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
 import FromFileUpload from '@/components/FormFileUpload';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { formatDate } from '@/lib/utils';
 import { EventFormData } from '@/types/event';
@@ -62,7 +62,6 @@ export function EventGroupForm({
   isSubmitting = false,
 }: EventGroupFormProps) {
   const [errors, setErrors] = useState<EventGroupFormErrors>({});
-
   const [eventGroupForm, setEventGroupForm] = useState<EventFormData | undefined>(formData);
 
   const handleInputOnChange = (name: string, value: string | File | null) => {
@@ -84,6 +83,13 @@ export function EventGroupForm({
     onSubmitAction(eventGroupForm);
   };
 
+  // formData가 변경될 때 eventGroupForm을 업데이트
+  useEffect(() => {
+    if (formData) {
+      setEventGroupForm(formData);
+    }
+  }, [formData]);
+
   return (
     <div className="space-y-6">
       <FormField label="이벤트 그룹명" required={true} htmlFor="startDate">
@@ -92,7 +98,7 @@ export function EventGroupForm({
           id="title"
           name="title"
           placeholder="예: 이달의 이벤트"
-          defaultValue={formData?.title}
+          value={eventGroupForm?.title || ''}
           onChange={(e) => handleInputOnChange('title', e.target.value)}
           errors={errors.title}
         />

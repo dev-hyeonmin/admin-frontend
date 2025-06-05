@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용">
-      <change beforePath="$PROJECT_DIR$/.cursor/rules/commit-rules.mdc" beforeDir="false" afterPath="$PROJECT_DIR$/.cursor/rules/commit-rules.mdc" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="style(ui): improve event list component styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/DeleteEventButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/DeleteEventButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventManagementContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventManagementContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useOrderManagementContainer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useOrderManagementContainer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +160,7 @@
       <workItem from="1749021125763" duration="3372000" />
       <workItem from="1749024515614" duration="4943000" />
       <workItem from="1749029581551" duration="1229000" />
-      <workItem from="1749094125671" duration="2519000" />
+      <workItem from="1749094125671" duration="3162000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -475,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749093890310</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="style(ui): improve event list component styling">
+      <option name="closed" value="true" />
+      <created>1749096655567</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1749096655567</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chore: get notices" />
     <MESSAGE value="Style: tailwind Prettier" />
     <MESSAGE value="Feat: edit &amp; delete notice" />
     <MESSAGE value="Style: Layout" />
@@ -530,7 +536,8 @@
     <MESSAGE value="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동" />
     <MESSAGE value="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가" />
     <MESSAGE value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
+    <MESSAGE value="style(ui): improve event list component styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="style(ui): improve event list component styling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
