@@ -86,6 +86,7 @@ model Event {
   description       String?
   original_price    Int?
   sale_price        Int
+  order             Int      @default(0) // 이벤트 아이템 표시 순서
   created_at  DateTime @default(now())
   deleted_at  DateTime? // 삭제일
   event_group_id    Int

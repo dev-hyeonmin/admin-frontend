@@ -77,11 +77,12 @@ export async function addEventGroup(formData: Record<string, any>) {
     // 이벤트 아이템들 생성
     if (data.items.length > 0) {
       await db.event.createMany({
-        data: data.items.map((item: any) => ({
+        data: data.items.map((item: any, index: number) => ({
           title: item.title,
           description: item.description,
           original_price: item.originalPrice,
           sale_price: item.salePrice,
+          order: item.order ?? index,
           event_group_id: res.id,
         })),
       });
@@ -189,11 +190,12 @@ export async function updateEventGroup(id: number, formData: Record<string, any>
     // 새로운 이벤트 아이템들 생성
     if (data.items.length > 0) {
       await db.event.createMany({
-        data: data.items.map((item: any) => ({
+        data: data.items.map((item: any, index: number) => ({
           title: item.title,
           description: item.description,
           original_price: item.originalPrice,
           sale_price: item.salePrice,
+          order: item.order ?? index,
           event_group_id: res.id,
         })),
       });
@@ -230,7 +232,11 @@ export async function getEventGroup(id: number) {
       branchId,
     },
     include: {
-      events: true,
+      events: {
+        orderBy: {
+          order: 'asc',
+        },
+      },
     },
   });
 

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동">
-      <change beforePath="$PROJECT_DIR$/.cursor/rules/nextjs-react-typescript-cursor-rules.mdc" beforeDir="false" afterPath="$PROJECT_DIR$/.cursor/rules/nextjs-react-typescript-cursor-rules.mdc" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/event.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -458,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749090143127</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가">
+      <option name="closed" value="true" />
+      <created>1749091430979</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1749091430979</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chore: layout &amp; menu" />
     <MESSAGE value="Chore: menu" />
     <MESSAGE value="Chore: get notices" />
     <MESSAGE value="Style: tailwind Prettier" />
@@ -513,7 +520,8 @@
     <MESSAGE value="refactor(fe): remove admin folder structure and restore original layout" />
     <MESSAGE value="feat(popup): add popup order management functionality&#10;&#10;팝업 순서 변경 기능을 추가했습니다." />
     <MESSAGE value="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동" />
+    <MESSAGE value="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

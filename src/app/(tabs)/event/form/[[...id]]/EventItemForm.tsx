@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { CirclePlus } from 'lucide-react';
+import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { EventItemModal } from './EventItemModal';
 import { EventFormData, EventItem } from '@/types/event';
 import { EventItemCard } from './EventItemCard';
@@ -21,12 +22,14 @@ export function EventItemForm({
   isSubmitting = false,
   isEdit = false,
 }: EventItemFormProps) {
-  const [eventItemData, setEventItemData] = useState<EventItem[]>(formData);
+  const [eventItemData, setEventItemData] = useState<EventItem[]>(
+    formData.map((item, index) => ({ ...item, order: item.order ?? index }))
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<EventItem | null>(null);
 
   const handleAddEventItem = useCallback((item: EventItem) => {
-    setEventItemData((prev) => [...prev, item]);
+    setEventItemData((prev) => [...prev, { ...item, order: prev.length }]);
     setIsModalOpen(false);
   }, []);
 
@@ -42,7 +45,11 @@ export function EventItemForm({
   );
 
   const handleDeleteEventItem = useCallback((index: number) => {
-    setEventItemData((prev) => prev.filter((_, i) => i !== index));
+    setEventItemData((prev) => 
+      prev
+        .filter((_, i) => i !== index)
+        .map((item, newIndex) => ({ ...item, order: newIndex }))
+    );
   }, []);
 
   const handleOpenEditModal = useCallback((item: EventItem) => {
@@ -55,6 +62,22 @@ export function EventItemForm({
     setEditingItem(null);
   }, []);
 
+  const handleDragEnd = useCallback((result: DropResult) => {
+    if (!result.destination) return;
+
+    const items = Array.from(eventItemData);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    // order 필드 업데이트
+    const reorderedItems = items.map((item, index) => ({
+      ...item,
+      order: index,
+    }));
+
+    setEventItemData(reorderedItems);
+  }, [eventItemData]);
+
   return (
     <div className="flex flex-col gap-6">
       <div
@@ -66,15 +89,39 @@ export function EventItemForm({
         <p className="mt-1 text-xs text-blue-400">클릭해서 이벤트를 만들어보세요</p>
       </div>
 
-      {eventItemData.map((item, index) => (
-        <EventItemCard
-          key={`event-${item.title}-${index}`}
-          item={item}
-          index={index}
-          onEditAction={handleOpenEditModal}
-          onDeleteAction={handleDeleteEventItem}
-        />
-      ))}
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="event-items">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef} className="space-y-4">
+              {eventItemData.map((item, index) => (
+                <Draggable
+                  key={`event-item-${item.title}-${index}`}
+                  draggableId={`event-item-${item.title}-${index}`}
+                  index={index}
+                >
+                  {(provided, snapshot) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <EventItemCard
+                        item={item}
+                        index={index}
+                        onEditAction={handleOpenEditModal}
+                        onDeleteAction={handleDeleteEventItem}
+                        isDragging={snapshot.isDragging}
+                        isEditMode={true}
+                      />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
 
       <EventItemModal
         isOpen={isModalOpen}

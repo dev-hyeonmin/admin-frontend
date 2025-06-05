@@ -1,6 +1,6 @@
 'use client';
 
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Trash2, GripVertical } from 'lucide-react';
 import { EventItem } from '@/types/event';
 
 interface EventItemCardProps {
@@ -8,6 +8,8 @@ interface EventItemCardProps {
   index: number;
   onEditAction: (item: EventItem) => void;
   onDeleteAction: (index: number) => void;
+  isDragging?: boolean;
+  isEditMode?: boolean;
 }
 
 const calculateDiscountPercentage = (originalPrice?: number | null, salePrice?: number | null) => {
@@ -15,13 +17,30 @@ const calculateDiscountPercentage = (originalPrice?: number | null, salePrice?: 
   return `${Math.round(((originalPrice - salePrice) / originalPrice) * 100)}% 할인`;
 };
 
-export function EventItemCard({ item, index, onEditAction, onDeleteAction }: EventItemCardProps) {
+export function EventItemCard({ 
+  item, 
+  index, 
+  onEditAction, 
+  onDeleteAction, 
+  isDragging = false,
+  isEditMode = false 
+}: EventItemCardProps) {
   return (
     <div
       key={`event-${item.title}-${index}`}
-      className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all"
+      className={`group relative flex flex-col overflow-hidden rounded-xl border transition-all ${
+        isDragging
+          ? 'scale-105 rotate-1 border-blue-200 bg-blue-50 shadow-lg'
+          : 'border-gray-200 bg-white'
+      }`}
     >
       <div className="flex items-center justify-between p-6">
+        {isEditMode && (
+          <div className="mr-3 cursor-grab active:cursor-grabbing">
+            <GripVertical className="h-5 w-5 text-gray-400" />
+          </div>
+        )}
+        
         <div className="flex-1">
           <div className="flex items-center gap-3">
             <p className="text-xl font-bold text-gray-900">{item.title}</p>

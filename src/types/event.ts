@@ -20,6 +20,7 @@ export type EventItem = {
   description?: string | null;
   originalPrice?: number | null;
   salePrice: number | null;
+  order?: number;
 };
 
 export type EventFormData = {
