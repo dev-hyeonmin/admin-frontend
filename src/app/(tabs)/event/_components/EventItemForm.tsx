@@ -1,11 +1,13 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { CirclePlus } from 'lucide-react';
-import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext, Draggable, Droppable, DropResult } from '@hello-pangea/dnd';
 import { EventItemModal } from './EventItemModal';
 import { EventFormData, EventItem } from '@/types/event';
 import { EventItemCard } from './EventItemCard';
+import PageFooter from '@/components/PageFooter';
+import FormButton from '@/components/FormButton';
 
 interface EventItemFormProps {
   formData?: EventItem[];
@@ -22,15 +24,11 @@ export function EventItemForm({
   isSubmitting = false,
   isEdit = false,
 }: EventItemFormProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState<EventItem | null>(null);
   const [eventItemData, setEventItemData] = useState<EventItem[]>(
     formData.map((item, index) => ({ ...item, order: item.order ?? index }))
   );
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<EventItem | null>(null);
-
-  useEffect(() => {
-    setEventItemData(formData.map((item, index) => ({ ...item, order: item.order ?? index })));
-  }, [formData]);
 
   const handleAddEventItem = useCallback((item: EventItem) => {
     setEventItemData((prev) => [...prev, { ...item, order: prev.length }]);
@@ -49,10 +47,8 @@ export function EventItemForm({
   );
 
   const handleDeleteEventItem = useCallback((index: number) => {
-    setEventItemData((prev) => 
-      prev
-        .filter((_, i) => i !== index)
-        .map((item, newIndex) => ({ ...item, order: newIndex }))
+    setEventItemData((prev) =>
+      prev.filter((_, i) => i !== index).map((item, newIndex) => ({ ...item, order: newIndex }))
     );
   }, []);
 
@@ -66,21 +62,29 @@ export function EventItemForm({
     setEditingItem(null);
   }, []);
 
-  const handleDragEnd = useCallback((result: DropResult) => {
-    if (!result.destination) return;
+  const handleDragEnd = useCallback(
+    (result: DropResult) => {
+      if (!result.destination) return;
 
-    const items = Array.from(eventItemData);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+      const items = Array.from(eventItemData);
+      const [reorderedItem] = items.splice(result.source.index, 1);
+      items.splice(result.destination.index, 0, reorderedItem);
 
-    // order 필드 업데이트
-    const reorderedItems = items.map((item, index) => ({
-      ...item,
-      order: index,
-    }));
+      // order 필드 업데이트
+      const reorderedItems = items.map((item, index) => ({
+        ...item,
+        order: index,
+      }));
 
-    setEventItemData(reorderedItems);
-  }, [eventItemData]);
+      setEventItemData(reorderedItems);
+    },
+    [eventItemData]
+  );
+
+  // Update the event item when formData changes
+  useEffect(() => {
+    setEventItemData(formData.map((item, index) => ({ ...item, order: item.order ?? index })));
+  }, [formData]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -135,23 +139,20 @@ export function EventItemForm({
         editingItem={editingItem}
       />
 
-      <div className="fixed right-0 bottom-0 left-64 flex justify-end border-t border-gray-200 bg-white px-12 py-4">
-        <button
-          type="button"
+      <PageFooter>
+        <FormButton
+          text="이전 단계"
           onClick={() => onCancelAction({ items: eventItemData })}
-          className="mr-4 rounded-lg border border-gray-300 bg-white px-8 py-3 text-gray-700 hover:bg-gray-50"
-        >
-          이전 단계
-        </button>
-        <button
-          type="button"
-          className="rounded-lg bg-blue-700 px-8 py-3 text-white hover:bg-blue-600"
-          disabled={isSubmitting}
+          variant="secondary"
+          fullWidth={false}
+        />
+
+        <FormButton
+          text={isSubmitting ? '잠시만요🙌' : isEdit ? '이벤트 수정하기' : '이벤트 생성하기'}
           onClick={() => onSubmitAction({ items: eventItemData })}
-        >
-          {isSubmitting ? '처리 중...' : isEdit ? '이벤트 수정하기' : '이벤트 만들기'}
-        </button>
-      </div>
+          fullWidth={false}
+        />
+      </PageFooter>
     </div>
   );
 }

@@ -21,7 +21,8 @@ export default function FormButton({
     'px-8 py-3 font-medium rounded-lg transition-colors cursor-pointer focus:outline-none';
   const variantStyles = {
     primary: 'bg-blue-700 hover:bg-blue-600 text-white',
-    secondary: 'bg-blue-50 hover:bg-blue-100 text-blue-700',
+    secondary:
+      'bg-gray-200 text-gray-700 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed',
     danger: 'bg-red-700 hover:bg-red-600 text-white',
   };
 

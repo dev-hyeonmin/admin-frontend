@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="style(ui): improve event list component styling">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="fix(event): resolve form initialization and state management issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormDatePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/_components/EventItemModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormButton.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +162,7 @@
       <workItem from="1749021125763" duration="3372000" />
       <workItem from="1749024515614" duration="4943000" />
       <workItem from="1749029581551" duration="1229000" />
-      <workItem from="1749094125671" duration="3162000" />
+      <workItem from="1749094125671" duration="7644000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -482,7 +484,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749096655567</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="fix(event): resolve form initialization and state management issues">
+      <option name="closed" value="true" />
+      <created>1749097742363</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1749097742363</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Style: tailwind Prettier" />
     <MESSAGE value="Feat: edit &amp; delete notice" />
     <MESSAGE value="Style: Layout" />
     <MESSAGE value="Feat: popup add &amp; delete" />
@@ -537,7 +546,8 @@
     <MESSAGE value="feat(event): add order field to event groups for display ordering&#10;&#10;- EventGroup 테이블에 order 필드 추가 (기본값: 0)&#10;- EventGroup 타입 정의 추가" />
     <MESSAGE value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
     <MESSAGE value="style(ui): improve event list component styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="style(ui): improve event list component styling" />
+    <MESSAGE value="fix(event): resolve form initialization and state management issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(event): resolve form initialization and state management issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,6 +555,12 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupManagementContainer.tsx</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/(tabs)/event/_components/EventGroupForm.tsx</url>
+          <line>13</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

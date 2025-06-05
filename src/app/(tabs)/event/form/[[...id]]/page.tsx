@@ -1,8 +1,8 @@
 'use client';
 
 import PageTitle from '@/components/PageTitle';
-import { EventGroupForm } from '@/app/(tabs)/event/form/[[...id]]/EventGroupForm';
-import { EventItemForm } from '@/app/(tabs)/event/form/[[...id]]/EventItemForm';
+import { EventGroupForm } from '@/app/(tabs)/event/_components/EventGroupForm';
+import { EventItemForm } from '@/app/(tabs)/event/_components/EventItemForm';
 import { addEventGroup, getEventGroup, updateEventGroup } from '@/app/(tabs)/event/actions';
 import { EventFormData, Step, STEPS } from '@/types/event';
 import { useMultiStepForm } from '@/hooks/useMultiStepForm';
