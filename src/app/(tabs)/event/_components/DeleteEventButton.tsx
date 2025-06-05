@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { deleteEvent } from './actions';
+import { deleteEvent } from '../actions';
 import { useRouter } from 'next/navigation';
-import { Trash2 } from 'lucide-react';
 
 interface DeleteEventButtonProps {
   id: number;

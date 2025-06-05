@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { DropResult } from '@hello-pangea/dnd';
 
 // 제네릭 인터페이스 정의
 interface OrderableItem {
@@ -21,6 +22,7 @@ interface UseOrderManagementReturn<T> {
   handleCancelEdit: () => void;
   handleItemsReorder: (reorderedItems: T[]) => void;
   handleStartEdit: () => void;
+  handleDragEnd: (result: DropResult) => void;
 }
 
 /**
@@ -83,6 +85,16 @@ export function useOrderManagement<T extends OrderableItem>({
     setCurrentItems(reorderedItems);
   };
 
+  const handleDragEnd = (result: DropResult) => {
+    if (!result.destination || !isEditMode) return;
+
+    const items = Array.from(currentItems);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setCurrentItems(items);
+  };
+
   const handleStartEdit = () => {
     setIsEditMode(true);
   };
@@ -96,5 +108,6 @@ export function useOrderManagement<T extends OrderableItem>({
     handleCancelEdit,
     handleItemsReorder,
     handleStartEdit,
+    handleDragEnd,
   };
 }
