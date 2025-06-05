@@ -6,10 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat(popup): add popup order management functionality&#10;&#10;팝업 순서 변경 기능을 추가했습니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/_components/PopupList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageFooter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/[id]/edit/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/event.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useEventForm.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/event.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,40 +65,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.last.introduce.type": "CONST",
+    "last_opened_file_path": "/Users/a./Documents/hyeonmin/admin-frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "npm.dev (1).executor": "Run",
+    "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "ts.external.directory.path": "/Users/a./Documents/hyeonmin/admin-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/event" />
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/(tabs)/event/form/[[id]]" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/admin" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/notice" />
-      <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/add" />
     </key>
   </component>
   <component name="RunManager">

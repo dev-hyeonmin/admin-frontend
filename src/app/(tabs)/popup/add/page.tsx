@@ -11,7 +11,7 @@ import PageFooter from '@/components/PageFooter';
 
 export default function AddPopup() {
   const [state, formAction] = useActionState(handleAddPopup, undefined);
-  console.log(state);
+
   return (
     <div>
       <PageTitle title="새 팝업 만들기" subTitle="필요한 정보만 간단히 입력해주세요" />

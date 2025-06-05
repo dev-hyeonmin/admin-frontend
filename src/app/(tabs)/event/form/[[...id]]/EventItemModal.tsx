@@ -2,7 +2,7 @@
 
 import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { EventItem } from '@/types/event';
 
@@ -40,6 +40,7 @@ export function EventItemModal({
   const [errors, setErrors] = useState<EventItemFormErrors>({});
   const [formData, setFormData] = useState<EventItem>({
     title: '',
+    salePrice: 0,
   });
 
   // editingItem이 변경될 때마다 formData 업데이트
@@ -47,7 +48,7 @@ export function EventItemModal({
     if (editingItem) {
       setFormData(editingItem);
     } else {
-      setFormData({ title: '' });
+      setFormData({ title: '', salePrice: 0 });
     }
   }, [editingItem]);
 
@@ -103,7 +104,7 @@ export function EventItemModal({
             id="description"
             name="description"
             placeholder="어떤 이벤트인지 소개해 주세요"
-            defaultValue={formData.description}
+            defaultValue={formData.description || ''}
             onChange={(e) => handleInputOnChange('description', e.target.value)}
             errors={errors.description}
           />
