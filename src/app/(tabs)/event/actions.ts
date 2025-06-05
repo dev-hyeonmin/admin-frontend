@@ -23,7 +23,11 @@ export async function getEvents() {
       image_url: true,
       start_date: true,
       end_date: true,
+      order: true,
       created_at: true,
+    },
+    orderBy: {
+      order: 'asc',
     },
   });
 
@@ -235,4 +239,38 @@ export async function getEventGroup(id: number) {
   }
 
   return result;
+}
+
+/**
+ * UPDATE EVENT ORDER
+ * @param eventIds
+ */
+export async function updateEventOrder(eventIds: number[]): Promise<{ success: boolean }> {
+  const branchId = await getBranchId();
+
+  if (!branchId) {
+    throw new Error('No branchId');
+  }
+
+  try {
+    // 트랜잭션으로 순서 업데이트
+    await db.$transaction(async (tx) => {
+      for (let i = 0; i < eventIds.length; i++) {
+        await tx.eventGroup.update({
+          where: {
+            id: eventIds[i],
+            branchId,
+          },
+          data: {
+            order: i + 1,
+          },
+        });
+      }
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('이벤트 순서 업데이트 중 오류가 발생했습니다:', error);
+    return { success: false };
+  }
 }

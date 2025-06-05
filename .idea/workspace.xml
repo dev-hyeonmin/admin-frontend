@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat(popup): add popup order management functionality&#10;&#10;팝업 순서 변경 기능을 추가했습니다.">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동">
+      <change beforePath="$PROJECT_DIR$/.cursor/rules/nextjs-react-typescript-cursor-rules.mdc" beforeDir="false" afterPath="$PROJECT_DIR$/.cursor/rules/nextjs-react-typescript-cursor-rules.mdc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/[id]/edit/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventGroupForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventGroupForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/EventItemModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/EventItemModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/form/[[...id]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/event/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/add/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/event.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useEventForm.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/event.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -456,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749025077152</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동">
+      <option name="closed" value="true" />
+      <created>1749090143127</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1749090143127</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +488,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chore: set middleware" />
     <MESSAGE value="Chore: layout &amp; menu" />
     <MESSAGE value="Chore: menu" />
     <MESSAGE value="Chore: get notices" />
@@ -511,7 +512,8 @@
     <MESSAGE value="refactor: restructure admin routes and add main web page&#10;&#10;- 기존 admin 관련 route들을 /admin 경로 하위로 이동&#10;- 새로운 메인 웹 페이지 추가 (/main)&#10;- 관리자와 일반 사용자 영역을 명확히 분리하여 프로젝트 구조 개선" />
     <MESSAGE value="refactor(fe): remove admin folder structure and restore original layout" />
     <MESSAGE value="feat(popup): add popup order management functionality&#10;&#10;팝업 순서 변경 기능을 추가했습니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(popup): add popup order management functionality&#10;&#10;팝업 순서 변경 기능을 추가했습니다." />
+    <MESSAGE value="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: unify event add/edit forms with dynamic routing&#10;&#10;- add/에서 form/[[...id]]/로 컴포넌트 이동" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,6 +5,16 @@ export const STEPS = {
 
 export type Step = (typeof STEPS)[keyof typeof STEPS];
 
+export type EventGroup = {
+  id: number;
+  title: string;
+  image_url?: string | null;
+  start_date: Date;
+  end_date?: Date | null;
+  order: number;
+  created_at: Date;
+};
+
 export type EventItem = {
   title: string;
   description?: string | null;

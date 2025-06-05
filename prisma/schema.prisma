@@ -70,6 +70,7 @@ model EventGroup {
   start_date  DateTime
   /// 이벤트 종료일 (YYYY-MM-DD)
   end_date    DateTime?
+  order       Int      @default(0) // 이벤트 표시 순서
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   deleted_at  DateTime? // 삭제일

@@ -46,4 +46,9 @@ alwaysApply: false
     - Avoid for data fetching or state management.
   
   Follow Next.js docs for Data Fetching, Rendering, and Routing.
+
+
+  리팩토링 시,
+  로직이 공통으로 분리되어 사용하기 좋은 부분이 있다면 hook으로 분리해주세요.
+  hook 명칭과 역할이 통일 되어야합니다. (이름을 보았을때 역할이 예상범위에 있어야함)
   
