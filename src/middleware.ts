@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { decrypt, getSession } from '@/lib/session';
 
 // 1. 보호된 경로와 공개 경로 지정
-const protectedRoutes = ['/popup'];
+const protectedRoutes = ['/popup', '/event', '/notice'];
 const publicRoutes = ['/login', '/signup', '/'];
 
 export default async function middleware(req: NextRequest) {
