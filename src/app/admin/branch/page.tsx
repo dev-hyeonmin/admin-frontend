@@ -1,23 +1,18 @@
-// 'use server'
-
-import db from '@/lib/db';
-
-const getBranches = async () => {
-  return db.branch.findMany({
-    orderBy: {
-      name: 'asc',
-    },
-  });
-};
+import PageTitle from '@/components/PageTitle';
+import PageFooter from '@/components/PageFooter';
+import Link from 'next/link';
+import BranchList from './_components/BranchList';
 
 export default async function BranchPage() {
-  const branches = await getBranches();
-
   return (
-    <>
-      {branches.map((branch) => (
-        <div key={`branch${branch.id}`}>{branch.name}</div>
-      ))}
-    </>
+    <div>
+      <PageTitle title="" subTitle="" />
+      <BranchList />
+      <PageFooter>
+        <Link href={'/branch/form'} className="primary-button">
+          지점 추가
+        </Link>
+      </PageFooter>
+    </div>
   );
 }

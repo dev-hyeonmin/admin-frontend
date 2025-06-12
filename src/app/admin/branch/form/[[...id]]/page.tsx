@@ -6,7 +6,7 @@ import FormInput from '@/components/FormInput';
 import { useActionState } from 'react';
 import PageFooter from '@/components/PageFooter';
 import FormButton from '@/components/FormButton';
-import { addBranch } from '@/app/admin/branch/form/action';
+import { addBranch } from '@/app/admin/branch/action';
 
 export default function BranchFormPage() {
   const [state, action, isPending] = useActionState(addBranch, null);
