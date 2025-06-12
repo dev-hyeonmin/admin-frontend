@@ -3,6 +3,7 @@
 import { redirect } from 'next/navigation';
 import db from '@/lib/db';
 import { z } from 'zod';
+import { v4 as uuidv4 } from 'uuid';
 
 // validation
 const formSchema = z.object({
@@ -34,6 +35,7 @@ export async function addBranch(prevState: any, formData: FormData) {
   const res = await db.branch.create({
     data: {
       name: validatedSchema.data.name,
+      uuid: uuidv4(),
     },
   });
 

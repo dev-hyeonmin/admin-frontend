@@ -2,10 +2,17 @@ import { PrismaClient } from '@prisma/client';
 
 const db = new PrismaClient();
 
-// import bcrypt from 'bcrypt';
+// import { v4 as uuidv4 } from 'uuid';
 // const hashedPassword = await bcrypt.hash('00000000', 10);
 // const data = async () => {
-//   const result = await db.user.create({
+//   await db.branch.create({
+//     data: {
+//       name: 'ADMIN',
+//       uuid: uuidv4(),
+//     },
+//   });
+//
+//   await db.user.create({
 //     data: {
 //       email: 'admin@gmail.com',
 //       name: '관리자',
@@ -15,5 +22,6 @@ const db = new PrismaClient();
 //     },
 //   });
 // };
+// data();
 
 export default db;
