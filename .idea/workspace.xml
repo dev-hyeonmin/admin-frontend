@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="fix(event): resolve form initialization and state management issues">
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/form/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/web/init" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,7 +61,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/branch",
     "js.debugger.nextJs.config.created.client": "true",
     "js.last.introduce.type": "CONST",
     "last_opened_file_path": "/Users/a./Documents/hyeonmin/admin-frontend",
@@ -79,7 +76,7 @@
     "npm.dev.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier",
     "settings.editor.selected.configurable": "preferences.toDoOptions",
-    "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/a./Documents/hyeonmin/admin-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -509,7 +506,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="feat/branch" />
                       </list>
                     </value>
                   </entry>
@@ -522,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: edit &amp; delete notice" />
     <MESSAGE value="Style: Layout" />
     <MESSAGE value="Feat: popup add &amp; delete" />
     <MESSAGE value="Style: Popup" />
@@ -547,7 +543,8 @@
     <MESSAGE value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
     <MESSAGE value="style(ui): improve event list component styling" />
     <MESSAGE value="fix(event): resolve form initialization and state management issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(event): resolve form initialization and state management issues" />
+    <MESSAGE value="feat: add user form" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add user form" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
