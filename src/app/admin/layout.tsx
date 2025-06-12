@@ -1,4 +1,3 @@
-import Menu from '@/components/menu';
 // import Notification from '@/components/Notification';
 
 export default function Layout({
@@ -8,7 +7,7 @@ export default function Layout({
 }>) {
   return (
     <div className="pl-64">
-      <Menu />
+      {/*<Menu />*/}
 
       <div className="">
         <div className="relative box-border px-12 pb-32">

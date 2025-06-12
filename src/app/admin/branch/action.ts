@@ -12,12 +12,28 @@ const formSchema = z.object({
 
 export type BranchForm = z.infer<typeof formSchema>;
 
+export async function getBranch(id: number) {
+  const branch = await db.branch.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+
+  if (!branch) {
+    return null;
+  }
+
+  return branch;
+}
+
 /**
- * create
+ * create & update
  * @param prevState
  * @param formData
  */
-export async function addBranch(prevState: any, formData: FormData) {
+export async function upsertBranch(prevState: any, formData: FormData) {
   const data = {
     name: formData.get('name'),
   };
@@ -32,12 +48,16 @@ export async function addBranch(prevState: any, formData: FormData) {
     };
   }
 
-  const res = await db.branch.create({
-    data: {
-      name: validatedSchema.data.name,
-      uuid: uuidv4(),
-    },
-  });
+  const validatedName = validatedSchema.data.name;
+  let res;
+
+  if (formData.get('id')) {
+    // update
+    res = await updateBranch(Number(formData.get('id')), validatedName);
+  } else {
+    // add
+    res = await addBranch(validatedName);
+  }
 
   if (!res) {
     return {
@@ -47,4 +67,24 @@ export async function addBranch(prevState: any, formData: FormData) {
   }
 
   redirect('/branch');
+}
+
+export async function addBranch(name: string) {
+  return db.branch.create({
+    data: {
+      name: name,
+      uuid: uuidv4(),
+    },
+  });
+}
+
+export async function updateBranch(id: number, name: string) {
+  return db.branch.update({
+    data: {
+      name: name,
+    },
+    where: {
+      id,
+    },
+  });
 }

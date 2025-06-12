@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: install uuid">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add uuid on branch table">
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +166,7 @@
       <workItem from="1749094125671" duration="7644000" />
       <workItem from="1749707947801" duration="37000" />
       <workItem from="1749708116551" duration="2418000" />
+      <workItem from="1749718345073" duration="3342000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
