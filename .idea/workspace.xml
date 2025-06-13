@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="fix(event): resolve form initialization and state management issues">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add update branch feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/web/init" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,40 +58,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.last.introduce.type": "CONST",
-    "last_opened_file_path": "/Users/a./Documents/hyeonmin/admin-frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.dev (1).executor": "Run",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.toDoOptions",
-    "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/branch&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/src/app/admin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/admin" />
       <recent name="$PROJECT_DIR$/src/pages/event" />
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/admin/branch" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/form/[[id]]" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/admin" />
-      <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/_components" />
     </key>
   </component>
   <component name="RunManager">
@@ -119,7 +118,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -163,6 +162,10 @@
       <workItem from="1749024515614" duration="4943000" />
       <workItem from="1749029581551" duration="1229000" />
       <workItem from="1749094125671" duration="7644000" />
+      <workItem from="1749707947801" duration="37000" />
+      <workItem from="1749708116551" duration="2418000" />
+      <workItem from="1749718345073" duration="5287000" />
+      <workItem from="1749780664786" duration="1299000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -492,7 +495,47 @@
       <option name="project" value="LOCAL" />
       <updated>1749097742363</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="feat(branch): crate">
+      <option name="closed" value="true" />
+      <created>1749700399357</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1749700399357</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat: get members">
+      <option name="closed" value="true" />
+      <created>1749701090390</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1749701090390</updated>
+    </task>
+    <task id="LOCAL-00044" summary="refactor: branch list">
+      <option name="closed" value="true" />
+      <created>1749709725571</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749709725571</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: install uuid">
+      <option name="closed" value="true" />
+      <created>1749709742608</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1749709742608</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat: add update branch feature">
+      <option name="closed" value="true" />
+      <created>1749721732131</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1749721732131</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +552,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="feat/branch" />
                       </list>
                     </value>
                   </entry>
@@ -522,12 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feat: edit &amp; delete notice" />
-    <MESSAGE value="Style: Layout" />
-    <MESSAGE value="Feat: popup add &amp; delete" />
-    <MESSAGE value="Style: Popup" />
-    <MESSAGE value="Feat: event create &amp; delete" />
-    <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
     <MESSAGE value="Chore: update notice function" />
     <MESSAGE value="Chore: add confirm in notice" />
@@ -547,7 +584,13 @@
     <MESSAGE value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
     <MESSAGE value="style(ui): improve event list component styling" />
     <MESSAGE value="fix(event): resolve form initialization and state management issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(event): resolve form initialization and state management issues" />
+    <MESSAGE value="feat: add user form" />
+    <MESSAGE value="feat(branch): crate" />
+    <MESSAGE value="feat: get members" />
+    <MESSAGE value="refactor: branch list" />
+    <MESSAGE value="feat: install uuid" />
+    <MESSAGE value="feat: add update branch feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add update branch feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
