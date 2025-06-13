@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add uuid on branch table">
-      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add update branch feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/loading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +164,8 @@
       <workItem from="1749094125671" duration="7644000" />
       <workItem from="1749707947801" duration="37000" />
       <workItem from="1749708116551" duration="2418000" />
-      <workItem from="1749718345073" duration="3342000" />
+      <workItem from="1749718345073" duration="5287000" />
+      <workItem from="1749780664786" duration="1299000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -528,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749709742608</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="feat: add update branch feature">
+      <option name="closed" value="true" />
+      <created>1749721732131</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1749721732131</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
     <MESSAGE value="Chore: update notice function" />
     <MESSAGE value="Chore: add confirm in notice" />
@@ -583,7 +589,8 @@
     <MESSAGE value="feat: get members" />
     <MESSAGE value="refactor: branch list" />
     <MESSAGE value="feat: install uuid" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: install uuid" />
+    <MESSAGE value="feat: add update branch feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add update branch feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

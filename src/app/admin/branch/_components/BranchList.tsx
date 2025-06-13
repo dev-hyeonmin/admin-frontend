@@ -4,6 +4,9 @@ import BranchItem from '@/app/admin/branch/_components/BranchItem';
 
 const getBranches = async () => {
   return db.branch.findMany({
+    where: {
+      deleted_at: null,
+    },
     orderBy: {
       name: 'asc',
     },

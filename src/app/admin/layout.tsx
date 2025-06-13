@@ -1,5 +1,7 @@
 // import Notification from '@/components/Notification';
 
+import Menu from '@/components/menu';
+
 export default function Layout({
   children,
 }: Readonly<{
@@ -7,7 +9,7 @@ export default function Layout({
 }>) {
   return (
     <div className="pl-64">
-      {/*<Menu />*/}
+      <Menu />
 
       <div className="">
         <div className="relative box-border px-12 pb-32">

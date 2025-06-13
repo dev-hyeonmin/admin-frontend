@@ -88,3 +88,14 @@ export async function updateBranch(id: number, name: string) {
     },
   });
 }
+
+export async function deleteBranch(id: number) {
+  return db.branch.update({
+    where: {
+      id,
+    },
+    data: {
+      deleted_at: new Date(),
+    },
+  });
+}
