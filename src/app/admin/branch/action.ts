@@ -5,6 +5,17 @@ import db from '@/lib/db';
 import { z } from 'zod';
 import { v4 as uuidv4 } from 'uuid';
 
+export const getBranches = async () => {
+  return db.branch.findMany({
+    where: {
+      deleted_at: null,
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  });
+};
+
 // validation
 const formSchema = z.object({
   name: z.string(),
