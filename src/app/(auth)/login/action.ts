@@ -12,7 +12,7 @@ import { redirect } from 'next/navigation';
  * https://zod.dev
  */
 
-const checkEmailExists = async (email: string) => {
+export const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({
     where: {
       email,

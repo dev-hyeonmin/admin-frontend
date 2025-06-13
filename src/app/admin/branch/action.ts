@@ -4,6 +4,17 @@ import { redirect } from 'next/navigation';
 import db from '@/lib/db';
 import { z } from 'zod';
 
+export const getBranches = async () => {
+  return db.branch.findMany({
+    where: {
+      deleted_at: null,
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  });
+};
+
 // validation
 const formSchema = z.object({
   name: z.string(),
