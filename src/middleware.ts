@@ -14,14 +14,13 @@ export default async function middleware(req: NextRequest) {
   // 3. 쿠키에서 세션 해독
   const cookie = await getSession();
   const session = await decrypt(cookie);
-
   // 5. 사용자가 인증되지 않은 경우 /login 으로 리디렉션
-  if (isProtectedRoute && !session?.userId) {
+  if (isProtectedRoute && !session?.user) {
     return NextResponse.redirect(new URL('/login', req.nextUrl));
   }
 
   // 6. 사용자가 인증된 경우 /popup 으로 리디렉션
-  if (isPublicRoute && session?.userId && !req.nextUrl.pathname.startsWith('/dashboard')) {
+  if (isPublicRoute && session?.user && !req.nextUrl.pathname.startsWith('/dashboard')) {
     return NextResponse.redirect(new URL('/popup', req.nextUrl));
   }
 

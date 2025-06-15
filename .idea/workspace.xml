@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="chore: reset prisma migration">
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/popup/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/db.ts" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="chore: delete uuid package">
+      <change afterPath="$PROJECT_DIR$/src/components/menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu/MenuList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +81,7 @@
     "npm.dev (1).executor": "Run",
     "npm.dev.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "settings.editor.selected.configurable": "database.data.csv.formats",
     "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -86,11 +92,11 @@
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/menu" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/form/[[id]]" />
       <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/admin" />
-      <recent name="$PROJECT_DIR$/src/app/(tabs)/popup/_components" />
     </key>
   </component>
   <component name="RunManager">
@@ -497,7 +503,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749990598903</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="feat: delete branch uuid">
+      <option name="closed" value="true" />
+      <created>1749990652403</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1749990652403</updated>
+    </task>
+    <task id="LOCAL-00044" summary="chore: delete uuid package">
+      <option name="closed" value="true" />
+      <created>1749990677332</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749990677332</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,8 +549,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Style: Layout" />
-    <MESSAGE value="Feat: popup add &amp; delete" />
     <MESSAGE value="Style: Popup" />
     <MESSAGE value="Feat: event create &amp; delete" />
     <MESSAGE value="style: /popup/add" />
@@ -552,7 +572,9 @@
     <MESSAGE value="style(ui): improve event list component styling" />
     <MESSAGE value="fix(event): resolve form initialization and state management issues" />
     <MESSAGE value="chore: reset prisma migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: reset prisma migration" />
+    <MESSAGE value="feat: delete branch uuid" />
+    <MESSAGE value="chore: delete uuid package" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: delete uuid package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

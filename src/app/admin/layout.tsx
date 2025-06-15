@@ -1,6 +1,6 @@
 // import Notification from '@/components/Notification';
 
-import Menu from '@/components/menu';
+import Menu from '@/components/menu/Menu';
 
 export default function Layout({
   children,

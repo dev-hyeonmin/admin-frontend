@@ -2,8 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Bell, CircleMinus, GitBranch, Info, PictureInPicture2, Ticket, User } from 'lucide-react';
 import { handleLogout } from '@/app/(auth)/logout/action';
-import { Bell, CircleMinus, Info, PictureInPicture2, Ticket } from 'lucide-react';
+
+interface MenuListProps {
+  isAdmin: boolean;
+}
 
 const menuItems = [
   { name: '팝업', href: '/popup', icon: <PictureInPicture2 /> },
@@ -11,15 +15,16 @@ const menuItems = [
   { name: '공지사항', href: '/notice', icon: <Bell /> },
 ];
 
-export default function Menu() {
+const adminMenuItems = [
+  { name: '지점관리', href: '/admin/branch', icon: <GitBranch /> },
+  { name: '계정관리', href: '/admin/user', icon: <User /> },
+];
+
+export default function MenuList({ isAdmin }: MenuListProps) {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed top-0 left-0 flex h-screen w-64 flex-col border-r border-gray-200 bg-white p-12">
-      {/* 로고 영역 */}
-      <div className="mb-8 text-xl font-bold">Clinic Admin</div>
-
-      {/* 메뉴 리스트 */}
+    <>
       <nav className="mb-auto flex flex-col gap-2">
         {menuItems.map((item) => {
           const isActive = pathname === item.href;
@@ -36,6 +41,23 @@ export default function Menu() {
             </Link>
           );
         })}
+
+        {isAdmin &&
+          adminMenuItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex gap-2 rounded-lg py-4 transition-colors ${
+                  isActive ? 'font-bold text-blue-700' : 'hover:opacity-70'
+                }`}
+              >
+                {item.icon}
+                {item.name}
+              </Link>
+            );
+          })}
       </nav>
 
       <div className="flex flex-col">
@@ -49,6 +71,6 @@ export default function Menu() {
           Log out
         </button>
       </div>
-    </aside>
+    </>
   );
 }

@@ -62,6 +62,7 @@ export const handleLogin = async (prevState: any, formData: FormData) => {
       id: true,
       password: true,
       branchId: true,
+      role: true,
     },
   });
 
@@ -69,7 +70,7 @@ export const handleLogin = async (prevState: any, formData: FormData) => {
   const ok = await bcrypt.compare(result.data.password, user!.password);
 
   if (ok) {
-    await createSession(user!.id, user!.branchId);
+    await createSession(user);
     redirect('/');
   } else {
     return {
