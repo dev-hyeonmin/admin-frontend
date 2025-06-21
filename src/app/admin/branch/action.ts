@@ -11,12 +11,24 @@ const formSchema = z.object({
 
 export type BranchForm = z.infer<typeof formSchema>;
 
+export async function getBranches() {
+  return db.branch.findMany({
+    where: {
+      deleted_at: null,
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  });
+}
+
 export async function getBranch(id: number) {
   const branch = await db.branch.findUnique({
     where: { id },
     select: {
       id: true,
       name: true,
+      created_at: true,
     },
   });
 
@@ -65,7 +77,7 @@ export async function upsertBranch(prevState: any, formData: FormData) {
     };
   }
 
-  redirect('/branch');
+  redirect('/admin/branch');
 }
 
 export async function addBranch(name: string) {

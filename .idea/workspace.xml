@@ -4,17 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="chore: delete uuid package">
-      <change afterPath="$PROJECT_DIR$/src/components/menu/Menu.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add admin menu">
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchUpsertPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/admin/branch/create/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/branch.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(auth)/login/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu/MenuList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/session.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/form/[[...id]]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,11 +94,11 @@
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/admin/branch" />
       <recent name="$PROJECT_DIR$/src/components/menu" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/form/[[id]]" />
       <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/app/admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -519,7 +521,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749990677332</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="feat: add admin menu">
+      <option name="closed" value="true" />
+      <created>1749992937300</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1749992937300</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Style: Popup" />
     <MESSAGE value="Feat: event create &amp; delete" />
     <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
@@ -574,7 +583,8 @@
     <MESSAGE value="chore: reset prisma migration" />
     <MESSAGE value="feat: delete branch uuid" />
     <MESSAGE value="chore: delete uuid package" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: delete uuid package" />
+    <MESSAGE value="feat: add admin menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add admin menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

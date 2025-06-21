@@ -1,30 +1,15 @@
-import db from '@/lib/db';
-import { formatDate } from '@/lib/utils';
 import BranchItem from '@/app/admin/branch/_components/BranchItem';
-
-const getBranches = async () => {
-  return db.branch.findMany({
-    where: {
-      deleted_at: null,
-    },
-    orderBy: {
-      name: 'asc',
-    },
-  });
-};
+import { Branch } from '@/types/branch';
+import { getBranches } from '@/app/admin/branch/action';
 
 export default async function BranchList() {
-  const branches = await getBranches();
+  // TODO loading
+  const branches: Branch[] = await getBranches();
 
   return (
-    <div className="flex gap-4">
+    <div className="space-y-2">
       {branches.map((branch) => (
-        <BranchItem
-          key={`branch${branch.id}`}
-          id={branch.id}
-          name={branch.name}
-          createdAt={formatDate(branch.created_at)}
-        />
+        <BranchItem key={`branch${branch.id}`} {...branch} />
       ))}
     </div>
   );

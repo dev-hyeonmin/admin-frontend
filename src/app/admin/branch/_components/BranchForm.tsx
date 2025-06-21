@@ -6,6 +6,7 @@ import FormInput from '@/components/FormInput';
 import PageFooter from '@/components/PageFooter';
 import FormButton from '@/components/FormButton';
 import { upsertBranch } from '@/app/admin/branch/action';
+import Link from 'next/link';
 
 interface BranchFormProps {
   id?: number;
@@ -25,6 +26,7 @@ export default function BranchForm({ id, name }: BranchFormProps) {
           id="name"
           name="name"
           placeholder="예: 스마일클리닉"
+          autoComplete="off"
           required={true}
           defaultValue={name}
           errors={state?.fieldErrors?.name}
@@ -32,16 +34,15 @@ export default function BranchForm({ id, name }: BranchFormProps) {
       </FormField>
 
       <PageFooter>
-        <button
-          type="button"
-          className="rounded-lg border border-gray-300 px-4 py-2 text-gray-600 hover:bg-gray-50"
-        >
+        <Link href={`/admin/branch`} className="secondary-button">
           취소
-        </button>
+        </Link>
 
         <FormButton
           type="submit"
-          text="지점 추가"
+          variant="primary"
+          fullWidth={false}
+          text={id ? '지점 수정' : '지점 추가'}
           loadingText="지점 생성중..."
           disabled={isPending}
         />
