@@ -3,7 +3,6 @@
 import { redirect } from 'next/navigation';
 import db from '@/lib/db';
 import { z } from 'zod';
-import { v4 as uuidv4 } from 'uuid';
 
 // validation
 const formSchema = z.object({
@@ -12,12 +11,24 @@ const formSchema = z.object({
 
 export type BranchForm = z.infer<typeof formSchema>;
 
+export async function getBranches() {
+  return db.branch.findMany({
+    where: {
+      deleted_at: null,
+    },
+    orderBy: {
+      name: 'asc',
+    },
+  });
+}
+
 export async function getBranch(id: number) {
   const branch = await db.branch.findUnique({
     where: { id },
     select: {
       id: true,
       name: true,
+      created_at: true,
     },
   });
 
@@ -66,14 +77,13 @@ export async function upsertBranch(prevState: any, formData: FormData) {
     };
   }
 
-  redirect('/branch');
+  redirect('/admin/branch');
 }
 
 export async function addBranch(name: string) {
   return db.branch.create({
     data: {
       name: name,
-      uuid: uuidv4(),
     },
   });
 }

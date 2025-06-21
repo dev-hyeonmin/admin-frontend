@@ -44,7 +44,13 @@ export default function Login() {
             className="h-14 rounded-xl border border-gray-200 bg-gray-50 px-4 text-gray-900 placeholder-gray-500 focus:border-blue-600 focus:outline-none"
           />
 
-          <FormButton type="submit" text="로그인" fullWidth={true} variant="primary" />
+          <FormButton 
+            type="submit" 
+            text="로그인" 
+            loadingText="잠시만 기다려주세요" 
+            fullWidth={true} 
+            variant="primary" 
+          />
           <FormButton
             type="button"
             text="비밀번호 찾기"

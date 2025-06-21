@@ -1,10 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useActionState } from 'react';
 import PageTitle from '@/components/PageTitle';
 import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
-import { useActionState } from 'react';
 import { addMembers } from '@/app/(tabs)/member/action';
 import PageFooter from '@/components/PageFooter';
 import FormButton from '@/components/FormButton';
@@ -24,7 +23,7 @@ export default function MemberFormPage() {
             name="name"
             placeholder="홍길동"
             required={true}
-            errors={state?.fieldErrors?.name}
+            // errors={state?.fieldErrors?.name}
           />
         </FormField>
 
@@ -46,7 +45,7 @@ export default function MemberFormPage() {
             name="password"
             placeholder="8자 이상 입력해주세요"
             required={true}
-            errors={state?.fieldErrors?.password}
+            // errors={state?.fieldErrors?.password}
           />
         </FormField>
 

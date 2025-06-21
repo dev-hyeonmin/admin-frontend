@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="feat: add update branch feature">
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="fix: temp validation error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/_components/BranchList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/[id]/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     &quot;git-widget-placeholder&quot;: &quot;feat/branch&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/src/app/admin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -75,24 +72,23 @@
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
     &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend/node_modules/typescript/lib&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.data.csv.formats&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/admin" />
       <recent name="$PROJECT_DIR$/src/pages/event" />
       <recent name="$PROJECT_DIR$/src/pages/event/(components)" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/admin/branch" />
+      <recent name="$PROJECT_DIR$/src/components/menu" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/_components" />
       <recent name="$PROJECT_DIR$/src/app/(tabs)/event/form/[[id]]" />
       <recent name="$PROJECT_DIR$/src/app" />
-      <recent name="$PROJECT_DIR$/src/app/admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,7 +114,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-WS-241.15989.105" />
       </set>
     </attachedChunks>
   </component>
@@ -162,10 +158,7 @@
       <workItem from="1749024515614" duration="4943000" />
       <workItem from="1749029581551" duration="1229000" />
       <workItem from="1749094125671" duration="7644000" />
-      <workItem from="1749707947801" duration="37000" />
-      <workItem from="1749708116551" duration="2418000" />
-      <workItem from="1749718345073" duration="5287000" />
-      <workItem from="1749780664786" duration="1299000" />
+      <workItem from="1750481216170" duration="172000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -495,47 +488,55 @@
       <option name="project" value="LOCAL" />
       <updated>1749097742363</updated>
     </task>
-    <task id="LOCAL-00042" summary="feat(branch): crate">
+    <task id="LOCAL-00042" summary="chore: reset prisma migration">
       <option name="closed" value="true" />
-      <created>1749700399357</created>
+      <created>1749990598903</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1749700399357</updated>
+      <updated>1749990598903</updated>
     </task>
-    <task id="LOCAL-00043" summary="feat: get members">
+    <task id="LOCAL-00043" summary="feat: delete branch uuid">
       <option name="closed" value="true" />
-      <created>1749701090390</created>
+      <created>1749990652403</created>
       <option name="number" value="00043" />
       <option name="presentableId" value="LOCAL-00043" />
       <option name="project" value="LOCAL" />
-      <updated>1749701090390</updated>
+      <updated>1749990652403</updated>
     </task>
-    <task id="LOCAL-00044" summary="refactor: branch list">
+    <task id="LOCAL-00044" summary="chore: delete uuid package">
       <option name="closed" value="true" />
-      <created>1749709725571</created>
+      <created>1749990677332</created>
       <option name="number" value="00044" />
       <option name="presentableId" value="LOCAL-00044" />
       <option name="project" value="LOCAL" />
-      <updated>1749709725571</updated>
+      <updated>1749990677332</updated>
     </task>
-    <task id="LOCAL-00045" summary="feat: install uuid">
+    <task id="LOCAL-00045" summary="feat: add admin menu">
       <option name="closed" value="true" />
-      <created>1749709742608</created>
+      <created>1749992937300</created>
       <option name="number" value="00045" />
       <option name="presentableId" value="LOCAL-00045" />
       <option name="project" value="LOCAL" />
-      <updated>1749709742608</updated>
+      <updated>1749992937300</updated>
     </task>
-    <task id="LOCAL-00046" summary="feat: add update branch feature">
+    <task id="LOCAL-00046" summary="chore: change branch folder structure">
       <option name="closed" value="true" />
-      <created>1749721732131</created>
+      <created>1750481004692</created>
       <option name="number" value="00046" />
       <option name="presentableId" value="LOCAL-00046" />
       <option name="project" value="LOCAL" />
-      <updated>1749721732131</updated>
+      <updated>1750481004692</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fix: temp validation error">
+      <option name="closed" value="true" />
+      <created>1750481144005</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1750481144005</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,13 +585,13 @@
     <MESSAGE value="feat(event): add order field for event sorting&#10;&#10;- Event 테이블에 order 컬럼 추가 (기본값: 0)&#10;- EventItemCard에서 order 표시 및 정렬 적용" />
     <MESSAGE value="style(ui): improve event list component styling" />
     <MESSAGE value="fix(event): resolve form initialization and state management issues" />
-    <MESSAGE value="feat: add user form" />
-    <MESSAGE value="feat(branch): crate" />
-    <MESSAGE value="feat: get members" />
-    <MESSAGE value="refactor: branch list" />
-    <MESSAGE value="feat: install uuid" />
-    <MESSAGE value="feat: add update branch feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add update branch feature" />
+    <MESSAGE value="chore: reset prisma migration" />
+    <MESSAGE value="feat: delete branch uuid" />
+    <MESSAGE value="chore: delete uuid package" />
+    <MESSAGE value="feat: add admin menu" />
+    <MESSAGE value="chore: change branch folder structure" />
+    <MESSAGE value="fix: temp validation error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: temp validation error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

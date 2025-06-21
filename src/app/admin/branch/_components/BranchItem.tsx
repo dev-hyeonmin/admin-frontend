@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { deleteBranch } from '../action';
+import { Pencil, Trash2 } from 'lucide-react';
+import { Branch } from '@/types/branch';
+import { formatDate } from '@/lib/utils';
 
-interface BranchItemProps {
-  id: number;
-  name: string;
-  createdAt: string;
-}
+interface BranchItemProps extends Branch {}
 
-export default function BranchItem({ id, name, createdAt }: BranchItemProps) {
+export default function BranchItem({ id, name, created_at }: BranchItemProps) {
   const router = useRouter();
 
   const handleDelete = async () => {
@@ -28,23 +27,23 @@ export default function BranchItem({ id, name, createdAt }: BranchItemProps) {
   };
 
   return (
-    <div className="relative min-w-96 rounded-xl border border-zinc-200 p-4">
-      <p className="text-lg font-semibold">{name}</p>
-      <p className="text-sm text-zinc-400">{createdAt}</p>
+    <div className="relative flex items-center justify-between rounded-xl p-4 hover:bg-zinc-50">
+      <div>
+        <p className="text-lg font-semibold">{name}</p>
+        <p className="text-xs font-light text-zinc-400">created at. {formatDate(created_at)}</p>
+      </div>
 
-      <div className="absolute top-4 right-4 flex gap-1 text-sm">
+      <div className="flex gap-2 text-sm">
         <button
           type="button"
           onClick={handleDelete}
-          className="rounded bg-red-50 px-2 py-0.5 text-red-700"
+          className="cursor-pointer rounded-full bg-red-50 p-2 text-red-700"
         >
-          삭제
+          <Trash2 strokeWidth={1.2} size={16} />
         </button>
-        <Link
-          href={`/admin/branch/form/${id}`}
-          className="rounded bg-blue-50 px-2 py-0.5 text-blue-700"
-        >
-          수정
+
+        <Link href={`/admin/branch/${id}`} className="rounded-full bg-blue-50 p-2 text-blue-700">
+          <Pencil strokeWidth={1.2} size={16} />
         </Link>
       </div>
     </div>

@@ -1,5 +1,0 @@
--- AlterTable
-ALTER TABLE `EventGroup` ADD COLUMN `order` INTEGER NOT NULL DEFAULT 0;
-
--- AlterTable
-ALTER TABLE `Popup` ADD COLUMN `order` INTEGER NOT NULL DEFAULT 0;
