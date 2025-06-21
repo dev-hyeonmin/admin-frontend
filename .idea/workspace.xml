@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="chore: change branch folder structure">
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/member/form/[[...id]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/member/form/[[...id]]/page.tsx" afterDir="false" />
+    <list default="true" id="8b9bda65-4c2a-4c11-a26d-354531536b36" name="Changes" comment="fix: temp validation error">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/branch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/branch/[id]/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,29 +55,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feat/branch",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.last.introduce.type": "CONST",
-    "last_opened_file_path": "/Users/a./Documents/hyeonmin/admin-frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "npm.dev (1).executor": "Run",
-    "npm.dev.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "database.data.csv.formats",
-    "ts.external.directory.path": "/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/branch&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a./Documents/hyeonmin/admin-frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.data.csv.formats&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hyeonmin/Documents/clinic/admin-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/event" />
@@ -157,6 +158,7 @@
       <workItem from="1749024515614" duration="4943000" />
       <workItem from="1749029581551" duration="1229000" />
       <workItem from="1749094125671" duration="7644000" />
+      <workItem from="1750481216170" duration="172000" />
     </task>
     <task id="LOCAL-00001" summary="feat: event list &amp; form ver 0.0">
       <option name="closed" value="true" />
@@ -526,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750481004692</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fix: temp validation error">
+      <option name="closed" value="true" />
+      <created>1750481144005</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1750481144005</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="style: /popup/add" />
     <MESSAGE value="Chore: update /popup/add action" />
     <MESSAGE value="Chore: update notice function" />
     <MESSAGE value="Chore: add confirm in notice" />
@@ -581,7 +590,8 @@
     <MESSAGE value="chore: delete uuid package" />
     <MESSAGE value="feat: add admin menu" />
     <MESSAGE value="chore: change branch folder structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: change branch folder structure" />
+    <MESSAGE value="fix: temp validation error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: temp validation error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
