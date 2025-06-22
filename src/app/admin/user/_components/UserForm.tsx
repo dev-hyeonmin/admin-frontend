@@ -5,23 +5,35 @@ import FormField from '@/components/FormFiled';
 import FormInput from '@/components/FormInput';
 import PageFooter from '@/components/PageFooter';
 import FormButton from '@/components/FormButton';
-import { upsertUser } from '@/app/admin/user/action';
-import { Branch } from '@prisma/client';
+import { addUser, updateUser } from '@/app/admin/user/action';
+import { Branch } from '@/types/branch';
+import { UserData } from '@/types/user';
+import Link from 'next/link';
 
 interface UserFormProps {
-  id?: number;
-  name?: string;
-  email?: string;
-  branchId?: number;
+  user?: UserData;
   branches: Branch[];
 }
 
-export default function UserForm({ id, name, email, branchId, branches = [] }: UserFormProps) {
-  const [state, action, isPending] = useActionState(upsertUser, null);
+export default function UserForm({ user, branches = [] }: UserFormProps) {
+  const userAction = user ? updateUser : addUser;
+  const [state, action, isPending] = useActionState(userAction, {
+    success: false,
+    error: {
+      formErrors: [],
+    },
+    data: {
+      name: user?.name || '',
+      email: user?.email || '',
+      branchId: user?.branch.id ? String(user.branch.id) : '',
+      password: '',
+      confirmPassword: '',
+    },
+  });
 
   return (
     <form action={action} className="space-y-6">
-      {id && <input type="hidden" name="id" value={id} />}
+      {user && <input type="hidden" name="id" value={user?.id} />}
 
       <FormField label="이름" required={true} htmlFor="name">
         <FormInput
@@ -30,8 +42,8 @@ export default function UserForm({ id, name, email, branchId, branches = [] }: U
           name="name"
           placeholder="예: 홍길동"
           required={true}
-          defaultValue={name}
-          errors={state?.fieldErrors?.name}
+          defaultValue={state?.data?.name}
+          errors={state?.error?.name}
         />
       </FormField>
 
@@ -42,19 +54,31 @@ export default function UserForm({ id, name, email, branchId, branches = [] }: U
           name="email"
           placeholder="예: user@example.com"
           required={true}
-          defaultValue={email}
-          errors={state?.fieldErrors?.email}
+          defaultValue={state?.data?.email}
+          errors={state?.error?.email}
         />
       </FormField>
 
-      <FormField label="비밀번호" required={true} htmlFor="password">
+      <FormField label="비밀번호" required={!user} htmlFor="password">
         <FormInput
           type="password"
           id="password"
           name="password"
           placeholder="8자 이상"
-          required={true}
-          errors={state?.fieldErrors?.password}
+          required={!user}
+          defaultValue={state?.data?.password}
+          errors={state?.error?.password}
+        />
+      </FormField>
+
+      <FormField label="비밀번호 확인" required={!user} htmlFor="password">
+        <FormInput
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="8자 이상"
+          required={!user}
+          errors={state?.error?.confirmPassword}
         />
       </FormField>
 
@@ -62,13 +86,13 @@ export default function UserForm({ id, name, email, branchId, branches = [] }: U
         <select
           id="branchId"
           name="branchId"
-          defaultValue={branchId}
           className="w-full rounded-lg border border-gray-300 px-4 py-2"
           required
+          defaultValue={state?.data?.branchId}
         >
           <option value="">지점을 선택해주세요</option>
           {branches.map((branch) => (
-            <option key={branch.id} value={branch.id}>
+            <option key={branch.id} value={String(branch.id)}>
               {branch.name}
             </option>
           ))}
@@ -76,17 +100,15 @@ export default function UserForm({ id, name, email, branchId, branches = [] }: U
       </FormField>
 
       <PageFooter>
-        <button
-          type="button"
-          className="rounded-lg border border-gray-300 px-4 py-2 text-gray-600 hover:bg-gray-50"
-        >
+        <Link href={`/admin/user`} className="secondary-button">
           취소
-        </button>
+        </Link>
 
         <FormButton
           type="submit"
-          text={id ? '사용자 수정' : '사용자 추가'}
-          loadingText={id ? '사용자 수정중...' : '사용자 생성중...'}
+          fullWidth={false}
+          text={user ? '사용자 수정' : '사용자 추가'}
+          loadingText={user ? '사용자 수정중...' : '사용자 생성중...'}
           disabled={isPending}
         />
       </PageFooter>

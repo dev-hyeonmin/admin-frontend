@@ -3,16 +3,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { deleteUser } from '../action';
+import { formatDate } from '@/lib/utils';
+import { UserData } from '@/types/user';
+import { Pencil, Trash2 } from 'lucide-react';
 
-interface UserItemProps {
-  id: number;
-  name: string;
-  email: string;
-  branchName?: string;
-  createdAt: string;
-}
+type UserItemProps = UserData;
 
-export default function UserItem({ id, name, email, branchName, createdAt }: UserItemProps) {
+export default function UserItem({ id, name, email, branch, created_at }: UserItemProps) {
   const router = useRouter();
 
   const handleDelete = async () => {
@@ -33,24 +30,22 @@ export default function UserItem({ id, name, email, branchName, createdAt }: Use
     <div className="relative min-w-96 rounded-xl border border-zinc-200 p-4">
       <p className="text-lg font-semibold">{name}</p>
       <p className="text-sm text-zinc-600">{email}</p>
-      {branchName && <p className="text-sm text-zinc-500">{branchName}</p>}
-      <p className="text-sm text-zinc-400">{createdAt}</p>
+      {branch && <p className="text-sm text-zinc-500">{branch.name}</p>}
+      <p className="text-sm text-zinc-400">{formatDate(created_at)}</p>
 
       <div className="absolute top-4 right-4 flex gap-1 text-sm">
         <button
           type="button"
           onClick={handleDelete}
-          className="rounded bg-red-50 px-2 py-0.5 text-red-700"
+          className="cursor-pointer rounded-full bg-red-50 p-2 text-red-700"
         >
-          삭제
+          <Trash2 strokeWidth={1.2} size={16} />
         </button>
-        <Link
-          href={`/admin/user/form/${id}`}
-          className="rounded bg-blue-50 px-2 py-0.5 text-blue-700"
-        >
-          수정
+
+        <Link href={`/admin/user/${id}`} className="rounded-full bg-blue-50 p-2 text-blue-700">
+          <Pencil strokeWidth={1.2} size={16} />
         </Link>
       </div>
     </div>
   );
-} 
+}
