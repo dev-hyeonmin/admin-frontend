@@ -1,7 +1,7 @@
 'use client';
 
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import PopupListItem from '@/app/(tabs)/popup/_components/PopupListItem';
+import PopupItem from '@/app/(tabs)/popup/_components/PopupItem';
 import { Popup } from '@/types/popup';
 import { useDragAndDrop } from '@/hooks/useDragAndDrop';
 
@@ -53,7 +53,7 @@ export default function DraggablePopupList({
                           : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
                       }`}
                     >
-                      <PopupListItem {...popup} isEditMode={true} />
+                      <PopupItem {...popup} isEditMode={true} />
                     </div>
                   )}
                 </Draggable>

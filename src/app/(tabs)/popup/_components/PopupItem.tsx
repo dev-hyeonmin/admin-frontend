@@ -27,7 +27,7 @@ const PopupItemView = memo(function PopupItemView({
           <GripVertical size={20} />
         </div>
       )}
-      
+
       <div className="size-24 overflow-hidden rounded bg-gray-300">
         {/*<img src={image_url} alt={title} className="h-full w-full object-cover" />*/}
       </div>
@@ -41,7 +41,7 @@ const PopupItemView = memo(function PopupItemView({
 });
 
 // Context를 사용하는 컨테이너 컴포넌트
-export default function PopupListItem(props: PopupListItemProps) {
+export default function PopupItem(props: PopupListItemProps) {
   const { setSelectedPopup } = usePopupPreview();
 
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { Popup } from '@/types/popup';
-import PopupListItem from '@/app/(tabs)/popup/_components/PopupListItem';
+import PopupItem from '@/app/(tabs)/popup/_components/PopupItem';
 
 interface PopupListProps {
   popups: Popup[];
@@ -13,7 +13,7 @@ export default function PopupList({ popups }: PopupListProps) {
   return (
     <div className="space-y-4">
       {popups.map((popup) => (
-        <PopupListItem key={`popup-${popup.id}`} {...popup} isEditMode={false} />
+        <PopupItem key={`popup-${popup.id}`} {...popup} isEditMode={false} />
       ))}
     </div>
   );
