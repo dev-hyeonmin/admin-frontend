@@ -5,7 +5,7 @@ export default async function Page() {
     cache: 'no-store',
   });
 
-  const data = await res.json();
+  const { popups } = await res.json();
 
-  return <PopupPage popups={data} />;
+  return <PopupPage popups={popups} />;
 }

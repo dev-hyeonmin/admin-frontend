@@ -51,10 +51,7 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
     image: formData.get('image') as File,
   };
 
-  console.log(data);
-
   const validatedSchema = popupSchema.safeParse(data);
-
   if (!validatedSchema.success) {
     return {
       result: false,
@@ -62,7 +59,7 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
     };
   }
 
-  const branchId = await getBranchId();
+  const branchId = 1; //await getBranchId();
   if (!branchId) {
     redirect('/');
   }

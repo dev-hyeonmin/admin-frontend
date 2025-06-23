@@ -5,10 +5,10 @@ import { handleAddPopup } from '@/app/(tabs)/popup/actions';
 import PageFooter from '@/components/common/PageFooter';
 
 export default function PopupForm() {
-  const [state, formAction] = useActionState(handleAddPopup, undefined);
+  const [state, action] = useActionState(handleAddPopup, undefined);
 
   return (
-    <form action={formAction} className="flex flex-col gap-8">
+    <form action={action} className="flex flex-col gap-8">
       <FormInput
         label="팝업 제목"
         type="text"
@@ -22,7 +22,7 @@ export default function PopupForm() {
         label="팝업 이미지"
         name="image"
         description="200KB 이하의 PNG, JPG, JPEG 파일만 가능해요"
-        accept=".png,.jpg,.jpeg"
+        accept="image/*"
         errors={state?.fieldErrors?.image}
         required={true}
       />
