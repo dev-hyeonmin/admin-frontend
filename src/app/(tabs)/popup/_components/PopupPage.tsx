@@ -4,13 +4,18 @@ import PageTitle from '@/components/PageTitle';
 import { Popup } from '@/types/popup';
 import PopupEmpty from '@/app/(tabs)/popup/_components/PopupEmpty';
 import PopupList from '@/app/(tabs)/popup/_components/PopupList';
-import PageFooter from '@/components/common/PageFooter';
+import PopupPageFooter from '@/app/(tabs)/popup/_components/PopupPageFooter';
+import { useSortableList } from '@/hooks/useSortableList';
+import { updatePopupOrder } from '@/app/(tabs)/popup/actions';
 
 interface PopupPageProps {
   popups: Popup[];
 }
 
 export default function PopupPage({ popups }: PopupPageProps) {
+  const { currentItems, isEditMode, startEditMode, cancelEditMode, reorderItems, saveOrder } =
+    useSortableList(popups);
+
   return (
     <div className="flex flex-col gap-6">
       {/* Header */}
@@ -20,14 +25,20 @@ export default function PopupPage({ popups }: PopupPageProps) {
       {popups.length === 0 && <PopupEmpty />}
 
       {/* LIST */}
-      {popups.length > 0 && <PopupList popups={popups} />}
+      {popups.length > 0 && (
+        <PopupList
+          isEditMode={isEditMode}
+          popups={currentItems}
+          handleItemsReorderAction={reorderItems}
+        />
+      )}
 
       {/* Footer */}
-      <PageFooter
-        secondaryText="순서변경"
-        secondaryAction={() => {}}
-        primaryText="팝업생성"
-        primaryAction="/popup/create"
+      <PopupPageFooter
+        isEditMode={isEditMode}
+        startEditMode={startEditMode}
+        cancelEditMode={cancelEditMode}
+        saveOrder={() => saveOrder(updatePopupOrder)}
       />
     </div>
   );

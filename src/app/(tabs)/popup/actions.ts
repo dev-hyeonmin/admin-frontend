@@ -125,7 +125,7 @@ export async function deletePopup(id: number) {
 /**
  * Update popup order
  */
-export async function updatePopupOrder(popupIds: number[]) {
+export async function updatePopupOrder(popupIds: (number | string)[]) {
   const branchId = await getBranchId();
 
   if (!branchId) {
@@ -134,7 +134,9 @@ export async function updatePopupOrder(popupIds: number[]) {
 
   try {
     // 각 팝업의 순서를 업데이트
-    const updatePromises = popupIds.map((id, index) =>
+    const updatePromises = popupIds.map((pid, index) => {
+      const id = Number(pid);
+
       db.popup.update({
         where: {
           id,
@@ -144,14 +146,14 @@ export async function updatePopupOrder(popupIds: number[]) {
         data: {
           order: index,
         },
-      })
-    );
+      });
+    });
 
     await Promise.all(updatePromises);
 
-    return { success: true, message: 'Popup order updated successfully' };
+    return { success: true };
   } catch (error) {
     console.error('Error updating popup order:', error);
-    return { success: false, message: 'Failed to update popup order' };
+    return { success: false };
   }
 }

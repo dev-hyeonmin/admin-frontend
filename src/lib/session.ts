@@ -14,11 +14,23 @@ export async function encrypt(payload: {}) {
     .sign(encodedKey);
 }
 
-export async function decrypt(session: string | undefined = '') {
+interface SessionPayload {
+  user: {
+    branchId: number;
+    // 필요하면 userId, name 등 추가
+    [key: string]: any;
+  };
+  expiresAt: Date;
+}
+
+export async function decrypt(
+  session: string | undefined = ''
+): Promise<SessionPayload | undefined> {
   try {
-    const { payload } = await jwtVerify(session, encodedKey, {
+    const { payload } = await jwtVerify<SessionPayload>(session, encodedKey, {
       algorithms: ['HS256'],
     });
+
     return payload;
   } catch (error) {
     console.log('Failed to verify session', error);
@@ -79,7 +91,7 @@ export async function deleteSession() {
 export async function getBranchId() {
   const cookie = await getSession();
   const session = await decrypt(cookie);
-  const branchId = session?.branchId;
+  const branchId = session?.user?.branchId;
 
   if (!branchId) {
     return null;
