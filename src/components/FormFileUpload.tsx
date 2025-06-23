@@ -1,18 +1,21 @@
 import { CloudUpload, TriangleAlert } from 'lucide-react';
-import React, { InputHTMLAttributes, useCallback, useState, useEffect } from 'react';
-import Image from 'next/image';
+import React, { InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
 
 interface FormFileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+  label?: string;
   name: string;
   description?: string;
+  required?: boolean;
   errors?: string[];
   onChange?: (file: File | null) => void;
   initialFile?: File | null;
 }
 
 export default function FromFileUpload({
+  label,
   name,
   description,
+  required,
   errors = [],
   onChange,
   initialFile,
@@ -67,7 +70,13 @@ export default function FromFileUpload({
   }, []);
 
   return (
-    <>
+    <div>
+      {/* Label */}
+      <label className="mb-2 block text-sm font-medium">
+        {label}
+        {required && <span className="ml-1 text-red-500">*</span>}
+      </label>
+
       <div className="text-sm text-zinc-500">
         선택된 파일:{' '}
         {selectedFile ? (
@@ -128,6 +137,6 @@ export default function FromFileUpload({
           {...rest}
         />
       </label>
-    </>
+    </div>
   );
 }
