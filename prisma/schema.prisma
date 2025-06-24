@@ -27,6 +27,7 @@ model User {
   role       Role     @default(USER)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  deleted_at DateTime? // 삭제일
   branchId   Int
   branch     Branch   @relation(fields: [branchId], references: [id])
 }
