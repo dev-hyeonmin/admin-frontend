@@ -3,7 +3,6 @@ import { DropResult } from '@hello-pangea/dnd';
 interface UseDragAndDropProps<T> {
   items: T[];
   onReorder: (reorderedItems: T[]) => void;
-  isEditMode?: boolean;
 }
 
 interface UseDragAndDropReturn {
@@ -14,16 +13,14 @@ interface UseDragAndDropReturn {
  * 드래그 앤 드롭을 통한 배열 순서 변경을 위한 커스텀 hook
  * @param items - 순서를 변경할 배열
  * @param onReorder - 순서가 변경되었을 때 호출될 콜백 함수
- * @param isEditMode - 편집 모드 여부 (기본값: true)
  * @returns handleDragEnd 함수
  */
-export function useDragAndDrop<T>({ 
-  items, 
-  onReorder, 
-  isEditMode = true 
+export function useDragAndDrop<T>({
+  items,
+  onReorder,
 }: UseDragAndDropProps<T>): UseDragAndDropReturn {
   const handleDragEnd = (result: DropResult) => {
-    if (!result.destination || !isEditMode) {
+    if (!result.destination) {
       return;
     }
 
@@ -37,4 +34,4 @@ export function useDragAndDrop<T>({
   return {
     handleDragEnd,
   };
-} 
+}

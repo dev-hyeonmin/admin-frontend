@@ -100,20 +100,13 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
 }
 
 /**
- * Delete
+ * DELETE
  * @param id
  */
 export async function deletePopup(id: number) {
-  const branchId = await getBranchId();
-
-  if (!branchId) {
-    return;
-  }
-
   await db.popup.update({
     where: {
       id,
-      branchId,
       deleted_at: null,
     },
     data: {

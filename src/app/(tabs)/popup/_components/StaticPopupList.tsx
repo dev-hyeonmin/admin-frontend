@@ -9,9 +9,9 @@ interface StaticPopupListProps {
 
 export default function StaticPopupList({ popups }: StaticPopupListProps) {
   return (
-    <div className="space-y-4">
+    <div>
       {popups.map((popup) => (
-        <PopupItem key={`popup-${popup.id}`} {...popup} isEditMode={false} />
+        <PopupItem key={`popup-${popup.id}`} popup={popup} isEditMode={false} />
       ))}
     </div>
   );

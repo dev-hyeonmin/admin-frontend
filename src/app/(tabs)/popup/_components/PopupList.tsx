@@ -1,8 +1,8 @@
 'use client';
 
 import { Popup } from '@/types/popup';
-import DraggablePopupList from '@/app/(tabs)/popup/_components/DraggablePopupList';
 import StaticPopupList from '@/app/(tabs)/popup/_components/StaticPopupList';
+import DraggablePopupList from '@/app/(tabs)/popup/_components/DraggablePopupList';
 
 interface PopupListProps {
   popups: Popup[];
