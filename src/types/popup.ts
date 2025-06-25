@@ -1,4 +1,4 @@
-export interface Popup {
+export type Popup = {
   id: number;
   title: string;
   image_url: string;

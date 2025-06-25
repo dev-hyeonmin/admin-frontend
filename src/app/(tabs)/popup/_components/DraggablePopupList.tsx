@@ -1,7 +1,7 @@
 'use client';
 
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import PopupListItem from '@/app/(tabs)/popup/_components/PopupListItem';
+import PopupItem from '@/app/(tabs)/popup/_components/PopupItem';
 import { Popup } from '@/types/popup';
 import { useDragAndDrop } from '@/hooks/useDragAndDrop';
 
@@ -17,13 +17,12 @@ export default function DraggablePopupList({
   const { handleDragEnd } = useDragAndDrop<Popup>({
     items: popups,
     onReorder: onPopupsReorderAction,
-    isEditMode: true,
   });
 
   return (
-    <>
+    <div>
       {/* 편집 모드 안내 */}
-      <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-3">
+      <div className="rounded-lg border border-blue-200 bg-blue-50 p-3">
         <p className="text-sm text-blue-700">
           <strong>팝업 순서 편집 모드</strong>
           <br />
@@ -35,7 +34,7 @@ export default function DraggablePopupList({
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="popup-list">
           {(provided) => (
-            <div className="space-y-4" {...provided.droppableProps} ref={provided.innerRef}>
+            <div {...provided.droppableProps} ref={provided.innerRef} className="space-y-4">
               {popups.map((popup, index) => (
                 <Draggable
                   key={`popup-${popup.id}`}
@@ -47,13 +46,13 @@ export default function DraggablePopupList({
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      className={`rounded-lg border p-4 transition-all ${
+                      className={`rounded-lg border transition-all ${
                         snapshot.isDragging
-                          ? 'scale-105 rotate-2 border-blue-200 bg-blue-50 shadow-lg'
-                          : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                          ? 'scale-105 border-blue-200 bg-blue-50'
+                          : 'border-gray-200 bg-white hover:border-gray-300'
                       }`}
                     >
-                      <PopupListItem {...popup} isEditMode={true} />
+                      <PopupItem popup={popup} isEditMode={true} />
                     </div>
                   )}
                 </Draggable>
@@ -63,6 +62,6 @@ export default function DraggablePopupList({
           )}
         </Droppable>
       </DragDropContext>
-    </>
+    </div>
   );
 }

@@ -1,18 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import NoticeItem from './NoticeItem';
-import { EmptyState } from '@/components/EmptyState';
-import { Smile } from 'lucide-react';
-
-interface Notice {
-  id: number;
-  title: string;
-  content: string | null;
-  image_url: string | null;
-  is_pinned: boolean;
-  created_at: Date;
-}
+import { Notice } from '@/types/notice';
+import NoticeItem from '@/app/(tabs)/notice/_components/NoticeItem';
 
 interface NoticeListProps {
   notices: Notice[];
@@ -32,20 +22,11 @@ export default function NoticeList({ notices }: NoticeListProps) {
       {notices.map((notice) => (
         <NoticeItem
           key={`notice-${notice.id}`}
-          {...notice}
+          notice={notice}
           isOpen={openNoticeId === notice.id}
           onToggle={handleToggle}
         />
       ))}
-
-      {/* 빈 리스트 */}
-      {notices.length === 0 && (
-        <EmptyState
-          icon={Smile}
-          title="📌 등록된 공지사항이 없어요"
-          description="지금 하나 추가해볼까요?"
-        />
-      )}
     </div>
   );
 }

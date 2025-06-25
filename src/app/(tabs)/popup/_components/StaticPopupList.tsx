@@ -1,6 +1,6 @@
 'use client';
 
-import PopupListItem from '@/app/(tabs)/popup/_components/PopupListItem';
+import PopupItem from '@/app/(tabs)/popup/_components/PopupItem';
 import { Popup } from '@/types/popup';
 
 interface StaticPopupListProps {
@@ -9,9 +9,9 @@ interface StaticPopupListProps {
 
 export default function StaticPopupList({ popups }: StaticPopupListProps) {
   return (
-    <div className="space-y-4">
+    <div>
       {popups.map((popup) => (
-        <PopupListItem key={`popup-${popup.id}`} {...popup} isEditMode={false} />
+        <PopupItem key={`popup-${popup.id}`} popup={popup} isEditMode={false} />
       ))}
     </div>
   );

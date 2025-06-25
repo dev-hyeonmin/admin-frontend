@@ -5,37 +5,38 @@ import { getBranchId } from '@/lib/session';
 import { redirect } from 'next/navigation';
 import db from '@/lib/db';
 
-/**
- * CREATE
- */
 const formSchema = z
   .object({
-    // title은 필수값
     title: z.string().min(1, '팝업 제목을 입력해 주세요.'),
 
-    // content는 선택적이지만, 입력 시 최소/최대 길이 검증
-    content: z
-      .string()
-      .min(1, '내용을 입력해 주세요.')
-      .max(1000, '내용은 1000자 이하여야 합니다.')
-      .optional(),
+    content: z.string().max(1000, '내용은 1000자 이하여야 합니다.').optional().or(z.literal('')), // 빈 문자열도 optional로 허용
 
-    // image는 선택적이지만, 입력 시 파일 타입과 크기 검증
-    image: z
-      .instanceof(File)
-      .refine((file) => {
-        // File 객체이면서 크기가 0보다 큰 경우에만 체크
-        if (!(file instanceof File) || file.size === 0) return false;
+    image_url: z
+      .any()
+      .optional()
+      .refine(
+        (file) => {
+          if (!file.size) return true; // 파일이 없으면 검증 건너뛰기
+          if (!(file instanceof File) || file.size === 0) return false;
 
-        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-        return validTypes.includes(file.type);
-      }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
-      .refine((file) => file.size <= 200 * 1024, '이미지 크기는 200KB 이하여야 해요.')
-      .optional(),
+          const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+          return validTypes.includes(file.type);
+        },
+        { message: 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.' }
+      )
+      .refine(
+        (file) => {
+          if (!file) return true; // 파일이 없으면 검증 건너뛰기
+          return file.size <= 200 * 1024;
+        },
+        { message: '이미지 크기는 200KB 이하여야 해요.' }
+      ),
   })
   .superRefine((data, ctx) => {
-    // content와 image 중 하나는 반드시 입력되어야 함
-    if ((!data.content || data.content.trim() === '') && (!data.image || data.image.size === 0)) {
+    if (
+      (!data.content || data.content.trim() === '') &&
+      (!data.image_url || data.image_url.size === 0)
+    ) {
       ctx.addIssue({
         code: 'custom',
         message: '내용과 이미지 중 하나는 반드시 입력해 주세요.',
@@ -44,88 +45,106 @@ const formSchema = z
     }
   });
 
-export async function handleAddNotice(prevState: any, formData: FormData) {
-  // 실제 데이터 추출 시 빈 파일 처리
+interface UpsertActionState {
+  success: boolean;
+  data?: {
+    id?: string;
+    title?: string | null;
+    content?: string | null;
+    image_url?: File | null;
+  };
+  errors?: {
+    formErrors?: string[];
+    title?: string[];
+    content?: string[];
+    image_url?: string[];
+  };
+}
+
+export async function getNotice(id: number) {
+  const notice = await db.notice.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      title: true,
+      content: true,
+      image_url: true,
+      is_pinned: true,
+      created_at: true,
+      updated_at: true,
+    },
+  });
+
+  if (!notice) {
+    return null;
+  }
+
+  return notice;
+}
+
+/**
+ * CREATE & UPDATE
+ */
+export async function upsertNotice(
+  prevState: UpsertActionState,
+  formData: FormData
+): Promise<UpsertActionState> {
   const data = {
+    id: formData.get('id') as string,
     title: formData.get('title') as string,
-    content: (formData.get('content') as string) || undefined,
-    image:
-      formData.get('image') instanceof File && (formData.get('image') as File).size > 0
-        ? (formData.get('image') as File)
-        : undefined,
+    content: formData.get('content') as string,
+    image_url: formData.get('image_url') as File,
   };
 
+  console.log(data.image_url);
   const validatedSchema = formSchema.safeParse(data);
 
   if (!validatedSchema.success) {
     return {
-      result: false,
-      fieldErrors: validatedSchema.error.flatten().fieldErrors,
+      success: false,
+      errors: validatedSchema.error.flatten().fieldErrors,
       data: data,
     };
   }
 
+  let res;
   const branchId = await getBranchId();
+  const id = Number(formData.get('id'));
+  const { title, content, image_url } = validatedSchema.data;
+
   if (!branchId) {
-    redirect('/');
+    return {
+      success: false,
+      errors: { formErrors: ['지점 ID를 찾을 수 없습니다'] },
+      data,
+    };
   }
 
-  // TODO upload image
-  // let imageUrl;
-  // if (data.image) {
-  // 이미지 업로드 로직 구현 필요 (예: S3 or 클라우드 스토리지)
-  // imageUrl = await uploadImage(data.image);
-  // }
-
-  const res = await db.notice.create({
-    data: {
-      title: validatedSchema.data.title,
-      content: validatedSchema.data.content,
-      image_url: '/', // 이미지 URL 저장
-      branchId: Number(branchId),
-    },
-  });
+  if (formData.get('id')) {
+    // update
+    res = await updateNotice(branchId, id, title, content, image_url);
+  } else {
+    // add
+    res = await addNotice(branchId, title, content, image_url);
+  }
 
   if (!res) {
     return {
-      result: false,
-      formErrors: ['공지사항을 만들지 못했어요. 잠시 후 다시 시도해 주세요.'],
+      success: false,
+      errors: { formErrors: ['다시 시도해주세요.'] },
+      data,
     };
   }
 
   redirect('/notice');
 }
 
-/**
- * UPDATE
- */
-export async function handleEditNotice(prevState: any, formData: FormData) {
-  // 실제 데이터 추출 시 빈 파일 처리
-  const data = {
-    id: Number(formData.get('id')),
-    title: formData.get('title') as string,
-    content: (formData.get('content') as string) || undefined,
-    image:
-      formData.get('image') instanceof File && (formData.get('image') as File).size > 0
-        ? (formData.get('image') as File)
-        : undefined,
-  };
-
-  const validatedSchema = formSchema.safeParse(data);
-
-  if (!validatedSchema.success) {
-    return {
-      result: false,
-      fieldErrors: validatedSchema.error.flatten().fieldErrors,
-      data: data,
-    };
-  }
-
-  const branchId = await getBranchId();
-  if (!branchId) {
-    redirect('/');
-  }
-
+export async function addNotice(
+  branchId: number,
+  title: string,
+  content?: string,
+  image_url?: File
+) {
   // TODO upload image
   // let imageUrl;
   // if (data.image) {
@@ -133,26 +152,43 @@ export async function handleEditNotice(prevState: any, formData: FormData) {
   // imageUrl = await uploadImage(data.image);
   // }
 
-  const res = await db.notice.update({
+  return db.notice.create({
+    data: {
+      title: title,
+      content: content,
+      image_url: '/',
+      branchId: branchId,
+    },
+  });
+}
+
+/**
+ * UPDATE
+ */
+export async function updateNotice(
+  branchId: number,
+  id: number,
+  title: string,
+  content?: string,
+  image_url?: File
+) {
+  // TODO upload image
+  // let imageUrl;
+  // if (data.image) {
+  // imageUrl = await uploadImage(data.image);
+  // }
+
+  return db.notice.update({
     where: {
-      id: data.id,
-      branchId: Number(branchId),
+      id,
+      branchId: branchId,
     },
     data: {
-      title: validatedSchema.data.title,
-      content: validatedSchema.data.content,
+      title: title,
+      content: content,
       image_url: '/', // 이미지 URL 저장
     },
   });
-
-  if (!res) {
-    return {
-      result: false,
-      formErrors: ['공지사항을 수정하지 못했어요. 잠시 후 다시 시도해 주세요.'],
-    };
-  }
-
-  redirect('/notice');
 }
 
 /**

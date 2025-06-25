@@ -2,8 +2,20 @@
 
 import db from '@/lib/db';
 import { getBranchId } from '@/lib/session';
-import { popupSchema } from '@/schemas/popup';
 import { redirect } from 'next/navigation';
+
+import { z } from 'zod';
+
+const popupSchema = z.object({
+  title: z.string().min(1, '팝업 제목을 입력해 주세요.'),
+  image: z
+    .instanceof(File)
+    .refine((file) => {
+      const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+      return validTypes.includes(file.type);
+    }, 'PNG, JPG, JPEG 형식의 이미지만 업로드 가능해요.')
+    .refine((file) => file.size <= 200 * 1024, '이미지 크기는 200KB 이하여야 해요.'),
+});
 
 export async function getPopups() {
   const branchId = await getBranchId();
@@ -36,11 +48,10 @@ export async function getPopups() {
 export async function handleAddPopup(prevState: any, formData: FormData) {
   const data = {
     title: formData.get('title'),
-    image: formData.get('image'),
+    image: formData.get('image') as File,
   };
 
   const validatedSchema = popupSchema.safeParse(data);
-
   if (!validatedSchema.success) {
     return {
       result: false,
@@ -48,7 +59,7 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
     };
   }
 
-  const branchId = await getBranchId();
+  const branchId = 1; //await getBranchId();
   if (!branchId) {
     redirect('/');
   }
@@ -89,20 +100,13 @@ export async function handleAddPopup(prevState: any, formData: FormData) {
 }
 
 /**
- * Delete
+ * DELETE
  * @param id
  */
 export async function deletePopup(id: number) {
-  const branchId = await getBranchId();
-
-  if (!branchId) {
-    return;
-  }
-
   await db.popup.update({
     where: {
       id,
-      branchId,
       deleted_at: null,
     },
     data: {
@@ -114,7 +118,7 @@ export async function deletePopup(id: number) {
 /**
  * Update popup order
  */
-export async function updatePopupOrder(popupIds: number[]) {
+export async function updatePopupOrder(popupIds: (number | string)[]) {
   const branchId = await getBranchId();
 
   if (!branchId) {
@@ -123,7 +127,9 @@ export async function updatePopupOrder(popupIds: number[]) {
 
   try {
     // 각 팝업의 순서를 업데이트
-    const updatePromises = popupIds.map((id, index) =>
+    const updatePromises = popupIds.map((pid, index) => {
+      const id = Number(pid);
+
       db.popup.update({
         where: {
           id,
@@ -133,14 +139,14 @@ export async function updatePopupOrder(popupIds: number[]) {
         data: {
           order: index,
         },
-      })
-    );
+      });
+    });
 
     await Promise.all(updatePromises);
 
-    return { success: true, message: 'Popup order updated successfully' };
+    return { success: true };
   } catch (error) {
     console.error('Error updating popup order:', error);
-    return { success: false, message: 'Failed to update popup order' };
+    return { success: false };
   }
 }
